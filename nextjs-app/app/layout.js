@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import Navigation from "@/components/Navigation";
 
 export const arizonaFlare = localFont({
   src: [
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${arizonaFlare.variable} font-main antialiased`}>
+        <Navigation />
         {children}
       </body>
     </html>
