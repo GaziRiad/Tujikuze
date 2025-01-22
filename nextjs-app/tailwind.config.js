@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         main: ["var(--font-arizona)"],
+        secondary: ["var(--font-standard)"],
       },
     },
   },

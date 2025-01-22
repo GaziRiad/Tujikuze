@@ -17,7 +17,7 @@ function Navigation() {
       <div className="fixed left-10 top-4 mix-blend-difference">
         {/* Fallback for light sections */}
         <div className="relative">
-          <div className="absolute inset-0 bg-black mix-blend-difference" />
+          {/* <div className="absolute inset-0 bg-black mix-blend-difference" /> */}
           <Logo className="relative" />
         </div>
       </div>
