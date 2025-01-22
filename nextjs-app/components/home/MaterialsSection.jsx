@@ -84,7 +84,7 @@ function MaterialsSection() {
               className="mb-7 h-[600px] object-cover"
             />
             <p className="font-secondary mb-3 text-2xl">{item.title}</p>
-            <p className="text-lg">{item.description}</p>
+            <p className="max-w-80 text-lg">{item.description}</p>
           </li>
         ))}
       </ul>

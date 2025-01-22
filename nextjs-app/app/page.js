@@ -5,6 +5,7 @@ import imgLarge from "../public/images/2.jpg";
 import DoubleBlocksSection from "@/components/home/DoubleBlocksSection";
 import Image from "next/image";
 import MaterialsSection from "@/components/home/MaterialsSection";
+import CaseStudiesSection from "@/components/home/CaseStudiesSection";
 
 function Page() {
   return (
@@ -35,6 +36,7 @@ function Page() {
         className="mb-24 max-h-[920px] object-cover object-center"
       />
       <MaterialsSection />
+      <CaseStudiesSection />
     </div>
   );
 }
