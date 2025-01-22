@@ -33,7 +33,7 @@ function Page() {
       <Image
         src={imgLarge}
         alt="man crafting"
-        className="mb-24 max-h-[920px] object-cover object-center"
+        className="mb-24 max-h-[920px] w-full object-cover object-center"
       />
       <MaterialsSection />
       <CaseStudiesSection />
