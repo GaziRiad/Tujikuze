@@ -1,7 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
-import { CursorEffect } from "@/components/Cusor";
 
 export const arizonaFlare = localFont({
   src: [
@@ -36,7 +35,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${arizonaFlare.variable} font-main bg-white text-[#252525] antialiased`}
       >
-        <CursorEffect />
         <Navigation />
         {children}
       </body>

@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import Image from "next/image";
+import { CursorEffect } from "../Cusor";
 
 const slides = [
   { id: 1, image: "/images/1.jpg", title: "Collection Winter 2025" },
@@ -73,14 +74,18 @@ export default function HeroSlider() {
 
   return (
     <div
+      id="hero-section"
       className="relative h-screen w-full overflow-hidden"
       onMouseMove={handleMouseMove}
       onClick={handleClick}
       style={{ cursor: "none" }}
     >
+      {/* CursorEffect scoped to hero section */}
+      <CursorEffect targetSelector="#hero-section" />
+
       {/* Custom Cursor */}
       <div
-        className={`pointer-events-none fixed z-50 mix-blend-difference transition-opacity duration-300 ${
+        className={`pointer-events-none fixed z-20 mix-blend-difference transition-opacity duration-300 ${
           cursorStyle === "default" ? "opacity-0" : "opacity-100"
         }`}
         style={{
@@ -109,7 +114,7 @@ export default function HeroSlider() {
           transform: `translateX(-${(currentIndex / (totalSlides - slidesPerView)) * 100}%)`,
         }}
       >
-        {slides.map((slide, index) => (
+        {slides.map((slide) => (
           <div
             key={slide.id}
             className="relative h-full"

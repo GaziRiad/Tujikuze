@@ -14,7 +14,7 @@ function Navigation() {
   return (
     <header className="px-6">
       {/* Logo with blending */}
-      <div className="fixed left-10 top-4 mix-blend-difference">
+      <div className="fixed left-10 top-4 z-50 mix-blend-difference">
         {/* Fallback for light sections */}
         <div className="relative">
           {/* <div className="absolute inset-0 bg-black mix-blend-difference" /> */}
@@ -23,7 +23,7 @@ function Navigation() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed right-10 top-4">
+      <nav className="fixed right-10 top-4 z-50">
         <div className="absolute inset-0 rounded bg-white opacity-60 backdrop-blur-xl"></div>
         <ul className="relative flex items-center gap-10 p-4">
           {Menu.map((item, index) => (
