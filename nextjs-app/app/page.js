@@ -4,6 +4,7 @@ import img2 from "../public/images/visuals2.png";
 import imgLarge from "../public/images/2.jpg";
 import DoubleBlocksSection from "@/components/home/DoubleBlocksSection";
 import Image from "next/image";
+import MaterialsSection from "@/components/home/MaterialsSection";
 
 function Page() {
   return (
@@ -33,6 +34,7 @@ function Page() {
         alt="man crafting"
         className="mb-24 max-h-[920px] object-cover object-center"
       />
+      <MaterialsSection />
     </div>
   );
 }
