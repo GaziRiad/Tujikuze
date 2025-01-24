@@ -6,6 +6,8 @@ import DoubleBlocksSection from "@/components/home/DoubleBlocksSection";
 import Image from "next/image";
 import MaterialsSection from "@/components/home/MaterialsSection";
 import CaseStudiesSection from "@/components/home/CaseStudiesSection";
+import BlogSection from "@/components/home/BlogSection";
+import Footer from "@/components/Footer";
 
 function Page() {
   return (
@@ -37,6 +39,8 @@ function Page() {
       />
       <MaterialsSection />
       <CaseStudiesSection />
+      <BlogSection />
+      <Footer />
     </div>
   );
 }

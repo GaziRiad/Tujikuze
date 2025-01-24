@@ -10,6 +10,7 @@ import material1 from "../../public/images/cotton.png";
 import material2 from "../../public/images/fibers.png";
 import material3 from "../../public/images/metal.png";
 import material4 from "../../public/images/textiles.png";
+import SectionHeading from "../SectionHeading";
 
 const craftsmanships = [
   {
@@ -90,12 +91,7 @@ function MaterialsSection() {
 
   return (
     <section className="mx-auto mb-48 max-w-[1720px]">
-      <div className="mb-3 flex items-center justify-between border-b-2 border-[#1A1A1A]/20 pb-5">
-        <p className="text-2xl">Materials & Craftsmanships</p>
-        <Link href="/" className="font-secondary text-sm">
-          LEARN MORE
-        </Link>
-      </div>
+      <SectionHeading title="Materials & Craftsmanships" />
       <h2 className="mb-28 max-w-[1320px] text-4xl">
         We use sustainable, locally sourced materials to create high-quality
         pieces that honor Kenya’s craftsmanship and cultural heritage.
