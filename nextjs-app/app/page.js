@@ -38,8 +38,8 @@ function Page() {
         className="mb-28 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[920px]"
       />
       <MaterialsSection />
-      {/* <CaseStudiesSection />
-      <BlogSection />
+      <CaseStudiesSection />
+      {/* <BlogSection />
       <Footer /> */}
     </div>
   );

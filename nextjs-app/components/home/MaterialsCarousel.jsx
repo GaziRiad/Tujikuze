@@ -46,6 +46,7 @@ export default function MaterialsCarousel() {
       opts={{
         align: "start",
         loop: true,
+        offset: 10,
       }}
       className="mx-auto w-full max-w-[1720px]"
     >
@@ -53,13 +54,13 @@ export default function MaterialsCarousel() {
         {materials.map((item, index) => (
           <CarouselItem
             key={index}
-            className="pl-2 sm:basis-4/5 md:basis-2/4 md:pl-4 lg:basis-1/3 xl:basis-1/4"
+            className="basis-[85%] pl-2 sm:basis-[90%] md:basis-2/4 md:pl-4 lg:basis-1/3 xl:basis-1/4"
           >
             <div className="p-1">
               <Image
                 src={item.img || "/placeholder.svg"}
                 alt="Material image"
-                className="mb-4 h-[400px] w-full object-cover lg:h-[600px]"
+                className="mb-4 h-[430px] w-full object-cover lg:h-[600px]"
               />
               <p className="mb-2 font-secondary text-xl sm:text-2xl">
                 {item.title}
@@ -71,6 +72,8 @@ export default function MaterialsCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
+      {/* <CarouselPrevious /> */}
+      {/* <CarouselNext /> */}
     </Carousel>
   );
 }

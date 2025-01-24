@@ -64,7 +64,7 @@ function MaterialsSection() {
   };
 
   return (
-    <section className="mx-auto mb-48 max-w-[1720px] px-4">
+    <section className="mx-auto mb-28 max-w-[1720px] px-4 lg:mb-48">
       <SectionHeading title="Materials & Craftsmanships" />
       <h2 className="mb-11 max-w-[1320px] text-lg lg:mb-28 lg:text-4xl">
         We use sustainable, locally sourced materials to create high-quality
@@ -96,19 +96,6 @@ function MaterialsSection() {
           />
         </div>
       </div>
-      {/* <ul className="grid grid-cols-4 gap-x-3">
-        {materials.map((item, index) => (
-          <li key={index} className="text-[#1A1A1A]">
-            <Image
-              src={item.img}
-              alt="Material image"
-              className="mb-7 h-[600px] object-cover"
-            />
-            <p className="mb-3 font-secondary text-2xl">{item.title}</p>
-            <p className="max-w-80 text-lg">{item.description}</p>
-          </li>
-        ))}
-      </ul> */}
       <MaterialsCarousel />
     </section>
   );
