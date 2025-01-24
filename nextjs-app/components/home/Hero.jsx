@@ -17,10 +17,10 @@ const slides = [
 export default function HeroSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cursorStyle, setCursorStyle] = useState("default");
+  const [slidesPerView, setSlidesPerView] = useState(3);
   const sliderRef = useRef(null);
 
   const totalSlides = slides.length;
-  const slidesPerView = 3;
 
   const nextSlide = () => {
     const nextIndex = Math.min(currentIndex + 1, totalSlides - slidesPerView);
@@ -31,6 +31,23 @@ export default function HeroSlider() {
     const prevIndex = Math.max(currentIndex - 1, 0);
     setCurrentIndex(prevIndex);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setSlidesPerView(1);
+      } else {
+        setSlidesPerView(3);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     if (sliderRef.current) {

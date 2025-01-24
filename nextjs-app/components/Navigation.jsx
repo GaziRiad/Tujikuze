@@ -12,7 +12,7 @@ const Menu = [
 
 function Navigation() {
   return (
-    <header className="px-6">
+    <header className="hidden px-6 lg:block">
       {/* Logo with blending */}
       <div className="fixed left-10 top-4 z-50 mix-blend-difference">
         {/* Fallback for light sections */}

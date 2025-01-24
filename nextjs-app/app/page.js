@@ -13,8 +13,8 @@ function Page() {
   return (
     <div className="font-main">
       <Hero />
-      <section className="mx-auto mb-48 flex max-w-[1720px] flex-col gap-6 px-6 py-5">
-        <p className="text-4xl">
+      <section className="mx-auto mb-28 flex max-w-[1720px] px-4 py-5 lg:mb-48">
+        <p className="text-lg lg:text-4xl">
           “Tujikuze” means “to grow together” in Kiswahili, reflecting our
           commitment to fostering collaboration and growth among artisanal
           producers. Tujikuze is a partnership of visionary and like-minded
@@ -35,12 +35,12 @@ function Page() {
       <Image
         src={imgLarge}
         alt="man crafting"
-        className="mb-24 max-h-[920px] w-full object-cover object-center"
+        className="mb-28 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[920px]"
       />
-      <MaterialsSection />
+      {/* <MaterialsSection />
       <CaseStudiesSection />
       <BlogSection />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }
