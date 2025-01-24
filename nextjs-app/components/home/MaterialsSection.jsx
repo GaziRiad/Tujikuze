@@ -11,6 +11,7 @@ import material2 from "../../public/images/fibers.png";
 import material3 from "../../public/images/metal.png";
 import material4 from "../../public/images/textiles.png";
 import SectionHeading from "../SectionHeading";
+import MaterialsCarousel from "./MaterialsCarousel";
 
 const craftsmanships = [
   {
@@ -47,33 +48,6 @@ const craftsmanships = [
     title: "Screenprinting",
     text: "Showcases intricate designs and rich heritage.",
     img: material3,
-  },
-];
-
-const materials = [
-  {
-    title: "Natural Fibers",
-    description:
-      "Unraveling the connection between tradition, design, and craftsmanship.",
-    img: material2,
-  },
-  {
-    title: "Cotton",
-    description:
-      "Unraveling the connection between tradition, design, and craftsmanship.",
-    img: material1,
-  },
-  {
-    title: "Upcycled Textiles",
-    description:
-      "Unraveling the connection between tradition, design, and craftsmanship.",
-    img: material3,
-  },
-  {
-    title: "Metal",
-    description:
-      "Unraveling the connection between tradition, design, and craftsmanship.",
-    img: material4,
   },
 ];
 
@@ -122,7 +96,7 @@ function MaterialsSection() {
           />
         </div>
       </div>
-      <ul className="grid grid-cols-4 gap-x-3">
+      {/* <ul className="grid grid-cols-4 gap-x-3">
         {materials.map((item, index) => (
           <li key={index} className="text-[#1A1A1A]">
             <Image
@@ -134,7 +108,8 @@ function MaterialsSection() {
             <p className="max-w-80 text-lg">{item.description}</p>
           </li>
         ))}
-      </ul>
+      </ul> */}
+      <MaterialsCarousel />
     </section>
   );
 }
