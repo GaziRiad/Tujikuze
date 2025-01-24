@@ -39,8 +39,8 @@ function Page() {
       />
       <MaterialsSection />
       <CaseStudiesSection />
-      {/* <BlogSection />
-      <Footer /> */}
+      <BlogSection />
+      {/* <Footer /> */}
     </div>
   );
 }

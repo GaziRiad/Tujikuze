@@ -28,7 +28,7 @@ function CaseStudiesSection() {
         {CASES.map((item, index) => (
           <li
             key={index}
-            className="grid grid-cols-[25fr_75fr] items-start justify-between pb-7 pt-7"
+            className="grid grid-cols-[25fr_75fr] items-start justify-between gap-5 pb-7 pt-7 lg:gap-0"
           >
             <Image
               src={item.img}
