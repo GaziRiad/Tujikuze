@@ -37,8 +37,8 @@ function Page() {
         alt="man crafting"
         className="mb-28 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[920px]"
       />
-      {/* <MaterialsSection />
-      <CaseStudiesSection />
+      <MaterialsSection />
+      {/* <CaseStudiesSection />
       <BlogSection />
       <Footer /> */}
     </div>

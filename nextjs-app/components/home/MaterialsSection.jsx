@@ -90,27 +90,29 @@ function MaterialsSection() {
   };
 
   return (
-    <section className="mx-auto mb-48 max-w-[1720px]">
+    <section className="mx-auto mb-48 max-w-[1720px] px-4">
       <SectionHeading title="Materials & Craftsmanships" />
-      <h2 className="mb-28 max-w-[1320px] text-4xl">
+      <h2 className="mb-11 max-w-[1320px] text-lg lg:mb-28 lg:text-4xl">
         We use sustainable, locally sourced materials to create high-quality
         pieces that honor Kenya’s craftsmanship and cultural heritage.
       </h2>
-      <div className="mb-48 flex items-start justify-between">
+      <div className="mb-48 flex flex-col items-start justify-between gap-14 lg:flex-row lg:gap-0">
         <ul className="flex flex-col gap-[6px]">
           {craftsmanships.map((item, index) => (
             <li
               key={index}
-              className="flex cursor-pointer items-center justify-between gap-28 text-[#BABABA] transition-all hover:text-[#1A1A1A]"
+              className="grid cursor-pointer grid-cols-[30fr_70fr] text-[#BABABA] transition-all hover:text-[#1A1A1A]"
               onMouseEnter={() => handleHover(item.img)}
               onMouseLeave={() => handleHover(img1)}
             >
               <p className="font-secondary text-sm">{item.title}</p>
-              <p className="text-lg">{item.text}</p>
+              <p className="text-sm lg:text-lg">{item.text}</p>
             </li>
           ))}
         </ul>
-        <div className={`relative h-[620px] w-[560px] overflow-hidden`}>
+        <div
+          className={`relative h-[320px] w-full overflow-hidden lg:h-[620px] lg:w-[560px]`}
+        >
           <Image
             src={hoveredImage}
             alt="Hovered craftsmanship"
@@ -128,7 +130,7 @@ function MaterialsSection() {
               alt="Material image"
               className="mb-7 h-[600px] object-cover"
             />
-            <p className="font-secondary mb-3 text-2xl">{item.title}</p>
+            <p className="mb-3 font-secondary text-2xl">{item.title}</p>
             <p className="max-w-80 text-lg">{item.description}</p>
           </li>
         ))}
