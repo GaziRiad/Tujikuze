@@ -40,7 +40,7 @@ function Page() {
       <MaterialsSection />
       <CaseStudiesSection />
       <BlogSection />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
