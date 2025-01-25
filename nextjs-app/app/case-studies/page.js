@@ -53,7 +53,7 @@ const CASES = [
 export default function Page() {
   return (
     <>
-      <section className="mx-auto mt-56 max-w-[1720px] px-4">
+      <section className="mx-auto mt-20 max-w-[1720px] px-4 lg:mt-56">
         <p className="mb-28 text-lg lg:mb-48 lg:text-4xl">
           Our case studies highlight the impactful collaborations between
           Tujikuze and global brands, showcasing the journey from concept to
@@ -61,7 +61,7 @@ export default function Page() {
           craftsmanship, sustainable practices, and empowering Kenyan artisan
           communities while delivering high-quality, bespoke products.
         </p>
-        <ul className="mb-3 flex items-center justify-end gap-1 border-b border-[#1A1A1A]/20 pb-3 font-secondary text-sm uppercase">
+        <ul className="mb-3 hidden items-center justify-end gap-1 border-b border-[#1A1A1A]/20 pb-3 font-secondary text-sm uppercase lg:flex">
           {categories.map((category, index) => (
             <li key={index} className="inline">
               <Link href="/">{category}</Link>
@@ -69,7 +69,7 @@ export default function Page() {
             </li>
           ))}
         </ul>
-        <ul className="mb-24 flex items-center justify-end gap-1 border-b border-[#1A1A1A]/20 pb-3 font-secondary text-sm uppercase">
+        <ul className="mb-24 hidden items-center justify-end gap-1 border-b border-[#1A1A1A]/20 pb-3 font-secondary text-sm uppercase lg:flex">
           {dates.map((date, index) => (
             <li key={index} className="inline">
               <Link href="/">{date}</Link>
@@ -77,6 +77,9 @@ export default function Page() {
             </li>
           ))}
         </ul>
+        <li className="mb-8 list-none border-b border-[#1A1A1A]/20 pb-3 font-secondary text-sm uppercase lg:hidden">
+          Filters
+        </li>
       </section>
 
       <section className="mx-auto mb-14 max-w-[1720px] px-4 lg:mb-48">
