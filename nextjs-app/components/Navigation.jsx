@@ -6,7 +6,7 @@ const Menu = [
   { name: "Impact", href: "#" },
   { name: "Case Studies", href: "/case-studies" },
   { name: "Resources", href: "#" },
-  { name: "About Us", href: "#" },
+  { name: "About Us", href: "/about" },
   { name: "Contact Us", href: "#" },
 ];
 
