@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 
 function Page() {
   return (
-    <div className="font-main">
+    <>
       <Hero />
       <section className="mx-auto mb-28 flex max-w-[1720px] px-4 py-5 lg:mb-48">
         <p className="text-lg lg:text-4xl">
@@ -41,7 +41,7 @@ function Page() {
       <CaseStudiesSection />
       <BlogSection />
       <Footer />
-    </div>
+    </>
   );
 }
 

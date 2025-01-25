@@ -4,7 +4,7 @@ import Logo from "./Logo";
 const Menu = [
   { name: "Our Offer", href: "#" },
   { name: "Impact", href: "#" },
-  { name: "Case Studies", href: "#" },
+  { name: "Case Studies", href: "/case-studies" },
   { name: "Resources", href: "#" },
   { name: "About Us", href: "#" },
   { name: "Contact Us", href: "#" },
