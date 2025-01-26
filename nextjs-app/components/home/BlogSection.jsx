@@ -29,7 +29,7 @@ const ARTICLES = [
 
 function BlogSection() {
   return (
-    <section className="mx-auto mb-48 max-w-[1720px] px-4">
+    <section className="mx-auto max-w-[1720px] px-4">
       <SectionHeading title="What’s New" />
       <Carousel
         opts={{
@@ -37,7 +37,7 @@ function BlogSection() {
           loop: true,
           offset: 10,
         }}
-        className="mx-auto mb-48 mt-24 max-w-[1460px]"
+        className="mx-auto mb-28 mt-24 max-w-[1460px] lg:mb-48"
       >
         <CarouselContent className="-ml-2 md:-ml-4">
           {ARTICLES.map((article, index) => (

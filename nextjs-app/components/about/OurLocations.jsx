@@ -11,7 +11,7 @@ export default function OurLocations() {
 
   return (
     <section>
-      <div className="mx-auto mb-11 max-w-[1720px] px-4 lg:mb-24">
+      <div className="mx-auto max-w-[1720px] px-4">
         <SectionHeading
           title="Our Locations in Kenya"
           type="tab"

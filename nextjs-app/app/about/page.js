@@ -1,5 +1,6 @@
 import OurLocations from "@/components/about/OurLocations";
 import OurMission from "@/components/about/OurMission";
+import OurTeam from "@/components/about/OurTeam";
 import React from "react";
 
 export default function page() {
@@ -17,6 +18,7 @@ export default function page() {
       </section>
       <OurMission />
       <OurLocations />
+      <OurTeam />
     </>
   );
 }
