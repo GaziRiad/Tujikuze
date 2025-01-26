@@ -60,7 +60,7 @@ export default function OurTeam() {
               {TEAM.map((item, index) => (
                 <CarouselItem
                   key={index}
-                  className="basis-[85%] pl-2 sm:basis-[90%] md:basis-2/4 md:pl-4 lg:basis-1/3"
+                  className="basis-[85%] pl-2 text-dark-600 sm:basis-[90%] md:basis-2/4 md:pl-4 lg:basis-1/3"
                 >
                   <div className="p-1">
                     <Image

@@ -5,6 +5,22 @@ import React, { useState } from "react";
 import SectionHeading from "../SectionHeading";
 
 import imgLarge from "../../public/images/2.jpg";
+import DataList from "../DataList";
+
+const DATALIST = [
+  {
+    title: "Production entities",
+    data: "5",
+  },
+  {
+    title: "Artisan Communities",
+    data: "100",
+  },
+  {
+    title: "Network of Artisans",
+    data: "10",
+  },
+];
 
 export default function OurMission() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,20 +47,8 @@ export default function OurMission() {
               and preserving traditional craftsmanship, we create opportunities
               for growth and meaningful impact.
             </p>
-            <ul className="mb-14 flex flex-col divide-y divide-[#1A1A1A]/20 text-lg lg:mb-48 lg:text-4xl">
-              <li className="grid grid-cols-2 py-6 lg:grid-cols-[30fr_70fr]">
-                <span>5</span>
-                <span>Production entities</span>
-              </li>
-              <li className="grid grid-cols-2 py-6 lg:grid-cols-[30fr_70fr]">
-                <span>100</span>
-                <span>Artisan Communities</span>
-              </li>
-              <li className="grid grid-cols-2 py-6 lg:grid-cols-[30fr_70fr]">
-                <span>10</span>
-                <span>Network of Artisans</span>
-              </li>
-            </ul>
+
+            <DataList items={DATALIST} />
           </>
         )}
       </div>

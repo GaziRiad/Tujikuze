@@ -2,6 +2,7 @@ import React from "react";
 
 import mainImg from "../../public/images/gradient-impact.png";
 import Image from "next/image";
+import InfoSection from "@/components/impact/InfoSection";
 
 export default function page() {
   return (
@@ -25,6 +26,7 @@ export default function page() {
         alt="Main image of our impact of Tujikuze"
         className="mb-9 h-[512px] w-full object-cover object-center lg:mb-24 lg:h-[920px]"
       />
+      <InfoSection />
     </>
   );
 }

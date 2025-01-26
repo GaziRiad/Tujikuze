@@ -19,8 +19,8 @@ export default function OurLocations() {
           onClick={() => setIsOpen(!isOpen)}
         />
         {isOpen && (
-          <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-0">
-            <p className="max-w-[648px] text-lg lg:text-4xl">
+          <div className="mb-11 grid grid-cols-1 gap-5 lg:mb-24 lg:grid-cols-2 lg:gap-0">
+            <p className="max-w-[648px] text-lg text-dark-600 lg:text-4xl">
               Our locations across Kenya highlight the diverse craftsmanship and
               cultural heritage of local artisan communities.
             </p>
