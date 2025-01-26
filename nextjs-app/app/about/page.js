@@ -1,3 +1,4 @@
+import EthicalFashion from "@/components/about/EthicalFashion";
 import OurLocations from "@/components/about/OurLocations";
 import OurMission from "@/components/about/OurMission";
 import OurTeam from "@/components/about/OurTeam";
@@ -19,6 +20,7 @@ export default function page() {
       <OurMission />
       <OurLocations />
       <OurTeam />
+      <EthicalFashion />
     </>
   );
 }
