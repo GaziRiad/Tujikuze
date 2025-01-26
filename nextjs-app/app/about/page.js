@@ -23,6 +23,7 @@ export default function page() {
       <OurLocations />
       <OurTeam />
       <EthicalFashion />
+      {/* same as ListItem */}
       <OurOffer />
 
       <Footer />
