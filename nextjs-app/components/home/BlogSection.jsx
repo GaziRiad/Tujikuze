@@ -30,7 +30,7 @@ const ARTICLES = [
 function BlogSection() {
   return (
     <section className="mx-auto max-w-[1720px] px-4">
-      <SectionHeading title="What’s New" />
+      <SectionHeading title="What’s New" href="/" />
       <Carousel
         opts={{
           align: "start",

@@ -7,14 +7,16 @@ export default function ListItem({ item }) {
   return (
     <li className="grid grid-cols-[25fr_75fr] items-start justify-between gap-5 pb-7 pt-7 lg:gap-0">
       <Image
-        src={item.img}
-        alt={item.title}
+        src={item?.img}
+        alt={item?.title}
         className="h-[138px] w-[94px] object-cover lg:h-[300px] lg:w-[225px]"
       />
       <div className="flex items-start justify-between">
         <div className="flex max-w-[580px] flex-col text-4xl">
-          <p className="text-xl lg:text-4xl">{item.title}</p>
-          <p className="mb-4 text-lg lg:mb-7 lg:text-4xl">{item.description}</p>
+          <p className="text-xl lg:text-4xl">{item?.title}</p>
+          <p className="mb-4 text-lg lg:mb-7 lg:text-4xl">
+            {item?.description}
+          </p>
           <div className="group">
             <Link
               href="/"
@@ -30,7 +32,7 @@ export default function ListItem({ item }) {
           </div>
         </div>
         <p className="hidden font-secondary text-sm text-[#1A1A1A] lg:block">
-          {item.meta}
+          {item?.meta}
         </p>
       </div>
     </li>

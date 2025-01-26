@@ -65,7 +65,7 @@ function MaterialsSection() {
 
   return (
     <section className="mx-auto mb-28 max-w-[1720px] px-4 lg:mb-48">
-      <SectionHeading title="Materials & Craftsmanships" />
+      <SectionHeading title="Materials & Craftsmanships" href="/" />
       <h2 className="mb-11 max-w-[1320px] text-lg lg:mb-28 lg:text-4xl">
         We use sustainable, locally sourced materials to create high-quality
         pieces that honor Kenya’s craftsmanship and cultural heritage.

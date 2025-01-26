@@ -21,7 +21,7 @@ const CASES = [
 function CaseStudiesSection() {
   return (
     <section className="mx-auto mb-14 max-w-[1720px] px-4 lg:mb-48">
-      <SectionHeading title="Case Studies" />
+      <SectionHeading title="Case Studies" href="/" />
       <ul className="mt-8 flex flex-col divide-y divide-[#1A1A1A]/20 lg:mt-24">
         {CASES.map((item, index) => (
           <ListItem key={index} item={item} />
