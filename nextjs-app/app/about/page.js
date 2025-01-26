@@ -1,7 +1,9 @@
 import EthicalFashion from "@/components/about/EthicalFashion";
 import OurLocations from "@/components/about/OurLocations";
 import OurMission from "@/components/about/OurMission";
+import OurOffer from "@/components/about/OurOffer";
 import OurTeam from "@/components/about/OurTeam";
+import Footer from "@/components/Footer";
 import React from "react";
 
 export default function page() {
@@ -21,6 +23,9 @@ export default function page() {
       <OurLocations />
       <OurTeam />
       <EthicalFashion />
+      <OurOffer />
+
+      <Footer />
     </>
   );
 }
