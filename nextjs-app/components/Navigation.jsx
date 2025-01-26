@@ -3,7 +3,7 @@ import Logo from "./Logo";
 
 const Menu = [
   { name: "Our Offer", href: "#" },
-  { name: "Impact", href: "#" },
+  { name: "Impact", href: "/our-impact" },
   { name: "Case Studies", href: "/case-studies" },
   { name: "Resources", href: "#" },
   { name: "About Us", href: "/about" },
