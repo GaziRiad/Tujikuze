@@ -3,6 +3,8 @@ import Image from "next/image";
 import React from "react";
 
 import imgLarge from "../../public/images/2.jpg";
+import OfferMaterials from "@/components/our-offer/OfferMaterials";
+import OfferCraftsmanship from "@/components/our-offer/OfferCraftsmanship";
 
 export default function page() {
   return (
@@ -22,7 +24,8 @@ export default function page() {
           className="mb-14 ml-auto aspect-square w-full object-cover object-center lg:mb-48 lg:w-1/2"
         />
       </section>
-
+      <OfferMaterials />
+      <OfferCraftsmanship />
       <Footer />
     </>
   );

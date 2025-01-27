@@ -9,8 +9,8 @@ import main from "../public/images/Logo.png";
 function Footer() {
   return (
     <footer className="">
+      <SectionHeading title="Contact us" />
       <div className="mx-auto max-w-[1720px] px-4">
-        <SectionHeading title="Contact us" />
         <h2 className="mb-14 text-sm lg:mb-48 lg:text-5xl">
           Fill out the form and contact us.
         </h2>
