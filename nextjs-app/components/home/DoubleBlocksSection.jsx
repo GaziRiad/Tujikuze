@@ -4,7 +4,7 @@ import { GoArrowRight } from "react-icons/go";
 
 function DoubleBlocksSection({ image, title }) {
   return (
-    <section className="mx-auto mb-28 flex max-w-[1460px] flex-col items-center justify-between gap-9 px-4 lg:mb-48 lg:flex-row lg:items-start lg:gap-52">
+    <section className="mx-auto mb-28 flex max-w-[1460px] flex-col items-center justify-between gap-9 bg-white px-4 lg:mb-48 lg:flex-row lg:items-start lg:gap-52">
       <div className="text-4xl">
         <p className="">{title}</p>
         <p className="mb-7 leading-tight">
@@ -13,12 +13,12 @@ function DoubleBlocksSection({ image, title }) {
         <div className="group">
           <Link
             href="/"
-            className="text-dark-600 hover:text-dark-400 mb-5 flex w-fit items-center gap-1 font-secondary text-sm transition-all"
+            className="mb-5 flex w-fit items-center gap-1 font-secondary text-sm text-dark-600 transition-all hover:text-dark-400"
           >
             <span>LEARN MORE</span>
             <GoArrowRight />
           </Link>
-          <p className="text-dark-400 hidden max-w-md text-lg opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100 lg:block">
+          <p className="hidden max-w-md text-lg text-dark-400 opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100 lg:block">
             Our case studies illustrate the transformative impact of bespoke
             collaborations on local artisans.
           </p>

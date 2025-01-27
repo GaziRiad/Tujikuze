@@ -13,7 +13,7 @@ const Menu = [
 function Navigation() {
   return (
     <header className="px-6 lg:block">
-      <div className="fixed left-4 top-6 z-50 lg:left-10 lg:top-4">
+      <div className="fixed left-4 top-6 z-50 mix-blend-difference lg:left-10 lg:top-4">
         <div className="relative">
           <Logo className="relative" />
         </div>
@@ -21,7 +21,7 @@ function Navigation() {
 
       {/* Navigation */}
       <nav className="fixed right-4 top-6 z-40 lg:right-10 lg:top-4">
-        <div className="absolute inset-0 z-[-1] rounded bg-[rgba(255,255,255,0.6)] backdrop-blur-md"></div>
+        <div className="absolute inset-0 z-[-1] rounded bg-[rgba(255,255,255,0.7)] backdrop-blur-3xl"></div>
         <ul className="relative items-center gap-10 px-4 py-2 lg:flex lg:p-4">
           {Menu.map((item, index) => (
             <li key={index} className="hidden lg:block">

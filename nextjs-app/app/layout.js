@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${arizonaFlare.variable} bg-white font-main text-dark-500 antialiased`}
+        className={`${arizonaFlare.variable} font-main text-dark-500 antialiased`}
       >
         <Navigation />
         {children}
