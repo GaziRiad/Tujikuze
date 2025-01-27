@@ -45,7 +45,7 @@ export default function InfoSection() {
       <Image
         src={imgLarge}
         alt="man crafting"
-        className="mb-14 ml-auto aspect-square h-[418px] w-[841px] object-cover object-center lg:mb-48 lg:h-[859px]"
+        className="mb-14 ml-auto aspect-square w-full object-cover object-center lg:mb-48 lg:w-1/2"
       />
     </section>
   );

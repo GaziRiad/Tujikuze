@@ -2,10 +2,10 @@ import Link from "next/link";
 import Logo from "./Logo";
 
 const Menu = [
-  { name: "Our Offer", href: "#" },
+  { name: "Our Offer", href: "/our-offer" },
   { name: "Impact", href: "/our-impact" },
   { name: "Case Studies", href: "/case-studies" },
-  { name: "Resources", href: "#" },
+  { name: "Resources", href: "/ressources" },
   { name: "About Us", href: "/about" },
   { name: "Contact Us", href: "#" },
 ];
@@ -13,18 +13,15 @@ const Menu = [
 function Navigation() {
   return (
     <header className="px-6 lg:block">
-      {/* Logo with blending */}
-      <div className="fixed left-4 top-6 z-50 mix-blend-difference lg:left-10 lg:top-4">
-        {/* Fallback for light sections */}
+      <div className="fixed left-4 top-6 z-50 lg:left-10 lg:top-4">
         <div className="relative">
-          {/* <div className="absolute inset-0 bg-black mix-blend-difference" /> */}
           <Logo className="relative" />
         </div>
       </div>
 
       {/* Navigation */}
       <nav className="fixed right-4 top-6 z-40 lg:right-10 lg:top-4">
-        <div className="absolute inset-0 rounded bg-white opacity-60 backdrop-blur-xl"></div>
+        <div className="absolute inset-0 z-[-1] rounded bg-[rgba(255,255,255,0.6)] backdrop-blur-md"></div>
         <ul className="relative items-center gap-10 px-4 py-2 lg:flex lg:p-4">
           {Menu.map((item, index) => (
             <li key={index} className="hidden lg:block">
