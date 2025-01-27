@@ -26,6 +26,7 @@ export default function page() {
       </section>
       <OfferMaterials />
       <OfferCraftsmanship />
+      {/* <OfferCraftsmanship /> This should be repeated and made reusable */}
       <Footer />
     </>
   );
