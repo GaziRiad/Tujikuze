@@ -48,7 +48,7 @@ function BlogSection() {
               <Image
                 src={article.img}
                 alt="image"
-                className="mb-3 h-[431px] w-full object-cover lg:h-[720px]"
+                className="mb-3 h-[431px] w-full object-cover lg:h-[520px] 2xl:h-[720px]"
               />
               <ul className="mb-3 flex items-center gap-3 font-secondary text-sm uppercase">
                 {article.categories.map((cat, i) => (

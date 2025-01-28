@@ -50,7 +50,7 @@ export default function OurTeam() {
                 <Image
                   src={item.img || "/placeholder.svg"}
                   alt="Material image"
-                  className="mb-4 h-[300px] w-full object-cover lg:h-[869px]"
+                  className="mb-4 h-[300px] w-full object-cover lg:h-[520px] 2xl:h-[869px]"
                 />
                 <p className="mb-2 font-secondary text-xl sm:text-2xl">
                   {item.name}

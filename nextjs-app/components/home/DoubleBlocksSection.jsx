@@ -27,7 +27,7 @@ function DoubleBlocksSection({ image, title }) {
       <Image
         src={image}
         alt="people crafting"
-        className="h-[420px] object-center lg:h-[620px]"
+        className="h-[420px] object-cover object-center lg:h-[520px] 2xl:h-[620px]"
       />
     </section>
   );

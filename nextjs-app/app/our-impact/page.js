@@ -30,7 +30,7 @@ export default function page() {
       <Image
         src={mainImg}
         alt="Main image of our impact of Tujikuze"
-        className="mb-14 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[920px]"
+        className="mb-14 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[620px] 2xl:h-[920px]"
       />
       <InfoSection />
       <ResultSection />

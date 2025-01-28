@@ -58,7 +58,7 @@ export default function MaterialsCarousel() {
               <Image
                 src={item.img || "/placeholder.svg"}
                 alt="Material image"
-                className="mb-4 h-[430px] w-full object-cover lg:h-[600px]"
+                className="mb-4 h-[430px] w-full object-cover lg:h-[480px] 2xl:h-[600px]"
               />
               <p className="mb-2 font-secondary text-xl sm:text-2xl">
                 {item.title}

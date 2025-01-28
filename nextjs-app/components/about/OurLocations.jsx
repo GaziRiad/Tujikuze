@@ -26,7 +26,7 @@ export default function OurLocations() {
       <Image
         src={imgLarge}
         alt="man crafting"
-        className="mb-9 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[920px]"
+        className="mb-9 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[620px] 2xl:h-[920px]"
       />
     </TabSection>
   );

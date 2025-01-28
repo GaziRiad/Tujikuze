@@ -85,7 +85,7 @@ function MaterialsSection() {
           ))}
         </ul>
         <div
-          className={`relative h-[320px] w-full overflow-hidden lg:h-[620px] lg:w-[560px]`}
+          className={`relative h-[320px] w-full overflow-hidden lg:h-[520px] lg:w-[560px] 2xl:h-[620px]`}
         >
           <Image
             src={hoveredImage}
