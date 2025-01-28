@@ -1,9 +1,10 @@
-import TabSection from "@/lib/hooks/TabSection";
 import React from "react";
+import SectionHeading from "../SectionHeading";
 
 export default function OfferMaterials() {
   return (
-    <TabSection title="Materials & Craftsmanship">
+    <section>
+      <SectionHeading title="Materials & Craftsmanship" href="/" />
       <div className="mx-auto mb-11 grid max-w-[1720px] grid-cols-1 gap-5 px-4 lg:mb-24 lg:grid-cols-2 lg:gap-0">
         <p className="max-w-[648px] text-lg text-dark-600 lg:text-4xl">
           Our craftsmanship combines traditional techniques with modern design
@@ -24,6 +25,6 @@ export default function OfferMaterials() {
           </p>
         </div>
       </div>
-    </TabSection>
+    </section>
   );
 }

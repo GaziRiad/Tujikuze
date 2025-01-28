@@ -37,7 +37,7 @@ export default function page() {
       <ESGDeligenceSection />
       <section>
         <SectionHeading title="Case Studies / Impact Reports" href="/" />
-        {/* same as ListItem */}
+        {/* similar to ListItem */}
         <div className="mx-auto mb-14 grid max-w-[1720px] grid-cols-[25fr_75fr] items-start justify-between gap-5 px-4 pb-7 pt-7 lg:mb-48 lg:gap-0">
           <Image
             src={mainImg}
