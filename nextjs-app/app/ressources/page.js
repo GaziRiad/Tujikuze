@@ -9,6 +9,7 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import { GoArrowRight } from "react-icons/go";
 import SectionHeading from "@/components/SectionHeading";
+import Filters from "@/components/Filters";
 
 const categories = [
   "All",
@@ -70,25 +71,8 @@ const ARTICLES = [
 export default function page() {
   return (
     <>
-      <div className="mx-auto mb-8 mt-14 max-w-[1720px] px-4 lg:mb-24 lg:mt-36">
-        <ul className="mb-3 hidden items-center justify-end gap-1 border-b border-[#1A1A1A]/20 pb-3 font-secondary text-sm uppercase lg:flex">
-          {categories.map((category, index) => (
-            <li key={index} className="inline">
-              <Link href="/">{category}</Link>
-              {index < categories.length - 1 && <span>, </span>}
-            </li>
-          ))}
-        </ul>
-        <ul className="mb-24 hidden items-center justify-end gap-1 border-b border-[#1A1A1A]/20 pb-3 font-secondary text-sm uppercase lg:flex">
-          {dates.map((date, index) => (
-            <li key={index} className="inline">
-              <Link href="/">{date}</Link>
-              {index < categories.length - 1 && <span>, </span>}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <section className="mx-auto mb-14 mt-20 max-w-[1720px] px-4 lg:mb-48 lg:mt-36">
+      <Filters />
+      <section className="mx-auto mb-14 max-w-[1720px] px-4 lg:mb-48">
         <ul className="grid grid-cols-1 gap-x-3 gap-y-4 divide-y divide-dark-600/20 text-dark-600 lg:grid-cols-2 lg:gap-y-24 lg:divide-y-0 xl:grid-cols-3">
           {ARTICLES.map((post, index) => (
             <li
