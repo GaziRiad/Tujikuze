@@ -4,7 +4,7 @@ import { GoArrowRight } from "react-icons/go";
 
 function DoubleBlocksSection({ image, title }) {
   return (
-    <section className="mx-auto mb-28 flex max-w-[1460px] flex-col items-center justify-between gap-9 bg-white px-4 lg:mb-48 lg:flex-row lg:items-start lg:gap-52">
+    <section className="mx-auto mb-28 flex max-w-[1460px] flex-col items-center justify-between gap-9 px-4 lg:mb-48 lg:flex-row lg:items-start lg:gap-52">
       <div className="text-4xl">
         <p className="">{title}</p>
         <p className="mb-7 leading-tight">

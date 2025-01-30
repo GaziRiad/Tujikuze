@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Logo from "./Logo";
+import { useEffect, useState } from "react";
 
 const Menu = [
   { name: "Our Offer", href: "/our-offer" },
@@ -11,8 +14,23 @@ const Menu = [
 ];
 
 function Navigation() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Prevent scrolling when the menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   return (
-    <header className="px-6 lg:block">
+    <header className="relative">
       <div className="fixed left-4 top-6 z-50 mix-blend-difference lg:left-10 lg:top-4">
         <div className="relative">
           <Logo className="relative" />
@@ -28,7 +46,25 @@ function Navigation() {
               <Link href={item.href}>{item.name}</Link>
             </li>
           ))}
-          <li className="lg:hidden">Menu</li>
+          <li
+            className="cursor-pointer lg:hidden"
+            onClick={() => setIsOpen((state) => !state)}
+          >
+            {isOpen ? "Close" : "Menu"}
+          </li>
+        </ul>
+      </nav>
+      <nav>
+        <ul
+          className={`${
+            isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+          } fixed inset-0 z-30 flex flex-col items-center justify-center gap-4 bg-[rgba(255,255,255,0.7)] p-4 backdrop-blur-3xl transition-all duration-300 ease-in-out lg:hidden`}
+        >
+          {Menu.map((item, index) => (
+            <li key={index}>
+              <Link href={item.href}>{item.name}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
