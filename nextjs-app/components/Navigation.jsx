@@ -62,7 +62,12 @@ function Navigation() {
         >
           {Menu.map((item, index) => (
             <li key={index}>
-              <Link href={item.href}>{item.name}</Link>
+              <Link
+                onClick={() => setIsOpen((state) => false)}
+                href={item.href}
+              >
+                {item.name}
+              </Link>
             </li>
           ))}
         </ul>
