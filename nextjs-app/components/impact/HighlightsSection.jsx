@@ -31,8 +31,6 @@ const DATALIST = [
 ];
 
 export default function HighlightsSection({ data }) {
-  console.log(data);
-
   return (
     <section className="mx-auto max-w-[1720px] px-4">
       <ul className="mb-14 flex flex-col justify-end gap-12 lg:mb-48 lg:flex-row lg:px-12">

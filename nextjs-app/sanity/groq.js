@@ -32,6 +32,14 @@ export const impactquery = groq`*[_type == "our-impact"][0]{
       "url": asset->url,
       alt
     },
+  },
+  resultsSection {
+    heading,
+    text,
+    keyStatsTable[] {
+      value,
+      label
+    },
   }
 }
 `;

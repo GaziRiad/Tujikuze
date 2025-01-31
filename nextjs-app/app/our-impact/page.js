@@ -33,7 +33,7 @@ export default async function page() {
         className="mb-14 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[620px] 2xl:h-[920px]"
       />
       <HighlightsSection data={data.highlightsSection} />
-      <ResultSection />
+      <ResultSection data={data.resultsSection} />
       <ESGDeligenceSection />
       <section>
         <SectionHeading title="Case Studies / Impact Reports" href="/" />

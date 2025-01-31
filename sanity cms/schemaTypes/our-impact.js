@@ -116,5 +116,47 @@ export default defineType({
         }),
       ],
     }),
+    defineType({
+      name: 'resultsSection',
+      title: 'Results Section',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'heading',
+          type: 'string',
+          title: 'Section Heading',
+          description: 'text for the section heading (H2).',
+        }),
+        defineField({
+          name: 'text',
+          title: 'Text Content',
+          type: 'text',
+        }),
+        defineField({
+          name: 'keyStatsTable',
+          title: 'Key Statistics Table',
+          type: 'array',
+          of: [
+            defineField({
+              name: 'tableRow',
+              type: 'object',
+              title: 'Table Row',
+              fields: [
+                defineField({
+                  name: 'value',
+                  title: 'Value',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'label',
+                  title: 'Label',
+                  type: 'string',
+                }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
   ],
 })
