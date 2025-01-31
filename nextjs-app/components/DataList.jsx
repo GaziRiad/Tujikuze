@@ -8,8 +8,8 @@ export default function DataList({ items }) {
           key={index}
           className="grid grid-cols-2 py-6 lg:grid-cols-[30fr_70fr]"
         >
-          <span>{item.data}</span>
-          <span>{item.title}</span>
+          <span>{item.value}</span>
+          <span>{item.label}</span>
         </li>
       ))}
     </ul>

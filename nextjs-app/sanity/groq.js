@@ -1,77 +1,40 @@
 import { groq } from "next-sanity";
 
 export const homequery = groq`*[_type == "home"][0]{
-hero {
-    "title": coalesce(title[_key == $locale][0].value, title[_key == "en"][0].value),
-    "backgroundVideoUrl": backgroundVideo.asset->url
+  hero {
+    heroImages[]{
+      "url": asset->url,
+      alt
+    },
+    heroContent
+  }
+}
+`;
+
+export const impactquery = groq`*[_type == "our-impact"][0]{
+  intro {
+    text
   },
-  partners {
-    logos[] {
-      name,
-      "logoUrl": logo.asset->url,
-      url
-    }
+  mainImage[0] {
+    "url": asset->url,
+    alt
   },
-  introduction {
-    "tag": coalesce(tag[_key == $locale][0].value, tag[_key == "en"][0].value),
-    "description": coalesce(description[_key == $locale][0].value, description[_key == "en"][0].value),
-    "imageUrl": image.asset->url,
-    links[] {
-      "title": coalesce(title[_key == $locale][0].value, title[_key == "en"][0].value),
-      url
-    }
-  },
-  sectors {
-    "tag": coalesce(tag[_key == $locale][0].value, tag[_key == "en"][0].value),
-    "title": coalesce(title[_key == $locale][0].value, title[_key == "en"][0].value),
-    "imageUrl": image.asset->url,
-    "allSectors": *[_type == "sector" && language == $locale] | order(publishedAt asc) {
+  highlightsSection {
+    highlights[] {
       title,
-      "slug": slug.current
-    }
-  },
-  services {
-    "tag": coalesce(tag[_key == $locale][0].value, tag[_key == "en"][0].value),
-    "description": coalesce(description[_key == $locale][0].value, description[_key == "en"][0].value),
-    hubs[] {
-      "title": coalesce(title[_key == $locale][0].value, title[_key == "en"][0].value),
-      "description": coalesce(description[_key == $locale][0].value, description[_key == "en"][0].value),
-        url,
-      "staticImage": staticImage.asset->url,
-      "hoverImage": hoverImage.asset->url
-    }
-  },
-  caseStudies {
-    "tag": coalesce(tag[_key == $locale][0].value, tag[_key == "en"][0].value),
-    "imageUrl": image.asset->url,
-    "items": *[_type == "case-study" && isDisplay == true && language == $locale] | order(publishedAt desc) {
-      title,
-      slug,
-      categories[]-> {
-        "title": coalesce(title[_key == $locale][0].value, title[_key == "en"][0].value),
-      },
-      summary
-    }
-  },
-  spotlight {
-    "tag": coalesce(tag[_key == $locale][0].value, tag[_key == "en"][0].value),
-    "title": coalesce(title[_key == $locale][0].value, title[_key == "en"][0].value),
-    "description": coalesce(description[_key == $locale][0].value, description[_key == "en"][0].value),
-    "imageUrl": image.asset->url
-  },
-  blog {
-    "tag": coalesce(tag[_key == $locale][0].value, tag[_key == "en"][0].value),
-    "imageUrl": image.asset->url,
-    "items": *[_type == "post" && isDisplay == true && language == $locale] | order(publishedAt desc) {
-      title,
-      slug,
-      categories[]-> {
-        "title": coalesce(title[_key == $locale][0].value, title[_key == "en"][0].value),
-      },
-      summary,
-    }
-  },
-}`;
+      text
+    },
+    keyStatsTable[] {
+      value,
+      label
+    },
+    highlightImage[0] {
+      "url": asset->url,
+      alt
+    },
+  }
+}
+`;
 
 // Reusable sections
 

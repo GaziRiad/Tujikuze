@@ -8,26 +8,20 @@ import MaterialsSection from "@/components/home/MaterialsSection";
 import CaseStudiesSection from "@/components/home/CaseStudiesSection";
 import BlogSection from "@/components/home/BlogSection";
 import Footer from "@/components/Footer";
+import { sanityFetch } from "@/sanity/client";
+import { homequery } from "@/sanity/groq";
 
-function Page() {
+async function Page() {
+  const data = await sanityFetch({
+    query: homequery,
+    tags: ["home"],
+  });
+
+  if (!data) return null;
+
   return (
     <>
-      <Hero />
-      <section className="mx-auto mb-28 flex max-w-[1720px] px-4 py-5 lg:mb-48">
-        <p className="text-lg lg:text-4xl">
-          “Tujikuze” means “to grow together” in Kiswahili, reflecting our
-          commitment to fostering collaboration and growth among artisanal
-          producers. Tujikuze is a partnership of visionary and like-minded
-          Kenyan companies: Africa Collect Textiles, Savio Youth Enterprise,
-          Virtuous and Satubo. We are producing fashion with some of the best
-          artisan groups in Kenya.
-          <br />
-          <br />
-          Together, with the support of the Italian Agency for Development
-          Cooperation (AICS) and ITC’s Ethical Fashion Initiative, we aim to
-          create a fairer, greener, and better landscape for artisans in Kenya.
-        </p>
-      </section>
+      <Hero data={data} />
 
       <DoubleBlocksSection image={img2} title="OUR WORK" />
       <DoubleBlocksSection image={img1} title="OUR IMPACT" />

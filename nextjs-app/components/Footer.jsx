@@ -11,8 +11,6 @@ async function Footer() {
     tags: ["footer"],
   });
 
-  console.log(data);
-
   return (
     <footer className="">
       <SectionHeading title={data.subHeading} />
