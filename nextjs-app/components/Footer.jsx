@@ -1,67 +1,109 @@
 import SectionHeading from "./SectionHeading";
 import Image from "next/image";
 
-import img from "../public/images/gradient.png";
-import logo1 from "../public/images/logos/logo1.png";
-import logo2 from "../public/images/logos/logo2.png";
-import main from "../public/images/Logo.png";
+import Link from "next/link";
+import { sanityFetch } from "@/sanity/client";
+import { footerquery } from "@/sanity/groq";
 
-function Footer() {
+async function Footer() {
+  const data = await sanityFetch({
+    query: footerquery,
+    tags: ["footer"],
+  });
+
+  console.log(data);
+
   return (
     <footer className="">
-      <SectionHeading title="Contact us" />
+      <SectionHeading title={data.subHeading} />
       <div className="mx-auto max-w-[1720px] px-4">
-        <h2 className="mb-14 text-sm lg:mb-48 lg:text-5xl">
-          Fill out the form and contact us.
-        </h2>
+        <h2 className="mb-14 text-sm lg:mb-48 lg:text-5xl">{data.heading}</h2>
       </div>
       <section className="bg-[#111B13] px-4 pb-12 pt-11 lg:pt-20">
         <div className="mx-auto max-w-[1720px]">
           <div className="mb-16 grid w-full grid-cols-1 items-start gap-14 text-white lg:grid-cols-[60fr_40fr] lg:grid-rows-1 lg:gap-0">
             {/* First column */}
-            <div className="order-2 max-w-96 lg:order-1">
-              <h3 className="mb-7 text-lg">Credits</h3>
-              <p className="mb-7 text-sm">
-                This website was created and is maintained with the financial
-                support of the Italian Agency for Development Cooperation
-                (AICS). Its contents are the sole responsibility of ITC Ethical
-                Fashion Initiative and do not necessarily reflect the views of
-                the Italian Agency for Development Cooperation.
-              </p>
-
-              <p className="mb-7 text-sm">2023 © All rights reserved.</p>
-              <p className="text-sm">
-                The Ethical Fashion Initiative is a programme of the
-                International Trade Centre, a joint agency of the United Nations
-                and the World Trade Organization.
-              </p>
+            <div className="order-2 flex max-w-96 flex-col gap-7 lg:order-1">
+              {data.credits.map((item, index) => (
+                <div key={index} className="flex flex-col gap-7">
+                  <h3 className="text-sm">{item.title}</h3>
+                  <p className="text-sm">{item.text}</p>
+                </div>
+              ))}
             </div>
 
             {/* Second column */}
             <div className="order-1 lg:order-2 lg:max-w-96">
-              <h3 className="mb-5">Subscribe to the newsletter</h3>
+              <h3 className="mb-5">{data.newsletter.title}</h3>
               <div className="mb-14 flex items-center gap-4 lg:mb-20">
                 <input
                   type="email"
+                  placeholder={data.newsletter.placeholder}
                   className="w-full bg-white px-[10px] py-[6px]"
                 />
                 <button className="border border-white px-[10px] py-[6px] text-sm text-light-500">
-                  Join
+                  {data.newsletter.buttonLabel}
                 </button>
               </div>
               <Image
-                src={img}
-                alt="gradient footer image"
+                src={data.image.asset.url}
+                width={2000}
+                height={2000}
+                alt={data.image.alt}
                 className="h-[432px] w-full object-cover"
               />
             </div>
           </div>
-          <div className="mb-5 flex items-center gap-24 border-b border-[#1A1A1A]/20 pb-5">
-            <Image src={logo1} alt="logo 1" className="object-cover" />
-            <Image src={logo2} alt="logo 2" className="object-cover" />
-          </div>
-          <div>
-            <Image src={main} alt="logo 2" className="object-cover" />
+          <ul className="mb-5 flex items-center gap-8 border-b border-white/60 pb-5">
+            {data.footerLogos.map((item, index) => (
+              <li key={index} className="relative h-24 w-24">
+                <Image
+                  fill
+                  src={item.asset.url}
+                  alt={item.alt}
+                  className="object-contain"
+                />
+              </li>
+            ))}
+          </ul>
+
+          <div className="grid grid-cols-2 text-sm lg:text-lg">
+            <Link href="/" className="relative h-8 max-w-44">
+              <Image
+                fill
+                src={data.mainLogo.asset.url}
+                alt={data.mainLogo.alt}
+                className="object-cover"
+              />
+            </Link>
+            <div className="flex flex-col gap-4 text-light-500">
+              <ul className="flex flex-col">
+                {data.socialLinks.map((item, index) => (
+                  <li key={index}>
+                    <Link
+                      href={item.url}
+                      className="transition-all hover:text-dark-400"
+                    >
+                      {item.platform}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <ul className="flex flex-col">
+                {data.navigationLinks.map((item, index) => (
+                  <li key={index}>
+                    <Link
+                      href={item.url}
+                      className="transition-all hover:text-dark-400"
+                    >
+                      {item.link}
+                    </Link>
+                  </li>
+                ))}
+
+                <li></li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>

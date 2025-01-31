@@ -5,6 +5,18 @@ export default defineType({
   type: 'document',
   title: 'Footer',
   fields: [
+    defineField({
+      name: 'heading',
+      type: 'string',
+      title: 'Section Heading',
+      description: 'text for the footer section heading (H2).',
+    }),
+    defineField({
+      name: 'subHeading',
+      type: 'string',
+      title: 'Section Sub Heading',
+      description: 'text for the footer section sub heading.',
+    }),
     // Credits Section
     defineField({
       name: 'credits',
