@@ -1,0 +1,6 @@
+{
+  "eslint.workingDirectories": [
+    { "directory": "../nextjs-app", "changeProcessCWD": true },
+    { "directory": "../sanity cms", "changeProcessCWD": true }
+  ]
+}
