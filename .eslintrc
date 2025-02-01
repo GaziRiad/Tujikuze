@@ -1,4 +1,4 @@
 {
   "extends": "@sanity/eslint-config-studio",
-  "eslint.workingDirectories": ["./web", "./studio"]
+  "eslint.workingDirectories": ["./nextjs-app", "./sanity cms"]
 }
