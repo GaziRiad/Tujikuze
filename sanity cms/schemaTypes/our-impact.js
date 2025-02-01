@@ -158,5 +158,18 @@ export default defineType({
         }),
       ],
     }),
+    defineType({
+      name: 'resultsSection',
+      title: 'Results Section',
+      type: 'object',
+      fields: [
+        // defineField({
+        //   name: 'heading',
+        //   type: 'string',
+        //   title: 'Section Heading',
+        //   description: 'text for the section heading (H2).',
+        // }),
+      ],
+    }),
   ],
 })
