@@ -159,16 +159,49 @@ export default defineType({
       ],
     }),
     defineType({
-      name: 'resultsSection',
-      title: 'Results Section',
+      name: 'esgSection',
+      title: 'ESG Due Diligence Section',
       type: 'object',
       fields: [
-        // defineField({
-        //   name: 'heading',
-        //   type: 'string',
-        //   title: 'Section Heading',
-        //   description: 'text for the section heading (H2).',
-        // }),
+        defineField({
+          name: 'heading',
+          type: 'string',
+          title: 'Section Heading',
+          description: 'text for the section heading (H2).',
+        }),
+        defineField({
+          name: 'mainText',
+          title: 'Main Text Content',
+          type: 'text',
+        }),
+        defineField({
+          name: 'textContent',
+          title: 'Text Content',
+          type: 'array',
+          of: [{type: 'text'}], // No need for an object wrapper
+        }),
+        defineField({
+          name: 'esgImage',
+          type: 'array',
+          title: 'ESG Section Image',
+          of: [
+            defineField({
+              type: 'image', // Use 'image' directly
+              title: 'Image',
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                defineField({
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alt Text',
+                  description: 'Alternative text for the logo.',
+                }),
+              ],
+            }),
+          ],
+        }),
       ],
     }),
   ],

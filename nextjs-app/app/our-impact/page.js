@@ -34,7 +34,7 @@ export default async function page() {
       />
       <HighlightsSection data={data.highlightsSection} />
       <ResultSection data={data.resultsSection} />
-      <ESGDeligenceSection />
+      <ESGDeligenceSection data={data.esgSection} />
       <section>
         <SectionHeading title="Case Studies / Impact Reports" href="/" />
         {/* similar to ListItem */}

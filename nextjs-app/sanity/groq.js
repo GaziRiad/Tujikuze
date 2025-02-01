@@ -40,6 +40,15 @@ export const impactquery = groq`*[_type == "our-impact"][0]{
       value,
       label
     },
+  },
+  esgSection {
+    heading,
+    mainText,
+    textContent[],
+    esgImage[0] {
+      "url": asset->url,
+      alt
+    },
   }
 }
 `;

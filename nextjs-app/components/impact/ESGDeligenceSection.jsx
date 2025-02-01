@@ -2,39 +2,27 @@ import React from "react";
 import SectionHeading from "../SectionHeading";
 import Image from "next/image";
 
-import mainImg from "../../public/images/gradient-impact.png";
-
-export default function ESGDeligenceSection() {
+export default function ESGDeligenceSection({ data }) {
   return (
     <section>
-      <SectionHeading title="ESG Due Diligence" href="/" />
+      <SectionHeading title={data.heading} href="/" />
       <div className="mx-auto max-w-[1720px] px-4">
         <div className="mb-11 grid grid-cols-1 gap-5 lg:mb-24 lg:grid-cols-2 lg:gap-0">
           <p className="max-w-[648px] text-lg text-dark-600 lg:text-4xl">
-            Our case studies showcase how bespoke products empower artisans and
-            promote sustainability.
+            {data.mainText}
           </p>
           <div className="grid grid-cols-1 items-start text-lg text-dark-400 lg:grid-cols-2 lg:gap-12">
-            <p>
-              Our case studies illustrate the transformative impact of bespoke
-              collaborations on local artisans. By partnering with Tujikuze,
-              businesses not only gain access to authentic craftsmanship but
-              also contribute to the economic empowerment of the communities
-              involved.
-            </p>
-            <p>
-              Our case studies illustrate the transformative impact of bespoke
-              collaborations on local artisans. By partnering with Tujikuze,
-              businesses not only gain access to authentic craftsmanship but
-              also contribute to the economic empowerment of the communities
-              involved.
-            </p>
+            {data.textContent.map((text, index) => (
+              <p key={index}>{text}</p>
+            ))}
           </div>
         </div>
       </div>
       <Image
-        src={mainImg}
-        alt="Main image of our impact of Tujikuze"
+        width={1600}
+        height={1600}
+        src={data.esgImage.url}
+        alt={data.esgImage.alt}
         className="mb-9 h-[512px] w-full object-cover object-center lg:mb-24 lg:h-[620px] 2xl:h-[920px]"
       />
     </section>
