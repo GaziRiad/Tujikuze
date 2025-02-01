@@ -53,6 +53,54 @@ export const impactquery = groq`*[_type == "our-impact"][0]{
 }
 `;
 
+export const aboutquery = groq`*[_type == "about"][0]{
+  intro {
+    text
+  },
+  ourMission {
+    heading,
+    text,
+    keyStatsTable[] {
+      value,
+      label
+    },
+    missionImage {
+      "url": image.asset->url,
+      alt
+    }
+  },
+  locationSection {
+    heading,
+    mainText,
+    textContent[],
+    locationImage {
+      "url": image.asset->url,
+      alt
+    }
+  },
+  teamSection[] {
+    fullname,
+    description,
+    memberImage {
+      "url": image.asset->url,
+      alt
+    }
+  },
+  ethicalFashionSection {
+    heading,
+    text,
+    halfImage {
+      "url": image.asset->url,
+      alt
+    },
+    largeImage {
+      "url": image.asset->url,
+      alt
+    },
+  }
+}
+`;
+
 // Reusable sections
 
 export const footerquery = groq`*[_type == "footer"][0]{
