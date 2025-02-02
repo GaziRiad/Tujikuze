@@ -12,8 +12,10 @@ export default function ItemsGridList({ title, items }) {
             <li key={index} className="text-dark-600x">
               <div className="flex gap-5 lg:flex-col">
                 <Image
-                  src={item.img || "/placeholder.svg"}
-                  alt="Material image"
+                  width={1200}
+                  height={1200}
+                  src={item.image.imageUrl || "/placeholder.svg"}
+                  alt={item.image.alt}
                   className="mb-4 h-[138px] object-cover lg:h-[601px]"
                 />
                 <div>

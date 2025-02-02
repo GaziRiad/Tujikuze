@@ -10,7 +10,7 @@ const Menu = [
   { name: "Case Studies", href: "/case-studies" },
   { name: "Resources", href: "/ressources" },
   { name: "About Us", href: "/about" },
-  { name: "Contact Us", href: "#" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 function Navigation() {

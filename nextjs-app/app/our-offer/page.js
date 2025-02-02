@@ -10,6 +10,8 @@ import OfferMaterials from "@/components/our-offer/OfferMaterials";
 import TermsOfTrade from "@/components/our-offer/TermsOfTrade";
 import Link from "next/link";
 import { GoArrowRight } from "react-icons/go";
+import { sanityFetch } from "@/sanity/client";
+import { ourofferquery } from "@/sanity/groq";
 
 const ITEMS = [
   {
@@ -62,35 +64,45 @@ const ITEMS = [
   },
 ];
 
-export default function page() {
+export default async function page() {
+  const data = await sanityFetch({
+    query: ourofferquery,
+    tags: ["our-offer"],
+  });
+
+  if (!data) return null;
+
   return (
     <>
       <section className="mx-auto mb-8 mt-20 max-w-[1720px] px-4 lg:mb-48 lg:mt-56">
-        <p className="mb-8 text-lg lg:mb-24 lg:text-4xl">
-          Tujikuze began with a vision to connect Kenyan artisans with global
-          markets while preserving traditional craftsmanship. Rooted in the
-          meaning of “to grow together” in Kiswahili, our story is one of
-          collaboration, sustainability, and empowerment. Partnering with
-          visionary Kenyan organizations, we bring authentic, handcrafted
-          products to the world.
-        </p>
+        <p className="mb-8 text-lg lg:mb-24 lg:text-4xl">{data.intro.text}</p>
         <Image
-          src={imgLarge}
-          alt="man crafting"
+          width={1200}
+          height={1200}
+          src={data.intro.image.imageUrl}
+          alt={data.intro.image.alt}
           className="mb-14 ml-auto aspect-square w-full object-cover object-center lg:mb-48 lg:w-1/2"
         />
       </section>
-      <OfferMaterials />
-      <ItemsGridList title="Craftsmanship" items={ITEMS} />
-      <ItemsGridList title="Materials" items={ITEMS} />
+      <OfferMaterials data={data.materialsAndCraftsmanshipSection} />
+      <ItemsGridList
+        title={data.craftsmanshipSection.heading}
+        items={data.craftsmanshipSection.items}
+      />
+      <ItemsGridList
+        title={data.materialsSection.heading}
+        items={data.materialsSection.items}
+      />
 
       <Image
-        src={imgLarge}
-        alt="man crafting"
+        width={1600}
+        height={1600}
+        src={data.mainImage.imageUrl}
+        alt={data.mainImage.alt}
         className="mb-8 mt-14 w-full object-cover object-center lg:mb-48 lg:mt-48"
       />
 
-      <TermsOfTrade />
+      <TermsOfTrade data={data.termsSection} />
 
       <section>
         {/* similar to ListItem */}

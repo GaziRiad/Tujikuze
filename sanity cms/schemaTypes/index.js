@@ -6,5 +6,16 @@ import home from './home'
 import footer from './footer'
 import ourImpact from './our-impact'
 import about from './about'
+import ourOffer from './our-offer'
 
-export const schemaTypes = [home, ourImpact, about, footer, post, author, category, blockContent]
+export const schemaTypes = [
+  home,
+  ourImpact,
+  about,
+  ourOffer,
+  footer,
+  post,
+  author,
+  category,
+  blockContent,
+]

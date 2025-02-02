@@ -101,6 +101,62 @@ export const aboutquery = groq`*[_type == "about"][0]{
 }
 `;
 
+export const ourofferquery = groq`*[_type == "our-offer"][0] {
+  intro {
+    text,
+    image {
+      "imageUrl": image.asset->url,
+      alt
+    }
+  },
+  materialsAndCraftsmanshipSection {
+    heading,
+    mainText,
+    textContent
+  },
+  craftsmanshipSection {
+    heading,
+    items[] {
+      name,
+      description,
+      image {
+        "imageUrl": image.asset->url,
+        alt
+      }
+    }
+  },
+  materialsSection {
+    heading,
+    items[] {
+      name,
+      description,
+      image {
+        "imageUrl": image.asset->url,
+        alt
+      }
+    }
+  },
+  mainImage {
+    "imageUrl": image.asset->url,
+    alt
+  },
+  termsSection {
+    heading,
+    topFeatures[] {
+      title,
+      text
+    },
+    image {
+      "imageUrl": image.asset->url,
+      alt
+    },
+    bottomFeatures[] {
+      title,
+      text
+    }
+  }
+}`;
+
 // Reusable sections
 
 export const footerquery = groq`*[_type == "footer"][0]{
