@@ -12,7 +12,7 @@ function SectionHeading({
   if (type === "tab")
     return (
       <div className="mx-auto mb-3 flex max-w-[1720px] flex-col px-4">
-        <div className="flex items-center justify-between border-b border-[#1A1A1A]/20 pb-5">
+        <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-5">
           <p className="text-sm lg:text-2xl">{title}</p>
           <p
             className="cursor-pointer font-secondary text-sm"
@@ -26,7 +26,7 @@ function SectionHeading({
 
   return (
     <div className="mx-auto mb-3 flex max-w-[1720px] flex-col px-4">
-      <div className="flex items-center justify-between border-b border-[#1A1A1A]/20 pb-5">
+      <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-5">
         <p className="text-sm lg:text-2xl">{title}</p>
         {href && (
           <Link href={href} className="font-secondary text-sm">

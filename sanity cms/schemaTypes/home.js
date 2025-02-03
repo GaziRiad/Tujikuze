@@ -48,5 +48,91 @@ export default {
         }),
       ],
     }),
+    defineField({
+      name: 'blockSections',
+      title: 'Pages Blocks Sections',
+      type: 'array',
+      of: [
+        defineField({
+          name: 'blockSection',
+          title: 'Page Block Section',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'image',
+              title: 'Image',
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'image',
+                  type: 'image', // Use 'image' directly
+                  options: {
+                    hotspot: true,
+                  },
+                }),
+                defineField({
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alt Text',
+                  description: 'Alternative text for the logo.',
+                }),
+              ],
+            }),
+            defineField({
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'subTitle',
+              title: 'SubTitle',
+              type: 'string',
+            }),
+            defineField({
+              name: 'link',
+              title: 'Link',
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'label',
+                  title: 'Link Label',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'linkUrl',
+                  title: 'Link URL',
+                  type: 'string',
+                }),
+              ],
+            }),
+            defineField({
+              name: 'text',
+              title: 'Text (appears when link is hovered)',
+              type: 'string',
+            }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
+      name: 'mainImage',
+      title: 'Main Image (bellow pages blocks)',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'image',
+          type: 'image', // Use 'image' directly
+          options: {
+            hotspot: true,
+          },
+        }),
+        defineField({
+          name: 'alt',
+          type: 'string',
+          title: 'Alt Text',
+          description: 'Alternative text for the logo.',
+        }),
+      ],
+    }),
   ],
 }

@@ -116,7 +116,7 @@ export default defineType({
         }),
       ],
     }),
-    defineType({
+    defineField({
       name: 'resultsSection',
       title: 'Results Section',
       type: 'object',
@@ -158,7 +158,7 @@ export default defineType({
         }),
       ],
     }),
-    defineType({
+    defineField({
       name: 'esgSection',
       title: 'ESG Due Diligence Section',
       type: 'object',

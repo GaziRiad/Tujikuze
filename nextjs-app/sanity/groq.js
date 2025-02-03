@@ -7,7 +7,24 @@ export const homequery = groq`*[_type == "home"][0]{
       alt
     },
     heroContent
-  }
+  },
+  blockSections[] {
+    image {
+        "url": image.asset->url,
+        alt
+    },
+    title,
+    subTitle,
+    link {
+      label,
+      linkUrl
+    },
+    text
+  },
+  mainImage {
+        "url": image.asset->url,
+        alt
+    },
 }
 `;
 

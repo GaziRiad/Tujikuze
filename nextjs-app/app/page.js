@@ -1,7 +1,5 @@
 import Hero from "@/components/home/Hero";
 import img1 from "../public/images/visuals.png";
-import img2 from "../public/images/visuals2.png";
-import imgLarge from "../public/images/2.jpg";
 import DoubleBlocksSection from "@/components/home/DoubleBlocksSection";
 import Image from "next/image";
 import MaterialsSection from "@/components/home/MaterialsSection";
@@ -22,13 +20,17 @@ async function Page() {
   return (
     <>
       <Hero data={data} />
+      {data.blockSections.map((section, index) => (
+        <DoubleBlocksSection key={index} data={section} />
+      ))}
 
-      <DoubleBlocksSection image={img2} title="OUR WORK" />
       <DoubleBlocksSection image={img1} title="OUR IMPACT" />
 
       <Image
-        src={imgLarge}
-        alt="man crafting"
+        width={1600}
+        height={1600}
+        src={data.mainImage.url}
+        alt={data.mainImage.alt}
         className="mb-28 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[620px] 2xl:h-[920px]"
       />
       <MaterialsSection />
