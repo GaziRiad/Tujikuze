@@ -134,5 +134,106 @@ export default {
         }),
       ],
     }),
+    defineField({
+      name: 'materialsAndCraftsmanshipSection',
+      title: 'Materials and Craftsmanship Section',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'heading',
+          title: 'Section Heading',
+          type: 'string',
+        }),
+        defineField({
+          name: 'mainText',
+          title: 'Main Text',
+          type: 'string',
+        }),
+        defineField({
+          name: 'items',
+          title: 'Items',
+          type: 'array',
+          of: [
+            defineField({
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'name',
+                  title: 'Name',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'description',
+                  title: 'Description',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'itemImage',
+                  title: 'Image',
+                  type: 'object',
+                  fields: [
+                    defineField({
+                      name: 'image',
+                      type: 'image', // Use 'image' directly
+                      options: {
+                        hotspot: true,
+                      },
+                    }),
+                    defineField({
+                      name: 'alt',
+                      type: 'string',
+                      title: 'Alt Text',
+                      description: 'Alternative text for the logo.',
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          ],
+        }),
+        defineField({
+          name: 'materials',
+          title: 'Materials',
+          type: 'array',
+          of: [
+            defineField({
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'name',
+                  title: 'Material Name',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'description',
+                  title: 'Material Description',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'materialImage',
+                  title: 'Material Image',
+                  type: 'object',
+                  fields: [
+                    defineField({
+                      name: 'image',
+                      type: 'image', // Use 'image' directly
+                      options: {
+                        hotspot: true,
+                      },
+                    }),
+                    defineField({
+                      name: 'alt',
+                      type: 'string',
+                      title: 'Alt Text',
+                      description: 'Alternative text for the logo.',
+                    }),
+                  ],
+                }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
   ],
 }

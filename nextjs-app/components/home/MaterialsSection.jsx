@@ -51,7 +51,7 @@ const craftsmanships = [
   },
 ];
 
-function MaterialsSection() {
+function MaterialsSection({ data }) {
   const [hoveredImage, setHoveredImage] = useState(img1);
   const [isFading, setIsFading] = useState(false);
 
@@ -65,22 +65,21 @@ function MaterialsSection() {
 
   return (
     <section className="mx-auto mb-28 max-w-[1720px] px-4 lg:mb-48">
-      <SectionHeading title="Materials & Craftsmanships" href="/" />
+      <SectionHeading title={data.heading} href="/" />
       <h2 className="mb-11 max-w-[1320px] text-lg lg:mb-28 lg:text-4xl">
-        We use sustainable, locally sourced materials to create high-quality
-        pieces that honor Kenya’s craftsmanship and cultural heritage.
+        {data.mainText}
       </h2>
       <div className="mb-48 flex flex-col items-start justify-between gap-14 lg:flex-row lg:gap-0">
         <ul className="flex flex-col gap-[6px]">
-          {craftsmanships.map((item, index) => (
+          {data.items.map((item, index) => (
             <li
               key={index}
               className="grid cursor-pointer grid-cols-[30fr_70fr] text-[#BABABA] transition-all hover:text-[#1A1A1A]"
-              onMouseEnter={() => handleHover(item.img)}
+              onMouseEnter={() => handleHover(item.itemImage.url)}
               onMouseLeave={() => handleHover(img1)}
             >
-              <p className="font-secondary text-sm">{item.title}</p>
-              <p className="text-sm lg:text-lg">{item.text}</p>
+              <p className="font-secondary text-sm">{item.name}</p>
+              <p className="text-sm lg:text-lg">{item.description}</p>
             </li>
           ))}
         </ul>
@@ -88,6 +87,8 @@ function MaterialsSection() {
           className={`relative h-[320px] w-full overflow-hidden lg:h-[520px] lg:w-[560px] 2xl:h-[620px]`}
         >
           <Image
+            width={1200}
+            height={1200}
             src={hoveredImage}
             alt="Hovered craftsmanship"
             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
@@ -96,7 +97,7 @@ function MaterialsSection() {
           />
         </div>
       </div>
-      <MaterialsCarousel />
+      <MaterialsCarousel items={data.materials} />
     </section>
   );
 }

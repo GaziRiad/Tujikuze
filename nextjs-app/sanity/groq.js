@@ -24,7 +24,27 @@ export const homequery = groq`*[_type == "home"][0]{
   mainImage {
         "url": image.asset->url,
         alt
+  },
+  materialsAndCraftsmanshipSection {
+    heading,
+    mainText,
+    items[] {
+      name,
+      description,
+      itemImage {
+          "url": image.asset->url,
+          alt
+      },
     },
+    materials[] {
+      name,
+      description,
+      materialImage {
+          "url": image.asset->url,
+          alt
+      },
+    }
+  }
 }
 `;
 

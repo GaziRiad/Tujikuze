@@ -33,7 +33,7 @@ async function Page() {
         alt={data.mainImage.alt}
         className="mb-28 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[620px] 2xl:h-[920px]"
       />
-      <MaterialsSection />
+      <MaterialsSection data={data.materialsAndCraftsmanshipSection} />
       <CaseStudiesSection />
       <BlogSection />
       <Footer />
