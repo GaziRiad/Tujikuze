@@ -51,7 +51,7 @@ export default function Filters({ dates, categories }) {
           onClick={() => handleCategoryChange("all")}
           className="cursor-pointer"
         >
-          All Categories,
+          All,
         </li>
         {categories?.map((category, index) => (
           <React.Fragment key={category.slug.current}>
@@ -68,7 +68,7 @@ export default function Filters({ dates, categories }) {
       {/* Date Filters */}
       <ul className="mb-3 mt-4 flex items-center justify-end gap-1 border-b border-[#1A1A1A]/20 pb-3 font-secondary text-sm uppercase">
         <li onClick={() => handleDateChange("all")} className="cursor-pointer">
-          All Dates,
+          All,
         </li>
         {dates?.map((year, index) => (
           <React.Fragment key={year}>
