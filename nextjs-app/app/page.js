@@ -35,7 +35,7 @@ async function Page() {
       />
       <MaterialsSection data={data.materialsAndCraftsmanshipSection} />
       <CaseStudiesSection />
-      <BlogSection />
+      <BlogSection data={data.blogSection} />
       <Footer />
     </>
   );

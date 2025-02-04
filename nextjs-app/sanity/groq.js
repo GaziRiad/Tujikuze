@@ -50,6 +50,27 @@ export const homequery = groq`*[_type == "home"][0]{
           alt
       },
     }
+  },
+  blogSection {
+    sectionHeading {
+      title,
+      link {
+        label,
+        linkUrl
+      }
+    },
+    "articles": *[_type == "post"] | order(publishedAt desc) {
+      title,
+      slug,
+      mainImage {
+        "imageUrl": image.asset->url,
+        alt
+      },
+      categories[]-> {
+        title
+      },
+      summary
+    }
   }
 }
 `;
@@ -232,6 +253,30 @@ export const allressourcesquery = groq`
     publishedAt
   },
   "dates": array::unique(*[_type == "post"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
+}
+`;
+
+export const allcasestudiesquery = groq`
+{
+  "posts": *[_type == "case-study" && 
+    (!defined($category) || $category in categories[]->slug.current) && 
+    (!defined($date) || string::split(publishedAt, "-")[0] == $date)
+  ] | order(publishedAt desc) {
+    title,
+    slug,
+    description,
+    mainImage {
+      "imageUrl": image.asset->url,
+      alt
+    },
+    categories[]-> {
+      title,
+      slug
+    },
+    summary,
+    publishedAt
+  },
+  "dates": array::unique(*[_type == "case-study"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
 }
 `;
 

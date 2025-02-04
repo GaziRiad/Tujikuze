@@ -259,5 +259,41 @@ export default {
         }),
       ],
     }),
+    defineField({
+      name: 'blogSection',
+      title: 'Blog Section on Home page',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'sectionHeading',
+          title: 'Section Heading',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Heading Title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'link',
+              title: 'Heading Link (Optional)',
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'label',
+                  title: 'Link Label',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'linkUrl',
+                  title: 'Link URL',
+                  type: 'string',
+                }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
   ],
 }

@@ -4,6 +4,8 @@ import material1 from "../../public/images/cotton.png";
 import ListItem from "@/components/ListItem";
 import Footer from "@/components/Footer";
 import Filters from "@/components/Filters";
+import { sanityFetch } from "@/sanity/client";
+import { allcasestudiesquery, allCategories } from "@/sanity/groq";
 
 const CASES = [
   {
@@ -38,7 +40,25 @@ const CASES = [
   },
 ];
 
-export default function Page() {
+export default async function Page({ searchParams }) {
+  const category = searchParams?.category || null;
+  const date = searchParams?.date || null;
+
+  const data = await sanityFetch({
+    query: allcasestudiesquery,
+    tags: ["case-studies"],
+    qParams: { category, date },
+  });
+
+  const categories = await sanityFetch({
+    query: allCategories,
+    tags: ["categories", "case-studies"],
+  });
+
+  if (!data) return null;
+
+  console.log(data);
+
   return (
     <>
       <section className="mx-auto mt-20 max-w-[1720px] px-4 lg:mt-56">
@@ -50,11 +70,15 @@ export default function Page() {
           communities while delivering high-quality, bespoke products.
         </p>
       </section>
-      {/* <Filters /> */}
+      <Filters
+        dates={data?.dates}
+        categories={categories}
+        page="case-studies"
+      />
 
       <section className="mx-auto mb-14 max-w-[1720px] px-4 lg:mb-48">
         <ul className="mt-8 flex flex-col divide-y divide-[#1A1A1A]/20 lg:mt-24">
-          {CASES.map((item, index) => (
+          {data.posts.map((item, index) => (
             <ListItem key={index} item={item} />
           ))}
         </ul>

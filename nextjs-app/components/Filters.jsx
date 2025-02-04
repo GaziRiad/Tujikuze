@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { ChevronDown, X } from "lucide-react";
 
-export default function Filters({ dates, categories }) {
+export default function Filters({ dates, categories, page = "ressources" }) {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -28,7 +28,7 @@ export default function Filters({ dates, categories }) {
       params.set("category", value);
     }
     params.delete("date");
-    router.push(`/ressources?${params.toString()}`, { scroll: false });
+    router.push(`/${page}?${params.toString()}`, { scroll: false });
     setIsOpen(false);
   };
 
@@ -41,7 +41,7 @@ export default function Filters({ dates, categories }) {
       params.set("date", value);
     }
     params.delete("category");
-    router.push(`/ressources?${params.toString()}`, { scroll: false });
+    router.push(`/${page}?${params.toString()}`, { scroll: false });
     setIsOpen(false);
   };
 

@@ -63,8 +63,6 @@ function MaterialsSection({ data }) {
     }, 150); // Match the transition duration
   };
 
-  console.log(data.sectionHeading);
-
   return (
     <section className="mx-auto mb-28 max-w-[1720px] px-4 lg:mb-48">
       <SectionHeading

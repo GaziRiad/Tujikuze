@@ -40,4 +40,5 @@ export const structure = (S) =>
 
       S.documentTypeListItem('category').title('Categories').icon(ListIcon),
       S.documentTypeListItem('post').title('Posts').icon(DocumentIcon),
+      S.documentTypeListItem('case-study').title('Case Studies').icon(DocumentIcon),
     ])
