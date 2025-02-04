@@ -50,7 +50,7 @@ export default function Page() {
           communities while delivering high-quality, bespoke products.
         </p>
       </section>
-      <Filters />
+      {/* <Filters /> */}
 
       <section className="mx-auto mb-14 max-w-[1720px] px-4 lg:mb-48">
         <ul className="mt-8 flex flex-col divide-y divide-[#1A1A1A]/20 lg:mt-24">
