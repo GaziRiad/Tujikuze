@@ -63,9 +63,15 @@ function MaterialsSection({ data }) {
     }, 150); // Match the transition duration
   };
 
+  console.log(data.sectionHeading);
+
   return (
     <section className="mx-auto mb-28 max-w-[1720px] px-4 lg:mb-48">
-      <SectionHeading title={data.heading} href="/" />
+      <SectionHeading
+        title={data.sectionHeading.title}
+        label={data.sectionHeading?.link?.label}
+        href={data.sectionHeading?.link?.linkUrl}
+      />
       <h2 className="mb-11 max-w-[1320px] text-lg lg:mb-28 lg:text-4xl">
         {data.mainText}
       </h2>

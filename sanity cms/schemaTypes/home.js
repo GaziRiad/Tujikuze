@@ -140,9 +140,33 @@ export default {
       type: 'object',
       fields: [
         defineField({
-          name: 'heading',
+          name: 'sectionHeading',
           title: 'Section Heading',
-          type: 'string',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Heading Title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'link',
+              title: 'Heading Link (Optional)',
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'label',
+                  title: 'Link Label',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'linkUrl',
+                  title: 'Link URL',
+                  type: 'string',
+                }),
+              ],
+            }),
+          ],
         }),
         defineField({
           name: 'mainText',

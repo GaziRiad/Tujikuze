@@ -43,10 +43,33 @@ export default defineType({
       type: 'object',
       fields: [
         defineField({
-          name: 'heading',
-          type: 'string',
+          name: 'sectionHeading',
           title: 'Section Heading',
-          description: 'text for the section heading (H2).',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Heading Title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'link',
+              title: 'Heading Link',
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'label',
+                  title: 'Link Label',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'linkUrl',
+                  title: 'Link URL',
+                  type: 'string',
+                }),
+              ],
+            }),
+          ],
         }),
         defineField({
           name: 'mainText',
@@ -69,7 +92,7 @@ export default defineType({
     }),
     defineType({
       name: 'craftsmanshipSection',
-      title: 'Craftsmanship Section',
+      title: 'Craftsmanship Tab Section',
       type: 'object',
       fields: [
         defineField({
@@ -126,7 +149,7 @@ export default defineType({
     }),
     defineType({
       name: 'materialsSection',
-      title: 'materials Section',
+      title: 'materials Tab Section',
       type: 'object',
       fields: [
         defineField({
@@ -207,10 +230,33 @@ export default defineType({
       type: 'object',
       fields: [
         defineField({
-          name: 'heading',
-          type: 'string',
+          name: 'sectionHeading',
           title: 'Section Heading',
-          description: 'text for the section heading (H2).',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Heading Title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'link',
+              title: 'Heading Link (Optional)',
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'label',
+                  title: 'Link Label',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'linkUrl',
+                  title: 'Link URL',
+                  type: 'string',
+                }),
+              ],
+            }),
+          ],
         }),
         defineField({
           name: 'topFeatures',

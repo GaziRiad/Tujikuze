@@ -5,7 +5,11 @@ import Image from "next/image";
 export default function TermsOfTrade({ data }) {
   return (
     <section className="mx-auto max-w-[1720px]">
-      <SectionHeading title="Terms of Trade" />
+      <SectionHeading
+        title={data.sectionHeading.title}
+        label={data.sectionHeading?.link?.label}
+        href={data.sectionHeading?.link?.linkUrl}
+      />
       <div className="mb-8 mt-8 grid grid-cols-1 gap-5 px-4 lg:mb-24 lg:mt-24 lg:grid-cols-2 lg:gap-0">
         <div className="max-w-[648px]"></div>
         <ul className="grid grid-cols-1 items-start text-lg text-dark-400 lg:grid-cols-2 lg:gap-12">

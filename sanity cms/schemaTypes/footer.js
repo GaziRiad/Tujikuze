@@ -6,15 +6,38 @@ export default defineType({
   title: 'Footer',
   fields: [
     defineField({
-      name: 'heading',
-      type: 'string',
+      name: 'sectionHeading',
       title: 'Section Heading',
-      description: 'text for the footer section heading (H2).',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'title',
+          title: 'Heading Title',
+          type: 'string',
+        }),
+        defineField({
+          name: 'link',
+          title: 'Heading Link (Optional)',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'label',
+              title: 'Link Label',
+              type: 'string',
+            }),
+            defineField({
+              name: 'linkUrl',
+              title: 'Link URL',
+              type: 'string',
+            }),
+          ],
+        }),
+      ],
     }),
     defineField({
       name: 'subHeading',
       type: 'string',
-      title: 'Section Sub Heading',
+      title: 'Section Sub Heading (H2 Large text)',
       description: 'text for the footer section sub heading.',
     }),
     // Credits Section

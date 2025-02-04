@@ -8,6 +8,7 @@ function SectionHeading({
   state,
   type = "link",
   href = false,
+  label,
 }) {
   if (type === "tab")
     return (
@@ -28,9 +29,9 @@ function SectionHeading({
     <div className="mx-auto mb-3 flex max-w-[1720px] flex-col px-4">
       <div className="flex items-center justify-between border-b border-[#1A1A1A] pb-5">
         <p className="text-sm lg:text-2xl">{title}</p>
-        {href && (
+        {href && label && (
           <Link href={href} className="font-secondary text-sm">
-            LEARN MORE
+            {label}
           </Link>
         )}
       </div>

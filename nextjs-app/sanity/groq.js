@@ -26,7 +26,13 @@ export const homequery = groq`*[_type == "home"][0]{
         alt
   },
   materialsAndCraftsmanshipSection {
-    heading,
+    sectionHeading {
+      title,
+      link {
+        label,
+        linkUrl
+      }
+    },
     mainText,
     items[] {
       name,
@@ -147,7 +153,13 @@ export const ourofferquery = groq`*[_type == "our-offer"][0] {
     }
   },
   materialsAndCraftsmanshipSection {
-    heading,
+    sectionHeading {
+      title,
+      link {
+        label,
+        linkUrl
+      }
+    },
     mainText,
     textContent
   },
@@ -178,7 +190,13 @@ export const ourofferquery = groq`*[_type == "our-offer"][0] {
     alt
   },
   termsSection {
-    heading,
+    sectionHeading {
+      title,
+      link {
+        label,
+        linkUrl
+      }
+    },
     topFeatures[] {
       title,
       text
@@ -197,7 +215,13 @@ export const ourofferquery = groq`*[_type == "our-offer"][0] {
 // Reusable sections
 
 export const footerquery = groq`*[_type == "footer"][0]{
-    heading,
+    sectionHeading {
+      title,
+      link {
+        label,
+        linkUrl
+      }
+    },
     subHeading,
     credits[]{
       title,

@@ -13,9 +13,15 @@ async function Footer() {
 
   return (
     <footer className="">
-      <SectionHeading title={data.subHeading} />
+      <SectionHeading
+        title={data.sectionHeading.title}
+        label={data.sectionHeading?.link?.label}
+        href={data.sectionHeading?.link?.linkUrl}
+      />
       <div className="mx-auto max-w-[1720px] px-4">
-        <h2 className="mb-14 text-sm lg:mb-48 lg:text-5xl">{data.heading}</h2>
+        <h2 className="mb-14 text-sm lg:mb-48 lg:text-5xl">
+          {data.subHeading}
+        </h2>
       </div>
       <section className="bg-[#111B13] px-4 pb-12 pt-11 lg:pt-20">
         <div className="mx-auto max-w-[1720px]">
