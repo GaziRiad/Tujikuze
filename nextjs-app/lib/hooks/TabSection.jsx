@@ -5,12 +5,13 @@ import { useState, useRef, useEffect } from "react";
 
 export default function TabSection({ children, title = "TAB TITLE" }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [height, setHeight] = useState(0);
   const contentRef = useRef(null);
+  const [contentHeight, setContentHeight] = useState("0px");
 
   useEffect(() => {
     if (contentRef.current) {
-      setHeight(isOpen ? contentRef.current.scrollHeight : 0);
+      const height = isOpen ? `${contentRef.current.scrollHeight}px` : "0px";
+      setContentHeight(height);
     }
   }, [isOpen]);
 
@@ -24,10 +25,15 @@ export default function TabSection({ children, title = "TAB TITLE" }) {
       />
 
       <div
-        className={`overflow-hidden transition-[height] duration-300 ease-in-out`}
-        style={{ height: `${height}px` }}
+        ref={contentRef}
+        className="overflow-hidden transition-all duration-300 ease-in-out"
+        style={{
+          maxHeight: contentHeight,
+          opacity: isOpen ? 1 : 0,
+          transform: `translateY(${isOpen ? 0 : -10}px)`,
+        }}
       >
-        <div ref={contentRef}>{children}</div>
+        {children}
       </div>
     </section>
   );

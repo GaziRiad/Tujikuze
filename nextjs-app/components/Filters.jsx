@@ -61,7 +61,7 @@ export default function Filters({ dates, categories }) {
             <li>
               <span
                 onClick={() => handleCategoryChange("all")}
-                className={`cursor-pointer ${selectedCategory === "all" ? "font-bold" : ""}`}
+                className={`cursor-pointer ${selectedCategory === "all" ? "font-semibold" : ""}`}
               >
                 All
               </span>
@@ -71,7 +71,7 @@ export default function Filters({ dates, categories }) {
               <React.Fragment key={category.slug.current}>
                 <li
                   onClick={() => handleCategoryChange(category.slug.current)}
-                  className={`cursor-pointer ${selectedCategory === category.slug.current ? "font-bold" : ""}`}
+                  className={`cursor-pointer ${selectedCategory === category.slug.current ? "font-semibold" : ""}`}
                 >
                   {category.title}
                 </li>

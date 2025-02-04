@@ -43,7 +43,7 @@ export default async function page({ searchParams }) {
                 height={1200}
                 src={post.mainImage.imageUrl}
                 alt={post.mainImage.alt}
-                className="h-[180px] w-1/2 object-cover lg:mb-3 lg:h-[870px] lg:w-full"
+                className="h-[180px] max-w-[140px] object-cover lg:mb-3 lg:h-[870px] lg:max-w-full"
               />
               <div>
                 <ul className="mb-4 flex items-center gap-3 lg:mb-3">
