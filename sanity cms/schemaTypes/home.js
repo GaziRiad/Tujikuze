@@ -260,8 +260,56 @@ export default {
       ],
     }),
     defineField({
+      name: 'casesSection',
+      title: 'Case Studies Section in Home page',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'sectionHeading',
+          title: 'Section Heading',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Heading Title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'link',
+              title: 'Heading Link (Optional)',
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'label',
+                  title: 'Link Label',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'linkUrl',
+                  title: 'Link URL',
+                  type: 'string',
+                }),
+              ],
+            }),
+          ],
+        }),
+        defineField({
+          name: 'caseStudies',
+          type: 'array',
+          title: 'Case Studies',
+          of: [
+            {
+              type: 'reference',
+              to: [{type: 'case-study'}],
+            },
+          ],
+          validation: (Rule) => Rule.required().min(1),
+        }),
+      ],
+    }),
+    defineField({
       name: 'blogSection',
-      title: 'Blog Section on Home page',
+      title: 'Blog Section in Home page',
       type: 'object',
       fields: [
         defineField({

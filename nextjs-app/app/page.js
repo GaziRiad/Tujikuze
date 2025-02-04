@@ -34,7 +34,7 @@ async function Page() {
         className="mb-28 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[620px] 2xl:h-[920px]"
       />
       <MaterialsSection data={data.materialsAndCraftsmanshipSection} />
-      <CaseStudiesSection />
+      <CaseStudiesSection data={data.casesSection} />
       <BlogSection data={data.blogSection} />
       <Footer />
     </>

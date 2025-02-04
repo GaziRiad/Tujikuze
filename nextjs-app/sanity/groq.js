@@ -51,6 +51,26 @@ export const homequery = groq`*[_type == "home"][0]{
       },
     }
   },
+  casesSection {
+    sectionHeading {
+      title,
+      link {
+        label,
+        linkUrl
+      }
+    },
+    caseStudies[]-> {
+      title,
+      slug,
+      description,
+      summary,
+      publishedAt,
+      mainImage {
+        "imageUrl": image.asset->url,
+        alt
+      },
+    }
+  },
   blogSection {
     sectionHeading {
       title,
