@@ -1,90 +1,87 @@
 "use client";
 
-import React from "react";
-
-import img1 from "../public/images/visuals.png";
-import img2 from "../public/images/visuals2.png";
+import React, { useState, useEffect } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 
-const categories = [
-  "All",
-  "Arts & Culture",
-  "Design",
-  "Fashion",
-  "Films",
-  "Interiors",
-  "Travel",
-];
+export default function Filters({ dates, categories }) {
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
-const dates = ["2019", "2020", "2021", "2022", "2023", "2024", "2025"];
+  const category = searchParams.get("category") || "all";
+  const date = searchParams.get("date") || "all"; // For dates
+  const [selectedCategory, setSelectedCategory] = useState(category);
+  const [selectedDates, setSelectedDates] = useState(date);
 
-const ARTICLES = [
-  {
-    img: img1,
-    categories: ["Fashion", "Sustainability"],
-    title: "Looming Legacies: The Art and Science of Handweaving",
-    description:
-      "Unraveling the connection between tradition, design, and craftsmanship.",
-  },
-  {
-    img: img2,
-    categories: ["Fashion", "Sustainability"],
-    title: "Looming Legacies: The Art and Science of Handweaving",
-    description:
-      "Unraveling the connection between tradition, design, and craftsmanship.",
-  },
-  {
-    img: img2,
-    categories: ["Fashion", "Sustainability"],
-    title: "Looming Legacies: The Art and Science of Handweaving",
-    description:
-      "Unraveling the connection between tradition, design, and craftsmanship.",
-  },
-  {
-    img: img2,
-    categories: ["Fashion", "Sustainability"],
-    title: "Looming Legacies: The Art and Science of Handweaving",
-    description:
-      "Unraveling the connection between tradition, design, and craftsmanship.",
-  },
-  {
-    img: img2,
-    categories: ["Fashion", "Sustainability"],
-    title: "Looming Legacies: The Art and Science of Handweaving",
-    description:
-      "Unraveling the connection between tradition, design, and craftsmanship.",
-  },
-  {
-    img: img1,
-    categories: ["Fashion", "Sustainability"],
-    title: "Looming Legacies: The Art and Science of Handweaving",
-    description:
-      "Unraveling the connection between tradition, design, and craftsmanship.",
-  },
-];
+  useEffect(() => {
+    setSelectedCategory(category);
+    setSelectedDates(date);
+  }, [category, date]);
 
-export default function Filters() {
+  const handleCategoryChange = (value) => {
+    setSelectedCategory(value);
+    const params = new URLSearchParams(searchParams);
+    if (value === "all") {
+      params.delete("category");
+    } else {
+      params.set("category", value);
+    }
+    // Reset date filter
+    params.delete("date");
+    router.push(`/ressources?${params.toString()}`, { scroll: false });
+  };
+
+  const handleDateChange = (value) => {
+    setSelectedDates(value);
+    const params = new URLSearchParams(searchParams);
+    if (value === "all") {
+      params.delete("date");
+    } else {
+      params.set("date", value);
+    }
+    // Reset category filter
+    params.delete("category");
+    router.push(`/ressources?${params.toString()}`, { scroll: false });
+  };
+
   return (
     <div className="mx-auto mb-8 mt-28 max-w-[1720px] px-4 lg:mb-24 lg:mt-36">
-      <ul className="mb-3 hidden items-center justify-end gap-1 border-b border-[#1A1A1A]/20 pb-3 font-secondary text-sm uppercase lg:flex">
-        {categories.map((category, index) => (
-          <li key={index} className="inline">
-            <Link href="/">{category}</Link>
-            {index < categories.length - 1 && <span>, </span>}
-          </li>
+      <ul className="mb-3 flex items-center justify-end gap-1 border-b border-[#1A1A1A]/20 pb-3 font-secondary text-sm uppercase">
+        <li
+          onClick={() => handleCategoryChange("all")}
+          className="cursor-pointer"
+        >
+          All Categories,
+        </li>
+        {categories?.map((category, index) => (
+          <React.Fragment key={category.slug.current}>
+            <li
+              onClick={() => handleCategoryChange(category.slug.current)}
+              className="cursor-pointer"
+            >
+              {category.title}
+            </li>
+            {index < categories.length - 1 && <span>,</span>}
+          </React.Fragment>
         ))}
       </ul>
-      <ul className="mb-24 hidden items-center justify-end gap-1 border-b border-[#1A1A1A]/20 pb-3 font-secondary text-sm uppercase lg:flex">
-        {dates.map((date, index) => (
-          <li key={index} className="inline">
-            <Link href="/">{date}</Link>
-            {index < categories.length - 1 && <span>, </span>}
-          </li>
+      {/* Date Filters */}
+      <ul className="mb-3 mt-4 flex items-center justify-end gap-1 border-b border-[#1A1A1A]/20 pb-3 font-secondary text-sm uppercase">
+        <li onClick={() => handleDateChange("all")} className="cursor-pointer">
+          All Dates,
+        </li>
+        {dates?.map((year, index) => (
+          <React.Fragment key={year}>
+            <li
+              onClick={() => handleDateChange(year)}
+              className="cursor-pointer"
+            >
+              {year}
+            </li>
+            {index < dates.length - 1 && <span>,</span>}
+          </React.Fragment>
         ))}
       </ul>
-      <p className="list-none border-b border-[#1A1A1A]/20 pb-3 font-secondary text-sm uppercase lg:hidden">
-        Filters
-      </p>
     </div>
   );
 }

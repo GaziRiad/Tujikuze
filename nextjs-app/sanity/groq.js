@@ -212,6 +212,35 @@ export const ourofferquery = groq`*[_type == "our-offer"][0] {
   }
 }`;
 
+export const allressourcesquery = groq`
+{
+  "posts": *[_type == "post" && 
+    (!defined($category) || $category in categories[]->slug.current) && 
+    (!defined($date) || string::split(publishedAt, "-")[0] == $date)
+  ] | order(publishedAt desc) {
+    title,
+    slug,
+    mainImage {
+      "imageUrl": image.asset->url,
+      alt
+    },
+    categories[]-> {
+      title,
+      slug
+    },
+    summary,
+    publishedAt
+  },
+  "dates": array::unique(*[_type == "post"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
+}
+`;
+
+export const allCategories = groq`*[_type == "category"]   {
+        title,
+        slug,
+    }
+      `;
+
 // Reusable sections
 
 export const footerquery = groq`*[_type == "footer"][0]{

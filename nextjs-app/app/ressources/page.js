@@ -1,8 +1,6 @@
 import Link from "next/link";
 import React from "react";
 
-import img1 from "../../public/images/visuals.png";
-import img2 from "../../public/images/visuals2.png";
 import mainImg from "../../public/images/gradient-impact.png";
 
 import Image from "next/image";
@@ -10,88 +8,53 @@ import Footer from "@/components/Footer";
 import { GoArrowRight } from "react-icons/go";
 import SectionHeading from "@/components/SectionHeading";
 import Filters from "@/components/Filters";
+import { sanityFetch } from "@/sanity/client";
+import { allCategories, allressourcesquery } from "@/sanity/groq";
 
-const categories = [
-  "All",
-  "Arts & Culture",
-  "Design",
-  "Fashion",
-  "Films",
-  "Interiors",
-  "Travel",
-];
+export default async function page({ searchParams }) {
+  const category = searchParams?.category || null;
+  const date = searchParams?.date || null;
 
-const dates = ["2019", "2020", "2021", "2022", "2023", "2024", "2025"];
+  const data = await sanityFetch({
+    query: allressourcesquery,
+    tags: ["ressources"],
+    qParams: { category, date },
+  });
 
-const ARTICLES = [
-  {
-    img: img1,
-    categories: ["Fashion", "Sustainability"],
-    title: "Looming Legacies: The Art and Science of Handweaving",
-    description:
-      "Unraveling the connection between tradition, design, and craftsmanship.",
-  },
-  {
-    img: img2,
-    categories: ["Fashion", "Sustainability"],
-    title: "Looming Legacies: The Art and Science of Handweaving",
-    description:
-      "Unraveling the connection between tradition, design, and craftsmanship.",
-  },
-  {
-    img: img2,
-    categories: ["Fashion", "Sustainability"],
-    title: "Looming Legacies: The Art and Science of Handweaving",
-    description:
-      "Unraveling the connection between tradition, design, and craftsmanship.",
-  },
-  {
-    img: img2,
-    categories: ["Fashion", "Sustainability"],
-    title: "Looming Legacies: The Art and Science of Handweaving",
-    description:
-      "Unraveling the connection between tradition, design, and craftsmanship.",
-  },
-  {
-    img: img2,
-    categories: ["Fashion", "Sustainability"],
-    title: "Looming Legacies: The Art and Science of Handweaving",
-    description:
-      "Unraveling the connection between tradition, design, and craftsmanship.",
-  },
-  {
-    img: img1,
-    categories: ["Fashion", "Sustainability"],
-    title: "Looming Legacies: The Art and Science of Handweaving",
-    description:
-      "Unraveling the connection between tradition, design, and craftsmanship.",
-  },
-];
+  const categories = await sanityFetch({
+    query: allCategories,
+    tags: ["categories", "ressources"],
+  });
 
-export default function page() {
+  if (!data) return null;
+
   return (
     <>
-      <Filters />
+      <Filters dates={data?.dates} categories={categories} />
       <section className="mx-auto mb-14 max-w-[1720px] px-4 lg:mb-48">
         <ul className="grid grid-cols-1 gap-x-3 gap-y-4 divide-y divide-dark-600/20 text-dark-600 lg:grid-cols-2 lg:gap-y-24 lg:divide-y-0 xl:grid-cols-3">
-          {ARTICLES.map((post, index) => (
+          {data?.posts?.map((post, index) => (
             <li
               key={index}
               className="flex items-start gap-4 pt-4 lg:flex-col lg:pt-0"
             >
               <Image
-                src={post.img}
-                className="lg::h-[870px] w-1/2 object-cover lg:mb-3 lg:w-full"
+                width={1200}
+                height={1200}
+                src={post.mainImage.imageUrl}
+                alt={post.mainImage.alt}
+                className="h-[180px] w-1/2 object-cover lg:mb-3 lg:h-[870px] lg:w-full"
               />
               <div>
                 <ul className="mb-4 flex items-center gap-3 lg:mb-3">
-                  <li>TAG 1</li>
-                  <li>TAG 2</li>
+                  {post.categories?.map((category, index) => (
+                    <li key={index}>{category.title}</li>
+                  ))}
                 </ul>
                 <p className="mb-4 max-w-96 text-lg lg:mb-3 lg:text-2xl">
                   {post.title}
                 </p>
-                <p className="text-sm lg:text-lg">{post.description}</p>
+                <p className="text-sm lg:text-lg">{post.summary}</p>
               </div>
             </li>
           ))}
