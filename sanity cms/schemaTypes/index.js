@@ -8,6 +8,7 @@ import about from './about'
 import ourOffer from './our-offer'
 import caseStudy from './case-study'
 import ressources from './ressources'
+import settings from './settings'
 
 export const schemaTypes = [
   home,
@@ -20,4 +21,5 @@ export const schemaTypes = [
   caseStudy,
   category,
   blockContent,
+  settings,
 ]

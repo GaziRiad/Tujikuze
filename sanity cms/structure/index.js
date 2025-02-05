@@ -1,10 +1,15 @@
-import {DocumentIcon, ListIcon} from '@sanity/icons'
+import {CogIcon, DocumentIcon, ListIcon} from '@sanity/icons'
 
 export const structure = (S) =>
   S.list()
     .id('root')
     .title('Content')
     .items([
+      S.listItem()
+        .title('Settings')
+        .id('settings')
+        .child(S.document().schemaType('settings').documentId('settings'))
+        .icon(CogIcon),
       S.listItem()
         .title('Home')
         .id('home')

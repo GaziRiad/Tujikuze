@@ -354,58 +354,23 @@ export const ressourcespagequery = groq`*[_type == "ressourcesPage"][0] {
   },
 }`;
 
-export const allressourcesquery = groq`
-{
-  "posts": *[_type == "post" && 
-    (!defined($category) || $category in categories[]->slug.current) && 
-    (!defined($date) || string::split(publishedAt, "-")[0] == $date)
-  ] | order(publishedAt desc) {
-    title,
-    slug,
-    mainImage {
-      "imageUrl": image.asset->url,
+export const settingsquery = groq`*[_type == "settings"][0] {
+  "imageUrl": favicon.asset->url,
+  defaultTitle,
+  siteDescription,
+  navigation {
+    logo {
+      "url": asset->url,
       alt
     },
-    categories[]-> {
-      title,
-      slug
-    },
-    summary,
-    publishedAt
-  },
-  "dates": array::unique(*[_type == "post"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
-}
-`;
-
-export const allcasestudiesquery = groq`
-{
-  "posts": *[_type == "case-study" && 
-    (!defined($category) || $category in categories[]->slug.current) && 
-    (!defined($date) || string::split(publishedAt, "-")[0] == $date)
-  ] | order(publishedAt desc) {
-    title,
-    slug,
-    description,
-    mainImage {
-      "imageUrl": image.asset->url,
-      alt
-    },
-    categories[]-> {
-      title,
-      slug
-    },
-    summary,
-    publishedAt
-  },
-  "dates": array::unique(*[_type == "case-study"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
-}
-`;
-
-export const allCategories = groq`*[_type == "category"]   {
-        title,
-        slug,
+    navItems[] {
+      link {
+        label,
+        linkUrl
+      }
     }
-      `;
+  }
+}`;
 
 // Reusable sections
 
@@ -458,102 +423,56 @@ export const footerquery = groq`*[_type == "footer"][0]{
     }
 }`;
 
-// Single Post
-export const singlearticlequery = groq`*[_type == "post" && slug.current == $slug][0] {
-        title,
-        slug,
-        publishedAt,
-        categories[]-> {
-          "title": coalesce(title[_key == $locale][0].value, title[_key == "en"][0].value),
-        },
-        body,
-        "_translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
-          title,
-          slug,
-          language
-        },
-      }
+// Mostly for SSG & sitemap
+export const allressourcesquery = groq`
+{
+  "posts": *[_type == "post" && 
+    (!defined($category) || $category in categories[]->slug.current) && 
+    (!defined($date) || string::split(publishedAt, "-")[0] == $date)
+  ] | order(publishedAt desc) {
+    title,
+    slug,
+    mainImage {
+      "imageUrl": image.asset->url,
+      alt
+    },
+    categories[]-> {
+      title,
+      slug
+    },
+    summary,
+    publishedAt
+  },
+  "dates": array::unique(*[_type == "post"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
+}
 `;
 
-// Single Post
-export const singleCasestudyQuery = groq`*[_type == "case-study" && slug.current == $slug][0] {
-        title,
-        slug,
-        publishedAt,
-        categories[]-> {
-          "title": coalesce(title[_key == $locale][0].value, title[_key == "en"][0].value),
-        },
-        body,
-        "_translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
-          title,
-          slug,
-          language
-        },
-      }
+export const allcasestudiesquery = groq`
+{
+  "posts": *[_type == "case-study" && 
+    (!defined($category) || $category in categories[]->slug.current) && 
+    (!defined($date) || string::split(publishedAt, "-")[0] == $date)
+  ] | order(publishedAt desc) {
+    title,
+    slug,
+    description,
+    mainImage {
+      "imageUrl": image.asset->url,
+      alt
+    },
+    categories[]-> {
+      title,
+      slug
+    },
+    summary,
+    publishedAt
+  },
+  "dates": array::unique(*[_type == "case-study"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
+}
 `;
 
-export const settingsQuery = groq`*[_type == "settings"][0] {
-  "imageUrl": favicon.asset->url,
-  "defaultTitle": coalesce(defaultTitle[_key == $locale][0].value, defaultTitle[_key == "en"][0].value),
-  "description": coalesce(siteDescription[_key == $locale][0].value, siteDescription[_key == "en"][0].value),
-}`;
-
-export const navigationQuery = groq`*[_type == "settings"][0] {
-  navigation {
-    "imageUrl": logo.asset->url,
-    "buttonText": coalesce(buttonText[_key == $locale][0].value, buttonText[_key == "en"][0].value),
-    "navExpertises": *[_type == "expertise" && isNavigation == true && language == $locale] | order(publishedAt asc) {
-      title,
-      "slug": slug.current,
-    },
-    "navSectors": *[_type == "sector" && isNavigation == true && language == $locale] | order(publishedAt asc) {
-      title,
-      "slug": slug.current
-    },
-    expertisesLink {
-      "title": coalesce(title[_key == $locale][0].value, title[_key == "en"][0].value),
-      "dropdownTitle": coalesce(dropdownTitle[_key == $locale][0].value, dropdownTitle[_key == "en"][0].value),
-      "imageUrl": dropdownImage.asset->url
-    },
-    sectorsLink {
-      "title": coalesce(title[_key == $locale][0].value, title[_key == "en"][0].value),
-      "dropdownTitle": coalesce(dropdownTitle[_key == $locale][0].value, dropdownTitle[_key == "en"][0].value),
-    },
-    "boostersLink": coalesce(boostersLink[_key == $locale][0].value, boostersLink[_key == "en"][0].value),
-    "aboutLink": coalesce(aboutLink[_key == $locale][0].value, aboutLink[_key == "en"][0].value)
-  }
-}`;
-
-// ALL routes (mostly for sitemap and SSG)
-
-export const allPostsQuery = groq`
-    *[_type == "post"] {
-      "slug": slug.current,
-      _updatedAt,
-      language,
+export const allCategories = groq`*[_type == "category"]   {
+        title,
+        slug,
     }
-  `;
-
-export const allCasestudiesquery = groq`
-    *[_type == "case-study"] {
-      "slug": slug.current,
-      _updatedAt,
-      language,
-    }
-  `;
-
-export const allExpertisesQuery = groq`
-    *[_type == "expertise"] {
-      "slug": slug.current,
-      _updatedAt,
-      language,
-    }
-  `;
-
-export const allSectorsQuery = groq`
-    *[_type == "sector"] {
-      "slug": slug.current,
-      _updatedAt,
-      language,
-    }
-  `;
+      `;

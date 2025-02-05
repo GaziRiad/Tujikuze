@@ -1,6 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
+import { sanityFetch } from "@/sanity/client";
+import { settingsquery } from "@/sanity/groq";
 
 export const arizonaFlare = localFont({
   src: [
@@ -24,10 +26,29 @@ export const standard = localFont({
   variable: "--font-standard",
 });
 
-export const metadata = {
-  title: "Tujikuze",
-  description: "Website for Tujikuze",
-};
+// Dynamic metadata
+export async function generateMetadata({ params: { locale } }) {
+  const data = await sanityFetch({
+    query: settingsquery,
+    tags: ["settings"],
+  });
+
+  console.log(data);
+
+  return {
+    title: {
+      default: data?.defaultTitle || "Welcome — Tijukuze",
+    },
+    description: data?.description || "Here we cook fashion",
+    icons: {
+      icon: [data?.imageUrl || "/favicon.png"],
+    },
+    robots:
+      process.env.NEXT_PUBLIC_ENV === "production"
+        ? { index: true, follow: true }
+        : { index: false, follow: false },
+  };
+}
 
 export default function RootLayout({ children }) {
   return (
