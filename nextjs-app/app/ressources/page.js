@@ -1,22 +1,18 @@
-import Link from "next/link";
 import React from "react";
-
-import mainImg from "../../public/images/gradient-impact.png";
 
 import Image from "next/image";
 import Footer from "@/components/Footer";
-import { GoArrowRight } from "react-icons/go";
-import SectionHeading from "@/components/SectionHeading";
 import Filters from "@/components/Filters";
 import { sanityFetch } from "@/sanity/client";
-import { allCategories, allressourcesquery } from "@/sanity/groq";
+import { allCategories, ressourcespagequery } from "@/sanity/groq";
+import CaseStudiesSection from "@/components/home/CaseStudiesSection";
 
 export default async function page({ searchParams }) {
   const category = searchParams?.category || null;
   const date = searchParams?.date || null;
 
   const data = await sanityFetch({
-    query: allressourcesquery,
+    query: ressourcespagequery,
     tags: ["ressources"],
     qParams: { category, date },
   });
@@ -60,39 +56,8 @@ export default async function page({ searchParams }) {
           ))}
         </ul>
       </section>
-      {/*  */}
-      <section>
-        <SectionHeading title="Discover our Work" href="/" />
-        {/* similar to ListItem */}
-        <div className="mx-auto mb-8 grid max-w-[1720px] grid-cols-[25fr_75fr] items-start justify-between gap-5 px-4 pb-7 pt-7 lg:mb-24 lg:gap-0">
-          <Image
-            src={mainImg}
-            alt="Our offer"
-            className="h-[138px] w-[94px] object-cover lg:h-[300px] lg:w-[225px]"
-          />
-          <div className="flex items-start justify-between">
-            <div className="flex max-w-[580px] flex-col text-4xl">
-              <p className="text-xl lg:text-4xl">OUR OFFER</p>
-              <p className="mb-4 text-lg lg:mb-7 lg:text-4xl">
-                Supporting Communities. Driving Sustainability.
-              </p>
-              <div className="group">
-                <Link
-                  href="/"
-                  className="mb-5 flex w-fit items-center gap-1 font-secondary text-sm text-[#1A1A1A] transition-all hover:text-[#726f66]"
-                >
-                  <span>LEARN MORE</span>
-                  <GoArrowRight />
-                </Link>
-                <p className="hidden max-w-md text-lg text-[#726F66] opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100 lg:block">
-                  Our case studies illustrate the transformative impact of
-                  bespoke collaborations on local artisans.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CaseStudiesSection data={data.casesSection} />
+
       <Footer />
     </>
   );

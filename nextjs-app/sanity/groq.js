@@ -133,7 +133,27 @@ export const impactquery = groq`*[_type == "our-impact"][0]{
       "url": asset->url,
       alt
     },
-  }
+  },
+  casesSection {
+    sectionHeading {
+      title,
+      link {
+        label,
+        linkUrl
+      }
+    },
+    caseStudies[]-> {
+      title,
+      slug,
+      description,
+      summary,
+      publishedAt,
+      mainImage {
+        "imageUrl": image.asset->url,
+        alt
+      },
+    }
+  },
 }
 `;
 
@@ -181,7 +201,27 @@ export const aboutquery = groq`*[_type == "about"][0]{
       "url": image.asset->url,
       alt
     },
-  }
+  },
+  casesSection {
+    sectionHeading {
+      title,
+      link {
+        label,
+        linkUrl
+      }
+    },
+    caseStudies[]-> {
+      title,
+      slug,
+      description,
+      summary,
+      publishedAt,
+      mainImage {
+        "imageUrl": image.asset->url,
+        alt
+      },
+    }
+  },
 }
 `;
 
@@ -250,7 +290,68 @@ export const ourofferquery = groq`*[_type == "our-offer"][0] {
       title,
       text
     }
-  }
+  },
+  casesSection {
+    sectionHeading {
+      title,
+      link {
+        label,
+        linkUrl
+      }
+    },
+    caseStudies[]-> {
+      title,
+      slug,
+      description,
+      summary,
+      publishedAt,
+      mainImage {
+        "imageUrl": image.asset->url,
+        alt
+      },
+    }
+  },
+}`;
+
+export const ressourcespagequery = groq`*[_type == "ressourcesPage"][0] {
+  "posts": *[_type == "post" && 
+    (!defined($category) || $category in categories[]->slug.current) && 
+    (!defined($date) || string::split(publishedAt, "-")[0] == $date)
+  ] | order(publishedAt desc) {
+    title,
+    slug,
+    mainImage {
+      "imageUrl": image.asset->url,
+      alt
+    },
+    categories[]-> {
+      title,
+      slug
+    },
+    summary,
+    publishedAt
+  },
+  "dates": array::unique(*[_type == "post"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
+  casesSection {
+    sectionHeading {
+      title,
+      link {
+        label,
+        linkUrl
+      }
+    },
+    caseStudies[]-> {
+      title,
+      slug,
+      description,
+      summary,
+      publishedAt,
+      mainImage {
+        "imageUrl": image.asset->url,
+        alt
+      },
+    }
+  },
 }`;
 
 export const allressourcesquery = groq`

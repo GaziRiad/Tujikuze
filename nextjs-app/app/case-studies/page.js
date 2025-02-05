@@ -1,44 +1,10 @@
 import React from "react";
 
-import material1 from "../../public/images/cotton.png";
 import ListItem from "@/components/ListItem";
 import Footer from "@/components/Footer";
 import Filters from "@/components/Filters";
 import { sanityFetch } from "@/sanity/client";
 import { allcasestudiesquery, allCategories } from "@/sanity/groq";
-
-const CASES = [
-  {
-    title: "THE CONAD ORDER",
-    description: "Crafting Products. Empowering Artisans.",
-    meta: "2024, Conad Order",
-    img: material1,
-  },
-  {
-    title: "THE CONAD ORDER",
-    description: "Crafting Products. Empowering Artisans.",
-    meta: "2024, Conad Order",
-    img: material1,
-  },
-  {
-    title: "THE CONAD ORDER",
-    description: "Crafting Products. Empowering Artisans.",
-    meta: "2024, Conad Order",
-    img: material1,
-  },
-  {
-    title: "THE CONAD ORDER",
-    description: "Crafting Products. Empowering Artisans.",
-    meta: "2024, Conad Order",
-    img: material1,
-  },
-  {
-    title: "THE CONAD ORDER",
-    description: "Crafting Products. Empowering Artisans.",
-    meta: "2024, Conad Order",
-    img: material1,
-  },
-];
 
 export default async function Page({ searchParams }) {
   const category = searchParams?.category || null;

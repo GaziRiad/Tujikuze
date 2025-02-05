@@ -1,5 +1,4 @@
 import Hero from "@/components/home/Hero";
-import img1 from "../public/images/visuals.png";
 import DoubleBlocksSection from "@/components/home/DoubleBlocksSection";
 import Image from "next/image";
 import MaterialsSection from "@/components/home/MaterialsSection";
@@ -23,9 +22,6 @@ async function Page() {
       {data.blockSections.map((section, index) => (
         <DoubleBlocksSection key={index} data={section} />
       ))}
-
-      <DoubleBlocksSection image={img1} title="OUR IMPACT" />
-
       <Image
         width={1600}
         height={1600}

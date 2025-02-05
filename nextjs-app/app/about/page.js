@@ -1,9 +1,9 @@
 import EthicalFashion from "@/components/about/EthicalFashion";
 import OurLocations from "@/components/about/OurLocations";
 import OurMission from "@/components/about/OurMission";
-import OurOffer from "@/components/about/OurOffer";
 import OurTeam from "@/components/about/OurTeam";
 import Footer from "@/components/Footer";
+import CaseStudiesSection from "@/components/home/CaseStudiesSection";
 import { sanityFetch } from "@/sanity/client";
 import { aboutquery } from "@/sanity/groq";
 import React from "react";
@@ -24,8 +24,7 @@ export default async function page() {
       <OurLocations data={data.locationSection} />
       <OurTeam data={data.teamSection} />
       <EthicalFashion data={data.ethicalFashionSection} />
-      {/* same as ListItem */}
-      <OurOffer />
+      <CaseStudiesSection data={data.casesSection} />
 
       <Footer />
     </>

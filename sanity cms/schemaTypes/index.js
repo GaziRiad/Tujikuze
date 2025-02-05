@@ -7,12 +7,14 @@ import ourImpact from './our-impact'
 import about from './about'
 import ourOffer from './our-offer'
 import caseStudy from './case-study'
+import ressources from './ressources'
 
 export const schemaTypes = [
   home,
   ourImpact,
   about,
   ourOffer,
+  ressources,
   footer,
   post,
   caseStudy,

@@ -21,6 +21,10 @@ export const structure = (S) =>
         .title('Our Offer')
         .id('our-offer')
         .child(S.document().schemaType('our-offer').documentId('our-offer')),
+      S.listItem()
+        .title('Ressources Page')
+        .id('ressourcesPage')
+        .child(S.document().schemaType('ressourcesPage').documentId('ressourcesPage')),
       S.divider(),
 
       S.listItem()
