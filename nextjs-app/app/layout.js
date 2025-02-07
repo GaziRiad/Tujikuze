@@ -27,13 +27,11 @@ export const standard = localFont({
 });
 
 // Dynamic metadata
-export async function generateMetadata({ params: { locale } }) {
+export async function generateMetadata() {
   const data = await sanityFetch({
     query: settingsquery,
     tags: ["settings"],
   });
-
-  console.log(data);
 
   return {
     title: {

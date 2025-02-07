@@ -354,6 +354,33 @@ export const ressourcespagequery = groq`*[_type == "ressourcesPage"][0] {
   },
 }`;
 
+export const casestudiespagequery = groq`*[_type == "case-studies-page"][0] {
+  text,
+  "posts": *[_type == "case-study" && 
+    (!defined($category) || $category in categories[]->slug.current) && 
+    (!defined($date) || string::split(publishedAt, "-")[0] == $date)
+  ] | order(publishedAt desc) {
+    title,
+    slug,
+    description,
+    mainImage {
+      "imageUrl": image.asset->url,
+      alt
+    },
+    categories[]-> {
+      title,
+      slug
+    },
+    summary,
+    publishedAt
+  },
+  "dates": array::unique(*[_type == "case-study"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
+  seo {
+    title,
+    description
+  }
+}`;
+
 export const settingsquery = groq`*[_type == "settings"][0] {
   "imageUrl": favicon.asset->url,
   defaultTitle,
@@ -424,52 +451,52 @@ export const footerquery = groq`*[_type == "footer"][0]{
 }`;
 
 // Mostly for SSG & sitemap
-export const allressourcesquery = groq`
-{
-  "posts": *[_type == "post" && 
-    (!defined($category) || $category in categories[]->slug.current) && 
-    (!defined($date) || string::split(publishedAt, "-")[0] == $date)
-  ] | order(publishedAt desc) {
-    title,
-    slug,
-    mainImage {
-      "imageUrl": image.asset->url,
-      alt
-    },
-    categories[]-> {
-      title,
-      slug
-    },
-    summary,
-    publishedAt
-  },
-  "dates": array::unique(*[_type == "post"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
-}
-`;
+// export const allressourcesquery = groq`
+// {
+//   "posts": *[_type == "post" &&
+//     (!defined($category) || $category in categories[]->slug.current) &&
+//     (!defined($date) || string::split(publishedAt, "-")[0] == $date)
+//   ] | order(publishedAt desc) {
+//     title,
+//     slug,
+//     mainImage {
+//       "imageUrl": image.asset->url,
+//       alt
+//     },
+//     categories[]-> {
+//       title,
+//       slug
+//     },
+//     summary,
+//     publishedAt
+//   },
+//   "dates": array::unique(*[_type == "post"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
+// }
+// `;
 
-export const allcasestudiesquery = groq`
-{
-  "posts": *[_type == "case-study" && 
-    (!defined($category) || $category in categories[]->slug.current) && 
-    (!defined($date) || string::split(publishedAt, "-")[0] == $date)
-  ] | order(publishedAt desc) {
-    title,
-    slug,
-    description,
-    mainImage {
-      "imageUrl": image.asset->url,
-      alt
-    },
-    categories[]-> {
-      title,
-      slug
-    },
-    summary,
-    publishedAt
-  },
-  "dates": array::unique(*[_type == "case-study"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
-}
-`;
+// export const allcasestudiesquery = groq`
+// {
+//   "posts": *[_type == "case-study" &&
+//     (!defined($category) || $category in categories[]->slug.current) &&
+//     (!defined($date) || string::split(publishedAt, "-")[0] == $date)
+//   ] | order(publishedAt desc) {
+//     title,
+//     slug,
+//     description,
+//     mainImage {
+//       "imageUrl": image.asset->url,
+//       alt
+//     },
+//     categories[]-> {
+//       title,
+//       slug
+//     },
+//     summary,
+//     publishedAt
+//   },
+//   "dates": array::unique(*[_type == "case-study"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
+// }
+// `;
 
 export const allCategories = groq`*[_type == "category"]   {
         title,

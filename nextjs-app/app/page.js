@@ -7,6 +7,27 @@ import BlogSection from "@/components/home/BlogSection";
 import Footer from "@/components/Footer";
 import { sanityFetch } from "@/sanity/client";
 import { homequery } from "@/sanity/groq";
+import { groq } from "next-sanity";
+
+// Dynamic metadata
+export async function generateMetadata() {
+  const data = await sanityFetch({
+    query: groq`*[_type == "home"][0]{
+      seo {
+        title,
+        description
+      }
+    }`,
+    tags: ["home"],
+  });
+
+  return {
+    title: data?.seo?.title || "Tujikuze | Home",
+    description: data?.seo?.description || "Tujikuze | Home",
+  };
+}
+
+export const revalidate = 2592000; // 30 days in seconds
 
 async function Page() {
   const data = await sanityFetch({

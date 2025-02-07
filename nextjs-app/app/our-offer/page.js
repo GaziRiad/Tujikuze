@@ -8,6 +8,27 @@ import TermsOfTrade from "@/components/our-offer/TermsOfTrade";
 import { sanityFetch } from "@/sanity/client";
 import { ourofferquery } from "@/sanity/groq";
 import CaseStudiesSection from "@/components/home/CaseStudiesSection";
+import { groq } from "next-sanity";
+
+// Dynamic metadata
+export async function generateMetadata() {
+  const data = await sanityFetch({
+    query: groq`*[_type == "our-offer"][0]{
+      seo {
+        title,
+        description
+      }
+    }`,
+    tags: ["our-offer"],
+  });
+
+  return {
+    title: data?.seo?.title || "Tujikuze | Our Offer",
+    description: data?.seo?.description || "Tujikuze | Our Offer",
+  };
+}
+
+export const revalidate = 2592000; // 30 days in seconds
 
 export default async function page() {
   const data = await sanityFetch({

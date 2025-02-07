@@ -6,6 +6,27 @@ import Filters from "@/components/Filters";
 import { sanityFetch } from "@/sanity/client";
 import { allCategories, ressourcespagequery } from "@/sanity/groq";
 import CaseStudiesSection from "@/components/home/CaseStudiesSection";
+import { groq } from "next-sanity";
+
+// Dynamic metadata
+export async function generateMetadata() {
+  const data = await sanityFetch({
+    query: groq`*[_type == "ressourcesPage"][0]{
+      seo {
+        title,
+        description
+      }
+    }`,
+    tags: ["ressources"],
+  });
+
+  return {
+    title: data?.seo?.title || "Tujikuze | Ressources",
+    description: data?.seo?.description || "Tujikuze | Ressources",
+  };
+}
+
+export const revalidate = 2592000; // 30 days in seconds
 
 export default async function page({ searchParams }) {
   const category = searchParams?.category || null;

@@ -6,7 +6,28 @@ import Footer from "@/components/Footer";
 import CaseStudiesSection from "@/components/home/CaseStudiesSection";
 import { sanityFetch } from "@/sanity/client";
 import { aboutquery } from "@/sanity/groq";
+import { groq } from "next-sanity";
 import React from "react";
+
+// Dynamic metadata
+export async function generateMetadata() {
+  const data = await sanityFetch({
+    query: groq`*[_type == "about"][0]{
+      seo {
+        title,
+        description
+      }
+    }`,
+    tags: ["about-us"],
+  });
+
+  return {
+    title: data?.seo?.title || "Tujikuze | About us",
+    description: data?.seo?.description || "Tujikuze | About us",
+  };
+}
+
+export const revalidate = 2592000; // 30 days in seconds
 
 export default async function page() {
   const data = await sanityFetch({
