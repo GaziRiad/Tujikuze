@@ -4,7 +4,7 @@ import ListItem from "@/components/ListItem";
 import Footer from "@/components/Footer";
 import Filters from "@/components/Filters";
 import { sanityFetch } from "@/sanity/client";
-import { allCategories, casestudiespagequery } from "@/sanity/groq";
+import { casestudiespagequery } from "@/sanity/groq";
 import { groq } from "next-sanity";
 
 // Dynamic metadata
@@ -37,11 +37,6 @@ export default async function Page({ searchParams }) {
     qParams: { category, date },
   });
 
-  const categories = await sanityFetch({
-    query: allCategories,
-    tags: ["categories", "case-studies"],
-  });
-
   if (!data) return null;
 
   return (
@@ -51,7 +46,7 @@ export default async function Page({ searchParams }) {
       </section>
       <Filters
         dates={data?.dates}
-        categories={categories}
+        categories={data.categories}
         page="case-studies"
       />
 

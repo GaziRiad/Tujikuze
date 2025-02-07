@@ -4,7 +4,7 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import Filters from "@/components/Filters";
 import { sanityFetch } from "@/sanity/client";
-import { allCategories, ressourcespagequery } from "@/sanity/groq";
+import { ressourcespagequery } from "@/sanity/groq";
 import CaseStudiesSection from "@/components/home/CaseStudiesSection";
 import { groq } from "next-sanity";
 
@@ -38,16 +38,11 @@ export default async function page({ searchParams }) {
     qParams: { category, date },
   });
 
-  const categories = await sanityFetch({
-    query: allCategories,
-    tags: ["categories", "ressources"],
-  });
-
   if (!data) return null;
 
   return (
     <>
-      <Filters dates={data?.dates} categories={categories} />
+      <Filters dates={data?.dates} categories={data?.categories} />
       <section className="mx-auto mb-14 max-w-[1720px] px-4 lg:mb-48">
         <ul className="grid grid-cols-1 gap-x-3 gap-y-4 divide-y divide-dark-600/20 text-dark-600 lg:grid-cols-2 lg:gap-y-24 lg:divide-y-0 xl:grid-cols-3">
           {data?.posts?.map((post, index) => (

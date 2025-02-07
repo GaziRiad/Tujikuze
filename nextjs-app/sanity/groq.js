@@ -332,6 +332,10 @@ export const ressourcespagequery = groq`*[_type == "ressourcesPage"][0] {
     publishedAt
   },
   "dates": array::unique(*[_type == "post"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
+  "categories": *[_type == "category" && slug.current in array::unique(*[_type == "post"].categories[]->slug.current)]{
+    title,
+    slug
+  },
   casesSection {
     sectionHeading {
       title,
@@ -375,6 +379,10 @@ export const casestudiespagequery = groq`*[_type == "case-studies-page"][0] {
     publishedAt
   },
   "dates": array::unique(*[_type == "case-study"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
+  "categories": *[_type == "category" && slug.current in array::unique(*[_type == "case-study"].categories[]->slug.current)]{
+    title,
+    slug
+  },
   seo {
     title,
     description
@@ -498,8 +506,8 @@ export const footerquery = groq`*[_type == "footer"][0]{
 // }
 // `;
 
-export const allCategories = groq`*[_type == "category"]   {
-        title,
-        slug,
-    }
-      `;
+// export const allCategories = groq`*[_type == "category"]   {
+//         title,
+//         slug,
+//     }
+//       `;
