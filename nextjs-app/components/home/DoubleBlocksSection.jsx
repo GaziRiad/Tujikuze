@@ -11,16 +11,16 @@ function DoubleBlocksSection({ data }) {
   if (!data) return null;
 
   return (
-    <section
-      className="mx-auto mb-28 flex max-w-[1460px] flex-col items-center justify-between gap-9 px-4 lg:mb-48 lg:flex-row lg:items-start lg:gap-52"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <section className="mx-auto mb-28 flex max-w-[1460px] flex-col items-center justify-between gap-9 px-4 lg:mb-48 lg:flex-row lg:items-start lg:gap-52">
       {/* Text Section (Clickable) */}
-      <div className="text-4xl">
+      <div
+        className="text-4xl"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <Link
           href={data.link.linkUrl}
-          className={`block transition-colors ${
+          className={`block transition-colors duration-300 ${
             isHovered ? "text-dark-400" : "text-dark-600"
           }`}
         >
@@ -31,7 +31,7 @@ function DoubleBlocksSection({ data }) {
         {/* Small Link + Arrow (Now Triggers Hover Effects Too) */}
         <Link
           href={data.link.linkUrl}
-          className="mb-5 flex w-fit items-center gap-1 font-secondary text-sm transition-all"
+          className="mb-5 flex w-fit gap-1 font-secondary text-sm transition-all duration-300"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
@@ -39,6 +39,7 @@ function DoubleBlocksSection({ data }) {
             {data.link.label}
           </span>
           <GoArrowRight
+            size={18}
             className={`transition-transform ${
               isHovered
                 ? "translate-x-1 text-dark-400"
@@ -58,7 +59,12 @@ function DoubleBlocksSection({ data }) {
       </div>
 
       {/* Image Section (Clickable) */}
-      <Link href={data.link.linkUrl} className="relative block">
+      <Link
+        href={data.link.linkUrl}
+        className="relative block"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <div className="relative">
           <Image
             width={1200}

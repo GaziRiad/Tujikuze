@@ -69,6 +69,10 @@ export const homequery = groq`*[_type == "home"][0]{
         "imageUrl": image.asset->url,
         alt
       },
+      categories[]-> {
+        title,
+        slug
+      },
     }
   },
   blogSection {
@@ -153,6 +157,10 @@ export const impactquery = groq`*[_type == "our-impact"][0]{
         "imageUrl": image.asset->url,
         alt
       },
+      categories[]-> {
+        title,
+        slug
+      },
     }
   },
 }
@@ -220,6 +228,10 @@ export const aboutquery = groq`*[_type == "about"][0]{
       mainImage {
         "imageUrl": image.asset->url,
         alt
+      },
+      categories[]-> {
+        title,
+        slug
       },
     }
   },
@@ -310,6 +322,10 @@ export const ourofferquery = groq`*[_type == "our-offer"][0] {
         "imageUrl": image.asset->url,
         alt
       },
+      categories[]-> {
+        title,
+        slug
+      },
     }
   },
 }`;
@@ -354,6 +370,10 @@ export const ressourcespagequery = groq`*[_type == "ressourcesPage"][0] {
       mainImage {
         "imageUrl": image.asset->url,
         alt
+      },
+      categories[]-> {
+        title,
+        slug
       },
     }
   },
