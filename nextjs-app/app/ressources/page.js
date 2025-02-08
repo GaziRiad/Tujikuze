@@ -49,47 +49,40 @@ export default async function page({ searchParams }) {
           {data?.posts?.map((article, index) => (
             <li
               key={index}
-              className="flex items-start gap-4 pt-4 lg:flex-col lg:pt-0"
+              className="group relative flex items-start gap-4 pt-4 lg:flex-col lg:pt-0"
             >
               {/* Shared Hover Group */}
-              <div className="group relative">
-                <Link
-                  href={`/ressources/${article.slug.current}`}
-                  className="relative block"
-                >
-                  <Image
-                    width={1200}
-                    height={1200}
-                    src={article.mainImage.imageUrl}
-                    alt={article.mainImage.alt}
-                    className="mb-3 h-[431px] w-full object-cover transition-all duration-300 lg:h-[520px] 2xl:h-[720px]"
-                  />
-                  {/* Dark overlay effect on hover */}
-                  <div className="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 group-hover:opacity-30"></div>
-                </Link>
+              <Image
+                width={1200}
+                height={1200}
+                src={article.mainImage.imageUrl}
+                alt={article.mainImage.alt}
+                className="mb-3 h-[431px] w-full object-cover transition-all duration-300 lg:h-[520px] 2xl:h-[720px]"
+              />
+              {/* Dark overlay effect on hover */}
+              <div className="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 group-hover:opacity-30"></div>
 
-                <ul className="mb-3 flex items-center gap-3 font-secondary text-sm uppercase">
-                  {article.categories.map((cat, i) => (
-                    <li key={i}>
-                      <Link
-                        href={`/ressources?category=${cat.slug.current}`}
-                        className="transition-all hover:text-dark-400"
-                      >
-                        {cat.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+              <ul className="mb-3 flex items-center gap-3 font-secondary text-sm uppercase">
+                {article.categories.map((cat, i) => (
+                  <li key={i}>
+                    <Link
+                      href={`/ressources?category=${cat.slug.current}`}
+                      className="transition-all hover:text-dark-400"
+                    >
+                      {cat.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
 
-                {/* Title inside the same hover group */}
-                <Link
-                  href={`/ressources/${article.slug.current}`}
-                  className="max-w-96 transition-all hover:text-dark-400 group-hover:text-dark-400"
-                >
-                  <p className="mb-3 text-2xl">{article.title}</p>
-                  <p className="max-w-96 text-lg">{article.summary}</p>
-                </Link>
-              </div>
+              {/* Title inside the same hover group */}
+              <Link
+                href={`/ressources/${article.slug.current}`}
+                className="max-w-96 transition-all hover:text-dark-400 group-hover:text-dark-400"
+              >
+                <p className="mb-3 text-2xl">{article.title}</p>
+                <p className="max-w-96 text-lg">{article.summary}</p>
+              </Link>
             </li>
           ))}
         </ul>
