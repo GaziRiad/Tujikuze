@@ -1,5 +1,5 @@
-import SectionHeading from "../SectionHeading";
-import ListItem from "../ListItem";
+import SectionHeading from "./SectionHeading";
+import ListItem from "./ListItem";
 
 function CaseStudiesSection({ data }) {
   return (

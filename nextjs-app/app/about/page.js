@@ -3,7 +3,7 @@ import OurLocations from "@/components/about/OurLocations";
 import OurMission from "@/components/about/OurMission";
 import OurTeam from "@/components/about/OurTeam";
 import Footer from "@/components/Footer";
-import CaseStudiesSection from "@/components/home/CaseStudiesSection";
+import CaseStudiesSection from "@/components/CaseStudiesSection";
 import { sanityFetch } from "@/sanity/client";
 import { aboutquery } from "@/sanity/groq";
 import { groq } from "next-sanity";

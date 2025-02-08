@@ -7,7 +7,7 @@ import ESGDeligenceSection from "@/components/impact/ESGDeligenceSection";
 import HighlightsSection from "@/components/impact/HighlightsSection";
 import { sanityFetch } from "@/sanity/client";
 import { impactquery } from "@/sanity/groq";
-import CaseStudiesSection from "@/components/home/CaseStudiesSection";
+import CaseStudiesSection from "@/components/CaseStudiesSection";
 import { groq } from "next-sanity";
 
 // Dynamic metadata

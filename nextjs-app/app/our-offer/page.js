@@ -7,7 +7,7 @@ import OfferMaterials from "@/components/our-offer/OfferMaterials";
 import TermsOfTrade from "@/components/our-offer/TermsOfTrade";
 import { sanityFetch } from "@/sanity/client";
 import { ourofferquery } from "@/sanity/groq";
-import CaseStudiesSection from "@/components/home/CaseStudiesSection";
+import CaseStudiesSection from "@/components/CaseStudiesSection";
 import { groq } from "next-sanity";
 
 // Dynamic metadata

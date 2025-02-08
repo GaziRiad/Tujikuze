@@ -62,7 +62,7 @@ export const homequery = groq`*[_type == "home"][0]{
     caseStudies[]-> {
       title,
       slug,
-      description,
+      subTitle,
       summary,
       publishedAt,
       mainImage {
@@ -87,7 +87,8 @@ export const homequery = groq`*[_type == "home"][0]{
         alt
       },
       categories[]-> {
-        title
+        title,
+        slug
       },
       summary
     }
@@ -145,7 +146,7 @@ export const impactquery = groq`*[_type == "our-impact"][0]{
     caseStudies[]-> {
       title,
       slug,
-      description,
+      subTitle,
       summary,
       publishedAt,
       mainImage {
@@ -213,7 +214,7 @@ export const aboutquery = groq`*[_type == "about"][0]{
     caseStudies[]-> {
       title,
       slug,
-      description,
+      subTitle,
       summary,
       publishedAt,
       mainImage {
@@ -302,7 +303,7 @@ export const ourofferquery = groq`*[_type == "our-offer"][0] {
     caseStudies[]-> {
       title,
       slug,
-      description,
+      subTitle,
       summary,
       publishedAt,
       mainImage {
@@ -347,7 +348,7 @@ export const ressourcespagequery = groq`*[_type == "ressourcesPage"][0] {
     caseStudies[]-> {
       title,
       slug,
-      description,
+      subTitle,
       summary,
       publishedAt,
       mainImage {
@@ -366,7 +367,7 @@ export const casestudiespagequery = groq`*[_type == "case-studies-page"][0] {
   ] | order(publishedAt desc) {
     title,
     slug,
-    description,
+    subTitle,
     mainImage {
       "imageUrl": image.asset->url,
       alt
@@ -457,6 +458,41 @@ export const footerquery = groq`*[_type == "footer"][0]{
       alt
     }
 }`;
+
+// Single dynamic pages
+// Single Post
+export const singlearticlequery = groq`*[_type == "post" && slug.current == $slug][0] {
+  title,
+  slug,
+  summary,
+  mainImage {
+    "imageUrl": image.asset->url,
+    alt
+  },
+  publishedAt,
+  categories[]-> {
+    title,
+  },
+  body,
+}
+`;
+// Single Case Study
+export const singlecasestudyquery = groq`*[_type == "case-study" && slug.current == $slug][0] {
+  title,
+  slug,
+  subTitle,
+  summary,
+  mainImage {
+    "imageUrl": image.asset->url,
+    alt
+  },
+  publishedAt,
+  categories[]-> {
+    title,
+  },
+  body,
+}
+`;
 
 // Mostly for SSG & sitemap
 // export const allressourcesquery = groq`

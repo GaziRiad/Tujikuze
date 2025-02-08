@@ -269,7 +269,6 @@ export default defineType({
               to: [{type: 'case-study'}],
             },
           ],
-          validation: (Rule) => Rule.required().min(1),
         }),
       ],
     }),

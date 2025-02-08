@@ -2,7 +2,7 @@ import Hero from "@/components/home/Hero";
 import DoubleBlocksSection from "@/components/home/DoubleBlocksSection";
 import Image from "next/image";
 import MaterialsSection from "@/components/home/MaterialsSection";
-import CaseStudiesSection from "@/components/home/CaseStudiesSection";
+import CaseStudiesSection from "@/components/CaseStudiesSection";
 import BlogSection from "@/components/home/BlogSection";
 import Footer from "@/components/Footer";
 import { sanityFetch } from "@/sanity/client";

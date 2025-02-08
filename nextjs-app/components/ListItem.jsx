@@ -15,13 +15,16 @@ export default function ListItem({ item }) {
       />
       <div className="flex items-start justify-between">
         <div className="flex max-w-[580px] flex-col text-4xl">
-          <p className="text-xl lg:text-4xl">{item?.title}</p>
-          <p className="mb-4 text-lg lg:mb-7 lg:text-4xl">
-            {item?.description}
-          </p>
+          <Link
+            href={`/case-studies/${item?.slug.current}`}
+            className="transition-all hover:text-dark-400"
+          >
+            <p className="text-xl lg:text-4xl">{item?.title}</p>
+            <p className="mb-4 text-lg lg:mb-7 lg:text-4xl">{item?.subTitle}</p>
+          </Link>
           <div className="group">
             <Link
-              href="/"
+              href={`/case-studies/${item?.slug.current}`}
               className="mb-5 flex w-fit items-center gap-1 font-secondary text-sm text-dark-600 transition-all hover:text-dark-400"
             >
               <span>LEARN MORE</span>

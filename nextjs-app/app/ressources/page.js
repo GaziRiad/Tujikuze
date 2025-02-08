@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import Filters from "@/components/Filters";
 import { sanityFetch } from "@/sanity/client";
 import { ressourcespagequery } from "@/sanity/groq";
-import CaseStudiesSection from "@/components/home/CaseStudiesSection";
+import CaseStudiesSection from "@/components/CaseStudiesSection";
 import { groq } from "next-sanity";
 
 // Dynamic metadata

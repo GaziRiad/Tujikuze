@@ -2,65 +2,22 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
-import img1 from "../../public/images/visuals.png";
-
-import material1 from "../../public/images/cotton.png";
-import material2 from "../../public/images/fibers.png";
-import material3 from "../../public/images/metal.png";
-import material4 from "../../public/images/textiles.png";
 import SectionHeading from "../SectionHeading";
 import MaterialsCarousel from "./MaterialsCarousel";
 
-const craftsmanships = [
-  {
-    title: "Beading",
-    text: "Showcases intricate designs and rich heritage.",
-    img: material1,
-  },
-  {
-    title: "Weaving",
-    text: "Showcases intricate designs and rich heritage.",
-    img: material2,
-  },
-  {
-    title: "Screenprinting",
-    text: "Showcases intricate designs and rich heritage.",
-    img: material3,
-  },
-  {
-    title: "Macrame",
-    text: "Showcases intricate designs and rich heritage.",
-    img: material4,
-  },
-  {
-    title: "Beading",
-    text: "Showcases intricate designs and rich heritage.",
-    img: material1,
-  },
-  {
-    title: "Weaving",
-    text: "Showcases intricate designs and rich heritage.",
-    img: material2,
-  },
-  {
-    title: "Screenprinting",
-    text: "Showcases intricate designs and rich heritage.",
-    img: material3,
-  },
-];
-
 function MaterialsSection({ data }) {
-  const [hoveredImage, setHoveredImage] = useState(img1);
+  const [hoveredImage, setHoveredImage] = useState(data.items[0].itemImage.url);
   const [isFading, setIsFading] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(0);
 
-  const handleHover = (img) => {
+  const handleClick = (img, index) => {
     setIsFading(true); // Start fade-out
     setTimeout(() => {
       setHoveredImage(img); // Change the image
       setIsFading(false); // Start fade-in
     }, 150); // Match the transition duration
+    setSelectedItem(index); // Set the selected item
   };
 
   return (
@@ -79,9 +36,12 @@ function MaterialsSection({ data }) {
             {data.items.map((item, index) => (
               <li
                 key={index}
-                className="grid cursor-pointer grid-cols-[30fr_70fr] text-[#BABABA] transition-all hover:text-[#1A1A1A]"
-                onMouseEnter={() => handleHover(item.itemImage.url)}
-                onMouseLeave={() => handleHover(img1)}
+                className={`grid cursor-pointer grid-cols-[30fr_70fr] text-[#BABABA] transition-all ${
+                  selectedItem === index
+                    ? "text-dark-600"
+                    : "hover:text-dark-600"
+                }`}
+                onClick={() => handleClick(item.itemImage.url, index)}
               >
                 <p className="font-secondary text-sm">{item.name}</p>
                 <p className="text-sm lg:text-lg">{item.description}</p>
