@@ -59,9 +59,31 @@ export default defineType({
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
-    defineArrayMember({
+    {
       type: 'image',
+      name: 'fullWidthImage',
+      title: 'Full-Width Image',
       options: {hotspot: true},
-    }),
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+        },
+      ],
+    },
+    {
+      type: 'image',
+      name: 'inlineImage',
+      title: 'Inline Image (Small)',
+      options: {hotspot: true},
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+        },
+      ],
+    },
   ],
 })

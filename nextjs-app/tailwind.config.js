@@ -1,5 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  safelist: [
+    "max-w-5xl",
+    "max-w-lg",
+    "lg:float-left",
+    "max-h-[420px]",
+    "lg:pr-32",
+    "lg:pl-20",
+    // Add other classes that might be getting purged
+  ],
   darkMode: ["class"],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",

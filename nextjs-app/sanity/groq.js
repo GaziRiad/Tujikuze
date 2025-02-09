@@ -492,6 +492,7 @@ export const singlearticlequery = groq`*[_type == "post" && slug.current == $slu
   publishedAt,
   categories[]-> {
     title,
+    slug
   },
   body,
 }
