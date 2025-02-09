@@ -2,9 +2,26 @@ import Footer from "@/components/Footer";
 import { myPortableTextComponents } from "@/lib/utils";
 import { sanityFetch } from "@/sanity/client";
 import { singlearticlequery } from "@/sanity/groq";
-import { PortableText } from "next-sanity";
+import { groq, PortableText } from "next-sanity";
 import Link from "next/link";
 import React from "react";
+
+// Dynamic metadata
+export async function generateMetadata({ params: { slug } }) {
+  const data = await sanityFetch({
+    query: groq`*[_type == "post" && slug.current == $slug][0]{
+      title,
+      summary
+    }`,
+    qParams: { slug },
+    tags: ["post"],
+  });
+
+  return {
+    title: data?.title || "Tujikuze | POST",
+    description: data?.summary || "Tujikuze | POST",
+  };
+}
 
 export default async function page({ params: { slug } }) {
   const post = await sanityFetch({
@@ -15,7 +32,6 @@ export default async function page({ params: { slug } }) {
 
   if (!post) return null;
 
-  console.log(post.body);
   return (
     <>
       <section className="mx-auto mt-20 max-w-[1720px] px-4 lg:mt-56">

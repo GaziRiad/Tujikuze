@@ -3,6 +3,7 @@ module.exports = {
   safelist: [
     "max-w-5xl",
     "max-w-lg",
+    "lg:max-w-lg",
     "lg:float-left",
     "max-h-[420px]",
     "lg:pr-32",
@@ -14,6 +15,14 @@ module.exports = {
     "lg:inline-block",
     "clearfix",
     "clear-both",
+    "lg:tracking-[-1px]",
+    "lg:mb-5",
+    "lg:mb-9",
+    "lg:text-2xl",
+    "lg:mt-48",
+    "mt-16",
+    "pr-12",
+    "xl:text-4xl",
     // Add other classes that might be getting purged
   ],
   darkMode: ["class"],
