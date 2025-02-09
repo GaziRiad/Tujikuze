@@ -8,8 +8,6 @@ import { GoArrowRight } from "react-icons/go";
 export default function ListItem({ item }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  console.log(item);
-
   return (
     <li className="grid grid-cols-[25fr_75fr] items-start justify-between gap-5 pb-7 pt-7 lg:gap-0">
       {/* Image Section */}
