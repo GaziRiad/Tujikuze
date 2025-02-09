@@ -24,6 +24,19 @@ export const myPortableTextComponents = {
         </>
       );
     },
+    // inlineImage: ({ value }) => {
+    //   return (
+    //     <>
+    //       <Image
+    //         src={urlFor(value).url()}
+    //         alt="Image"
+    //         width={800}
+    //         height={800}
+    //         className={`mx-auto mb-8 max-h-[420px] max-w-lg object-cover lg:float-left lg:mb-36 lg:pl-20`}
+    //       />
+    //     </>
+    //   );
+    // },
     inlineImage: ({ value }) => {
       return (
         <>
@@ -34,6 +47,7 @@ export const myPortableTextComponents = {
             height={800}
             className={`mx-auto mb-8 max-h-[420px] max-w-lg object-cover lg:float-left lg:mb-36 lg:pl-20`}
           />
+          <div className="clearfix"></div> {/* Clear the float */}
         </>
       );
     },
@@ -51,7 +65,7 @@ export const myPortableTextComponents = {
           href={value.href}
           rel={rel}
           id=""
-          className="text-neutral-800 underline underline-offset-2"
+          className="text-blue-500 transition-all hover:underline hover:underline-offset-2"
         >
           {children}
         </Link>

@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import { myPortableTextComponents } from "@/lib/utils";
 import { sanityFetch } from "@/sanity/client";
 import { singlearticlequery } from "@/sanity/groq";
@@ -42,6 +43,9 @@ export default async function page({ params: { slug } }) {
       </section>
       <div className="">
         <PortableText value={post.body} components={myPortableTextComponents} />
+      </div>
+      <div className="clear-both pt-14 lg:pt-48">
+        <Footer />
       </div>
     </>
   );

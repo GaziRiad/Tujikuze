@@ -7,6 +7,13 @@ module.exports = {
     "max-h-[420px]",
     "lg:pr-32",
     "lg:pl-20",
+    "text-blue-500",
+    "hover:underline",
+    "hover:underline-offset-2",
+    "transtion-all",
+    "lg:inline-block",
+    "clearfix",
+    "clear-both",
     // Add other classes that might be getting purged
   ],
   darkMode: ["class"],
