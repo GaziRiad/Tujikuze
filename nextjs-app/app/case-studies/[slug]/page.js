@@ -39,7 +39,7 @@ export default async function page({ params: { slug } }) {
             </p>
           )}
           <div className="flex items-center gap-1">
-            <ul>
+            <ul className="flex items-center gap-1">
               {data?.categories?.map((category, index) => (
                 <li key={category.slug.current}>
                   <Link
