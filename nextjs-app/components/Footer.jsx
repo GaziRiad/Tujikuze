@@ -5,7 +5,7 @@ import Link from "next/link";
 import { sanityFetch } from "@/sanity/client";
 import { footerquery } from "@/sanity/groq";
 
-async function Footer() {
+async function Footer({ noHeading = false }) {
   const data = await sanityFetch({
     query: footerquery,
     tags: ["footer"],
@@ -13,16 +13,20 @@ async function Footer() {
 
   return (
     <footer className="">
-      <SectionHeading
-        title={data.sectionHeading.title}
-        label={data.sectionHeading?.link?.label}
-        href={data.sectionHeading?.link?.linkUrl}
-      />
-      <div className="mx-auto max-w-[1720px] px-4">
-        <h2 className="mb-14 text-sm lg:mb-48 lg:text-5xl">
-          {data.subHeading}
-        </h2>
-      </div>
+      {!noHeading && (
+        <>
+          <SectionHeading
+            title={data.sectionHeading.title}
+            label={data.sectionHeading?.link?.label}
+            href={data.sectionHeading?.link?.linkUrl}
+          />
+          <div className="mx-auto max-w-[1720px] px-4">
+            <h2 className="mb-14 text-sm lg:mb-48 lg:text-5xl">
+              {data.subHeading}
+            </h2>
+          </div>
+        </>
+      )}
       <section className="bg-[#111B13] px-4 pb-12 pt-11 lg:pt-20">
         <div className="mx-auto max-w-[1720px]">
           <div className="mb-16 grid w-full grid-cols-1 items-start gap-14 text-white lg:grid-cols-[60fr_40fr] lg:grid-rows-1 lg:gap-0">
