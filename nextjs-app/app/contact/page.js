@@ -7,7 +7,7 @@ import React from "react";
 export default function page() {
   return (
     <>
-      <section className="mx-auto mb-8 mt-20 max-w-[1720px] px-4 lg:mb-48 lg:mt-56">
+      <section className="mx-auto mb-8 mt-20 max-w-[1720px] lg:mb-48 lg:mt-56">
         <SectionHeading title="Contact Us" />
         <div className="mx-auto max-w-[1720px] px-4">
           <h2 className="mb-14 text-sm lg:mb-48 lg:text-5xl">

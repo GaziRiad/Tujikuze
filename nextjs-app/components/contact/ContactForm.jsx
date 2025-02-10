@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ContactForm() {
   return (
-    <div className="grid max-w-[1414px] gap-5 lg:grid-cols-2 lg:gap-0">
+    <div className="grid max-w-[1414px] gap-5 px-4 lg:grid-cols-2 lg:gap-0">
       <h2>Fill-out the form and reach out to us.</h2>
       <form className="grid grid-cols-2 gap-3">
         <input
