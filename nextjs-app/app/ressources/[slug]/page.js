@@ -54,7 +54,12 @@ export default async function page({ params: { slug } }) {
               </li>
             ))}
           </ul>
-          <p>{post?.publishedAt?.split("-")[0]}</p>
+          <Link
+            href={`/ressources?date=${post?.publishedAt?.split("-")[0]}`}
+            className={`cursor-pointer transition-all duration-300 hover:text-dark-400`}
+          >
+            {post?.publishedAt?.split("-")[0]}
+          </Link>
         </div>
       </section>
       <div className="">

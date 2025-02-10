@@ -503,6 +503,7 @@ export const singlecasestudyquery = groq`*[_type == "case-study" && slug.current
   slug,
   subTitle,
   summary,
+  "reportUrl": reportFile.asset->url,
   mainImage {
     "imageUrl": image.asset->url,
     alt
@@ -510,6 +511,7 @@ export const singlecasestudyquery = groq`*[_type == "case-study" && slug.current
   publishedAt,
   categories[]-> {
     title,
+    slug
   },
   body,
 }

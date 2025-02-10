@@ -60,6 +60,16 @@ export default defineType({
       title: 'Summary',
       type: 'text',
     }),
+    // New field for uploading a report file
+    defineField({
+      name: 'reportFile',
+      title: 'Report File',
+      type: 'file', // File upload type
+      options: {
+        accept: '.pdf,.doc,.docx', // Specify accepted file types
+      },
+      description: 'Upload the case study report file (PDF, DOC, or DOCX)',
+    }),
     defineField({
       name: 'body',
       title: 'Body',
