@@ -23,6 +23,10 @@ module.exports = {
     "mt-16",
     "pr-12",
     "xl:text-4xl",
+    "lg:space-x-4",
+    "space-x-2",
+    "list-disc",
+    "pl-8",
     // Add other classes that might be getting purged
   ],
   darkMode: ["class"],

@@ -38,6 +38,25 @@ export const myPortableTextComponents = {
         </>
       );
     },
+    listItemWithIcon: ({ value }) => {
+      // Render the custom list item with an icon
+      const { text, icon } = value;
+
+      return (
+        <li className="mb-2 ml-auto flex max-w-5xl items-center space-x-2 px-4 text-sm lg:mb-5 lg:space-x-4 lg:pr-32 lg:text-lg">
+          {icon && icon.asset && (
+            <Image
+              src={urlFor(icon).width(58).height(58).url()} // Generate the URL
+              alt="Icon"
+              width={58}
+              height={58}
+              className="bg-cover"
+            />
+          )}
+          <span>{text}</span>
+        </li>
+      );
+    },
   },
 
   marks: {
@@ -114,34 +133,9 @@ export const myPortableTextComponents = {
   list: {
     // Ex. 1: customizing common list types
     bullet: ({ children }) => (
-      <ul
-        style={{
-          paddingLeft: "1.125rem",
-          fontSize: "1.15rem",
-          maxWidth: "56rem",
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.25rem",
-          listStyleType: "disc",
-        }}
-      >
+      <ul className="mb-4 ml-auto flex max-w-5xl list-disc flex-col gap-3 px-4 pl-8 text-sm lg:mb-5 lg:pr-32 lg:text-lg">
         {children}
       </ul>
-    ),
-    number: ({ children }) => (
-      <ol
-        style={{
-          paddingLeft: "1.125rem",
-          fontSize: "1.15rem",
-          maxWidth: "56rem",
-          display: "flex",
-          flexDirection: "column",
-          gap: "1.25rem",
-          listStyleType: "disc",
-        }}
-      >
-        {children}
-      </ol>
     ),
   },
 };
