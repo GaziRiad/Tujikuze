@@ -22,6 +22,7 @@ module.exports = {
     "lg:mt-48",
     "mt-16",
     "pr-12",
+    "lg:pr-12",
     "xl:text-4xl",
     "lg:space-x-4",
     "space-x-2",

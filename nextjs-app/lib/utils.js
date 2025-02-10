@@ -32,7 +32,7 @@ export const myPortableTextComponents = {
             alt="Image"
             width={800}
             height={800}
-            className={`mx-auto mb-8 max-h-[420px] object-cover pr-12 lg:float-left lg:mb-36 lg:max-w-lg lg:pl-20`}
+            className={`mx-auto mb-8 max-h-[420px] object-cover lg:float-left lg:mb-36 lg:max-w-lg lg:pl-20 lg:pr-12`}
           />
           <div className="clearfix"></div> {/* Clear the float */}
         </>
@@ -83,7 +83,7 @@ export const myPortableTextComponents = {
     // Ex. 1: customizing common block types
     h1: ({ children, node }) => (
       <h1
-        className="mx-auto mb-16 max-w-[1720px] px-4 font-main text-4xl text-dark-500 lg:mb-28 lg:pr-32"
+        className="mx-auto mb-16 max-w-[1720px] px-4 font-main text-2xl text-dark-500 lg:mb-28 lg:pr-32 lg:text-4xl"
         id={node?._key}
       >
         {children}
@@ -91,7 +91,7 @@ export const myPortableTextComponents = {
     ),
     h2: ({ children, node }) => (
       <h2
-        className="mx-auto mb-16 max-w-[1720px] px-4 font-main text-4xl text-dark-500 lg:mb-28 lg:pr-32"
+        className="mx-auto mb-16 max-w-[1720px] px-4 font-main text-2xl text-dark-500 lg:mb-28 lg:pr-32 lg:text-4xl"
         id={node?._key}
       >
         {children}
