@@ -428,6 +428,33 @@ export const settingsquery = groq`*[_type == "settings"][0] {
   }
 }`;
 
+export const contactquery = groq`*[_type == "contact"][0] {
+        sectionHeading {
+          title,
+          link {
+            label,
+            linkUrl
+          }
+        },
+        subHeading,
+        contactForm {
+          title,
+          fields[] {
+            type,
+            placeholder,
+            required,
+            options
+          },
+          buttonLabel
+        },
+        image {
+          asset->{
+            url
+          },
+          alt
+        }
+      }`;
+
 // Reusable sections
 
 export const footerquery = groq`*[_type == "footer"][0]{

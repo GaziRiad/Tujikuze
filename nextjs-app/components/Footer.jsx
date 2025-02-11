@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { sanityFetch } from "@/sanity/client";
 import { footerquery } from "@/sanity/groq";
+import Newsletter from "./Newsletter";
 
 async function Footer({ noHeading = false }) {
   const data = await sanityFetch({
@@ -42,17 +43,7 @@ async function Footer({ noHeading = false }) {
 
             {/* Second column */}
             <div className="order-1 lg:order-2 lg:max-w-96">
-              <h3 className="mb-5">{data.newsletter.title}</h3>
-              <div className="mb-14 flex items-center gap-4 lg:mb-20">
-                <input
-                  type="email"
-                  placeholder={data.newsletter.placeholder}
-                  className="w-full bg-white px-[10px] py-[6px]"
-                />
-                <button className="border border-white px-[10px] py-[6px] text-sm text-light-500">
-                  {data.newsletter.buttonLabel}
-                </button>
-              </div>
+              <Newsletter data={data?.newsletter} />
               <Image
                 src={data.image.asset.url}
                 width={2000}

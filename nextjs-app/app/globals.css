@@ -76,6 +76,16 @@
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
   }
+  .mini-spinner {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 3px solid #111b13;
+    border-right: 3px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
 
   @keyframes rotation {
     0% {

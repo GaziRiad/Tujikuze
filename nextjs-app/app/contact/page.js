@@ -1,28 +1,42 @@
 import ContactForm from "@/components/contact/ContactForm";
 import Footer from "@/components/Footer";
 import SectionHeading from "@/components/SectionHeading";
+import { sanityFetch } from "@/sanity/client";
+import { contactquery } from "@/sanity/groq";
 import Image from "next/image";
 import React from "react";
 
-export default function page() {
+export default async function page() {
+  const data = await sanityFetch({
+    query: contactquery,
+    tags: ["contact-us"],
+  });
+
+  if (!data) return null;
+
   return (
     <>
       <section className="mx-auto mb-8 mt-20 max-w-[1720px] lg:mb-48 lg:mt-56">
-        <SectionHeading title="Contact Us" />
+        <SectionHeading
+          title={data.sectionHeading?.title}
+          label={data.sectionHeading?.link?.label}
+          href={data.sectionHeading?.link?.linkUrl}
+        />
         <div className="mx-auto max-w-[1720px] px-4">
           <h2 className="mb-14 text-sm lg:mb-48 lg:text-5xl">
-            Need help? We’re here for you. For customer service or general
-            inquiries, please reach out using the email below.
+            {data.subHeading}
           </h2>
         </div>
 
-        <ContactForm />
+        <ContactForm
+          data={{ ...data.contactForm, label: data.contactForm?.buttonLabel }}
+        />
       </section>
       <Image
         width={1600}
         height={1600}
-        src={"/images/2.jpg"}
-        // alt={data.mainImage.alt}
+        src={data.image?.asset?.url}
+        alt={data.image?.alt}
         className="h-[512px] w-full object-cover object-center lg:h-[620px] 2xl:h-[920px]"
       />
       <Footer noHeading={true} />

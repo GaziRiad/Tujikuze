@@ -10,6 +10,7 @@ import caseStudy from './case-study'
 import ressources from './ressources'
 import settings from './settings'
 import caseStudiesPage from './case-studies-page'
+import contact from './contact'
 
 export const schemaTypes = [
   home,
@@ -18,6 +19,7 @@ export const schemaTypes = [
   ourOffer,
   ressources,
   caseStudiesPage,
+  contact,
   footer,
   post,
   caseStudy,
