@@ -1,4 +1,3 @@
-import imgLarge from "../../public/images/2.jpg";
 import Image from "next/image";
 import TabSection from "@/lib/hooks/TabSection";
 
