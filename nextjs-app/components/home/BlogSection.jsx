@@ -38,8 +38,10 @@ function BlogSection({ data }) {
                   <Image
                     width={1200}
                     height={1200}
-                    src={article.mainImage.imageUrl}
-                    alt={article.mainImage.alt}
+                    src={
+                      article?.mainImage?.imageUrl || "/images/placeholder.jpg"
+                    }
+                    alt={article?.mainImage?.alt || "Tujikuze Image"}
                     className="mb-3 h-[431px] w-full object-cover transition-all duration-300 lg:h-[520px] 2xl:h-[720px]"
                   />
                   {/* Dark overlay effect on hover */}

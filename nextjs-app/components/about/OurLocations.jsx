@@ -18,8 +18,8 @@ export default function OurLocations({ data }) {
       <Image
         width={1600}
         height={1600}
-        src={data.locationImage.url}
-        alt={data.locationImage.alt}
+        src={data?.locationImage?.url || "/images/placeholder.jpg"}
+        alt={data?.locationImage?.alt || "Tujikuze Image"}
         className="mb-9 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[620px] 2xl:h-[920px]"
       />
     </TabSection>

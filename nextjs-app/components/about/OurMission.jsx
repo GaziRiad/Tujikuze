@@ -16,8 +16,8 @@ export default function OurMission({ data }) {
       <Image
         width={1600}
         height={1600}
-        src={data.missionImage.url}
-        alt={data.missionImage.alt}
+        src={data?.missionImage?.url || "/images/placeholder.jpg"}
+        alt={data?.missionImage?.alt || "Tujikuze Image"}
         className="mb-9 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[620px] 2xl:h-[920px]"
       />
     </TabSection>

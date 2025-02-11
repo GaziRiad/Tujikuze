@@ -8,7 +8,7 @@ function Logo({ img }) {
       <Image
         width={600}
         height={600}
-        src={img}
+        src={img || "/images/placeholder.jpg"}
         alt="Tujikuze logo"
         className="max-h-8 max-w-44 object-cover"
       />

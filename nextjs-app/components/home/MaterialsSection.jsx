@@ -54,7 +54,7 @@ function MaterialsSection({ data }) {
             <Image
               width={1200}
               height={1200}
-              src={hoveredImage}
+              src={hoveredImage || "/images/placeholder.jpg"}
               alt="Hovered craftsmanship"
               className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
                 isFading ? "opacity-0" : "opacity-100"

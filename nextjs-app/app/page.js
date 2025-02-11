@@ -46,8 +46,8 @@ async function Page() {
       <Image
         width={1600}
         height={1600}
-        src={data.mainImage.url}
-        alt={data.mainImage.alt}
+        src={data.mainImage.url || "/images/placeholder.jpg"}
+        alt={data.mainImage.alt || "Tujikuze image"}
         className="mb-28 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[620px] 2xl:h-[920px]"
       />
       <MaterialsSection data={data.materialsAndCraftsmanshipSection} />

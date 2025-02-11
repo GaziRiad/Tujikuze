@@ -16,7 +16,7 @@ export const myPortableTextComponents = {
         <>
           <Image
             src={urlFor(value).url()}
-            alt="Image"
+            alt={value?.alt || "Tujikuze Image"}
             width={1400}
             height={1400}
             className="mb-14 mt-16 h-[512px] w-full object-cover object-center lg:mb-28 lg:mt-48 lg:h-[620px] 2xl:h-[920px]"
@@ -29,7 +29,7 @@ export const myPortableTextComponents = {
         <>
           <Image
             src={urlFor(value).url()}
-            alt="Image"
+            alt={value?.alt || "Tujikuze Image"}
             width={800}
             height={800}
             className={`mx-auto mb-8 max-h-[420px] object-cover lg:float-left lg:mb-36 lg:max-w-lg lg:pl-20 lg:pr-12`}

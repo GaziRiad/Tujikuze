@@ -11,16 +11,16 @@ export default function EthicalFashion({ data }) {
         <Image
           width={1200}
           height={1200}
-          src={data.halfImage.url}
-          alt={data.halfImage.alt}
+          src={data?.halfImage?.url || "/images/placeholder.jpg"}
+          alt={data?.halfImage?.alt || "Tujikuze Image"}
           className="mb-14 ml-auto aspect-square w-full object-cover object-center lg:mb-48 lg:w-1/2"
         />
       </div>
       <Image
         width={1600}
         height={1600}
-        src={data.largeImage.url}
-        alt={data.largeImage.alt}
+        src={data?.largeImage?.url || "/images/placeholder.jpg"}
+        alt={data?.largeImage?.alt || "Tujikuze Image"}
         className="mb-9 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[620px] 2xl:h-[920px]"
       />
     </TabSection>

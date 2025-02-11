@@ -45,8 +45,8 @@ export default async function page() {
         <Image
           width={1200}
           height={1200}
-          src={data.intro.image.imageUrl}
-          alt={data.intro.image.alt}
+          src={data.intro?.image?.imageUrl || "/images/placeholder.jpg"}
+          alt={data.intro?.image?.alt || "Tujikuze Image"}
           className="mb-14 ml-auto aspect-square w-full object-cover object-center lg:mb-48 lg:w-1/2"
         />
       </section>
@@ -63,8 +63,8 @@ export default async function page() {
       <Image
         width={1600}
         height={1600}
-        src={data.mainImage.imageUrl}
-        alt={data.mainImage.alt}
+        src={data.mainImage?.imageUrl || "/images/placeholder.jpg"}
+        alt={data.mainImage?.alt || "Tujikuze Image"}
         className="mb-8 mt-14 w-full object-cover object-center lg:mb-48 lg:mt-48"
       />
 

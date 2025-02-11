@@ -69,8 +69,8 @@ function DoubleBlocksSection({ data }) {
           <Image
             width={1200}
             height={1200}
-            src={data.image.url}
-            alt={data.image.alt}
+            src={data.image.url || "/images/placeholder.jpg"}
+            alt={data.image.alt || "Tujikuze Image"}
             className="h-[420px] object-cover object-center transition-all lg:h-[520px] 2xl:h-[620px]"
           />
           {/* Dark Overlay Effect */}

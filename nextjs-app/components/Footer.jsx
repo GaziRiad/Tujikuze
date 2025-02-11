@@ -45,10 +45,10 @@ async function Footer({ noHeading = false }) {
             <div className="order-1 lg:order-2 lg:max-w-96">
               <Newsletter data={data?.newsletter} />
               <Image
-                src={data.image.asset.url}
+                src={data?.image?.asset?.url || "/images/placeholder.jpg"}
                 width={2000}
                 height={2000}
-                alt={data.image.alt}
+                alt={data?.image?.alt || "Tujikuze Image"}
                 className="h-[432px] w-full object-cover"
               />
             </div>
@@ -58,8 +58,8 @@ async function Footer({ noHeading = false }) {
               <li key={index} className="relative h-24 w-24">
                 <Image
                   fill
-                  src={item.asset.url}
-                  alt={item.alt}
+                  src={item?.asset?.url}
+                  alt={item?.alt}
                   className="object-contain"
                 />
               </li>
@@ -70,8 +70,8 @@ async function Footer({ noHeading = false }) {
             <Link href="/" className="relative h-8 max-w-44">
               <Image
                 fill
-                src={data.mainLogo.asset.url}
-                alt={data.mainLogo.alt}
+                src={data?.mainLogo?.asset?.url || "/images/placeholder.jpg"}
+                alt={data?.mainLogo?.alt || "Tujikuze Image"}
                 className="object-cover"
               />
             </Link>

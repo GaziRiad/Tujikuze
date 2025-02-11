@@ -14,8 +14,8 @@ export default function ItemsGridList({ title, items }) {
                 <Image
                   width={1200}
                   height={1200}
-                  src={item.image.imageUrl || "/placeholder.svg"}
-                  alt={item.image.alt}
+                  src={item?.image?.imageUrl || "/images/placeholder.jpg"}
+                  alt={item?.image?.alt || "Tujikuze Image"}
                   className="mb-4 h-[138px] object-cover lg:h-[601px]"
                 />
                 <div>

@@ -133,8 +133,8 @@ export default function HeroCarousel({ images }) {
             <Image
               width={1800}
               height={1800}
-              src={slide.url || "/placeholder.svg"}
-              alt={slide.alt}
+              src={slide.url || "/images/placeholder.jpg"}
+              alt={slide.alt || "Tujikuze image"}
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-black/20" />

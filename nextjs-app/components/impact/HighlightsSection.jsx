@@ -1,34 +1,7 @@
 import React from "react";
 import DataList from "../DataList";
 
-import imgLarge from "../../public/images/2.jpg";
 import Image from "next/image";
-
-const infoData = [
-  {
-    title: "Sustainability",
-    text: "Our case studies illustrate the transformative impact of bespoke collaborations on local artisans.By partnering with Tujikuze, businesses not only gain access to authentic craftsmanship but also contribute to the economic empowerment of the communities involved. Our case studies illustrate the transformative impact of bespoke collaborations on local artisans. By partnering with Tujikuze, businesses not only gain access to authentic craftsmanship but also contribute to the economic empowerment of the communities involved.",
-  },
-  {
-    title: "Communities",
-    text: "Our case studies illustrate the transformative impact of bespoke collaborations on local artisans.By partnering with Tujikuze, businesses not only gain access to authentic craftsmanship but also contribute to the economic empowerment of the communities involved. Our case studies illustrate the transformative impact of bespoke collaborations on local artisans. By partnering with Tujikuze, businesses not only gain access to authentic craftsmanship but also contribute to the economic empowerment of the communities involved.",
-  },
-];
-
-const DATALIST = [
-  {
-    title: "Number of Communities",
-    data: "105,000",
-  },
-  {
-    title: "Artisan groups",
-    data: "105,000",
-  },
-  {
-    title: "Other Impact data",
-    data: "105,000",
-  },
-];
 
 export default function HighlightsSection({ data }) {
   return (
@@ -45,8 +18,8 @@ export default function HighlightsSection({ data }) {
       <Image
         width={1600}
         height={1600}
-        src={data.highlightImage.url}
-        alt={data.highlightImage.alt}
+        src={data?.highlightImage?.url || "/images/placeholder.jpg"}
+        alt={data?.highlightImage?.alt || "Tujikuze Image"}
         className="mb-14 ml-auto aspect-square w-full object-cover object-center lg:mb-48 lg:w-1/2"
       />
     </section>

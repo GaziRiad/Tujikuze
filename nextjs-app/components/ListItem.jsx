@@ -23,8 +23,8 @@ export default function ListItem({ item }) {
           <Image
             width={1200}
             height={1200}
-            src={item?.mainImage.imageUrl}
-            alt={item?.title}
+            src={item?.mainImage?.imageUrl || "/images/placeholder.jpg"}
+            alt={item?.mainImage?.alt || "Tujikuze Image"}
             className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
           />
           {/* Fixed Dark Overlay */}

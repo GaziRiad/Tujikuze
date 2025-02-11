@@ -35,8 +35,8 @@ export default async function page() {
       <Image
         width={1600}
         height={1600}
-        src={data.image?.asset?.url}
-        alt={data.image?.alt}
+        src={data.image?.asset?.url || "/images/placeholder.jpg"}
+        alt={data.image?.alt || "Tujikuze Image"}
         className="h-[512px] w-full object-cover object-center lg:h-[620px] 2xl:h-[920px]"
       />
       <Footer noHeading={true} />

@@ -28,8 +28,8 @@ export default function OurTeam({ data }) {
                 <Image
                   width={1200}
                   height={1200}
-                  src={item.memberImage.url || "/placeholder.svg"}
-                  alt={item.memberImage.alt}
+                  src={item?.memberImage?.url || "/placeholder.svg"}
+                  alt={item?.memberImage?.alt || "Tujikuze Image"}
                   className="mb-4 h-[300px] w-full object-cover lg:h-[520px] 2xl:h-[869px]"
                 />
                 <p className="mb-2 font-secondary text-xl sm:text-2xl">

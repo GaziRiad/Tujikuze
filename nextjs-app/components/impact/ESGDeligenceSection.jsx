@@ -21,8 +21,8 @@ export default function ESGDeligenceSection({ data }) {
       <Image
         width={1600}
         height={1600}
-        src={data.esgImage.url}
-        alt={data.esgImage.alt}
+        src={data?.esgImage?.url || "/images/placeholder.jpg"}
+        alt={data?.esgImage?.alt || "Tujikuze Image"}
         className="mb-9 h-[512px] w-full object-cover object-center lg:mb-24 lg:h-[620px] 2xl:h-[920px]"
       />
     </section>

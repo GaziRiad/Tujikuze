@@ -24,8 +24,8 @@ export default function TermsOfTrade({ data }) {
       <Image
         width={1200}
         height={1200}
-        src={data.image.imageUrl}
-        alt={data.image.alt}
+        src={data?.image?.imageUrl || "/images/placeholder.jpg"}
+        alt={data?.image?.alt || "Tujikuze Image"}
         className="mb-8 ml-auto aspect-square w-full object-cover object-center lg:mb-24 lg:w-1/2"
       />
       <div className="mb-24 grid grid-cols-1 gap-5 px-4 lg:mb-48 lg:grid-cols-2 lg:gap-0">

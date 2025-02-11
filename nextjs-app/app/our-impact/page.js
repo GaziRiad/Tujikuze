@@ -44,10 +44,10 @@ export default async function page() {
         <p className="mb-11 text-lg lg:mb-24 lg:text-4xl">{data.intro.text}</p>
       </section>
       <Image
-        src={data.mainImage.url}
+        src={data.mainImage?.url || "/images/placeholder.jpg"}
         width={2000}
         height={2000}
-        alt="Main image of our impact of Tujikuze"
+        alt={data.mainImage?.alt || "Tujikuze Image"}
         className="mb-14 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[620px] 2xl:h-[920px]"
       />
       <HighlightsSection data={data.highlightsSection} />
