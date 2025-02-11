@@ -48,13 +48,20 @@ export async function generateMetadata() {
   };
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const data = await sanityFetch({
+    query: settingsquery,
+    tags: ["settings"],
+  });
+
+  if (!data) return null;
+
   return (
     <html lang="en">
       <body
         className={`${arizonaFlare.variable} ${standard.variable} bg-light-500 font-main text-dark-500 antialiased`}
       >
-        <Navigation />
+        <Navigation data={data?.navigation} />
         {children}
       </body>
     </html>

@@ -1,12 +1,17 @@
 import Image from "next/image";
 
-import logo from "../public/images/Logo.png";
 import Link from "next/link";
 
-function Logo() {
+function Logo({ img }) {
   return (
-    <Link href="/">
-      <Image src={logo} alt="Tujikuze logo png" />
+    <Link href="/" className="">
+      <Image
+        width={600}
+        height={600}
+        src={img}
+        alt="Tujikuze logo"
+        className="max-h-8 max-w-44 object-cover"
+      />
     </Link>
   );
 }

@@ -420,10 +420,8 @@ export const settingsquery = groq`*[_type == "settings"][0] {
       alt
     },
     navItems[] {
-      link {
         label,
         linkUrl
-      }
     }
   }
 }`;

@@ -13,7 +13,7 @@ const Menu = [
   { name: "Contact Us", href: "/contact" },
 ];
 
-function Navigation() {
+function Navigation({ data }) {
   const [isOpen, setIsOpen] = useState(false);
 
   // Prevent scrolling when the menu is open
@@ -30,10 +30,10 @@ function Navigation() {
   }, [isOpen]);
 
   return (
-    <header className="relative">
+    <header className="relative z-50">
       <div className="fixed left-4 top-6 z-50 mix-blend-difference lg:left-10 lg:top-4">
         <div className="relative">
-          <Logo className="relative" />
+          <Logo img={data.logo?.url} className="relative" />
         </div>
       </div>
 
@@ -41,9 +41,9 @@ function Navigation() {
       <nav className="fixed right-4 top-6 z-40 lg:right-10 lg:top-4">
         <div className="absolute inset-0 z-[-1] rounded bg-[rgba(255,255,255,0.7)] backdrop-blur-3xl"></div>
         <ul className="relative items-center gap-10 px-4 py-2 text-sm lg:flex lg:p-4">
-          {Menu.map((item, index) => (
+          {data?.navItems.map((item, index) => (
             <li key={index} className="hidden lg:block">
-              <Link href={item.href}>{item.name}</Link>
+              <Link href={item.linkUrl}>{item.label}</Link>
             </li>
           ))}
           <li
