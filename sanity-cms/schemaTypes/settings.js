@@ -69,6 +69,30 @@ export default defineType({
             }),
           ],
         }),
+        defineField({
+          name: 'navSocials',
+          title: 'Navigation Social Links',
+          type: 'array',
+          of: [
+            defineField({
+              name: 'link',
+              title: 'Link',
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'label',
+                  title: 'Link Label',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'linkUrl',
+                  title: 'Link URL',
+                  type: 'string',
+                }),
+              ],
+            }),
+          ],
+        }),
       ],
     }),
   ],

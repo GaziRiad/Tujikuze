@@ -3,7 +3,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-export default function Newsletter({ data }) {
+export default function Newsletter({ data, type = "footer" }) {
   const {
     register,
     handleSubmit,
@@ -46,7 +46,7 @@ export default function Newsletter({ data }) {
                 message: "Invalid email address",
               },
             })}
-            className="w-full border-2 border-black px-[10px] py-[6px] text-sm text-dark-600 outline-none"
+            className="w-full border border-black px-[10px] py-[6px] text-sm text-dark-600 outline-none"
           />
           {errors.email && (
             <p className="mt-1 text-xs text-red-600">{errors.email.message}</p>
@@ -56,7 +56,7 @@ export default function Newsletter({ data }) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="border border-white px-[10px] py-[6px] text-sm text-light-500 transition-all hover:border-dark-600 hover:bg-white hover:text-[#111b13] disabled:opacity-50"
+          className={`border px-[10px] py-[6px] text-sm transition-all disabled:opacity-50 ${type === "footer" ? "border-light-500 text-light-500 hover:border-dark-600 hover:bg-white hover:text-[#111b13]" : "border-dark-600 bg-light-500 text-[#111b13]"}`}
         >
           {isSubmitting ? "Submitting..." : data?.buttonLabel}
         </button>

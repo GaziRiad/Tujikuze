@@ -43,7 +43,7 @@ export const myPortableTextComponents = {
       const { text, icon } = value;
 
       return (
-        <li className="mb-2 ml-auto flex max-w-5xl items-center space-x-2 px-4 text-sm lg:mb-5 lg:space-x-4 lg:pr-32 lg:text-lg">
+        <li className="mb-2 ml-auto flex min-h-[58px] min-w-[58px] max-w-5xl items-center space-x-2 px-4 text-sm lg:mb-5 lg:space-x-4 lg:pr-32 lg:text-lg">
           {icon && icon.asset && (
             <Image
               src={urlFor(icon).width(58).height(58).url()} // Generate the URL

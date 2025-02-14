@@ -422,8 +422,13 @@ export const settingsquery = groq`*[_type == "settings"][0] {
     navItems[] {
         label,
         linkUrl
-    }
-  }
+    },
+    navSocials[] {
+        label,
+        linkUrl
+    },
+    "newsletter": *[_type == "footer"][0].newsletter
+  },
 }`;
 
 export const contactquery = groq`*[_type == "contact"][0] {

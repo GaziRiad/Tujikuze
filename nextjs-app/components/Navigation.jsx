@@ -3,15 +3,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import { useEffect, useState } from "react";
-
-const Menu = [
-  { name: "Our Offer", href: "/our-offer" },
-  { name: "Impact", href: "/our-impact" },
-  { name: "Case Studies", href: "/case-studies" },
-  { name: "Resources", href: "/ressources" },
-  { name: "About Us", href: "/about" },
-  { name: "Contact Us", href: "/contact" },
-];
+import Newsletter from "./Newsletter";
 
 function Navigation({ data }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,8 +16,16 @@ function Navigation({ data }) {
       document.body.style.overflow = "";
     }
 
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("resize", handleResize);
     };
   }, [isOpen]);
 
@@ -37,40 +37,50 @@ function Navigation({ data }) {
         </div>
       </div>
 
-      {/* Navigation */}
-      <nav className="fixed right-4 top-6 z-40 lg:right-10 lg:top-4">
+      {/* Desktop Navigation */}
+      <nav className="fixed right-4 top-6 z-40 hidden lg:right-10 lg:top-4 lg:block">
         <div className="absolute inset-0 z-[-1] rounded bg-[rgba(255,255,255,0.7)] backdrop-blur-3xl"></div>
-        <ul className="relative items-center gap-10 px-4 py-2 text-sm lg:flex lg:p-4">
+        <ul className="relative hidden items-center gap-10 px-4 py-2 text-sm lg:flex lg:p-4">
           {data?.navItems.map((item, index) => (
-            <li key={index} className="hidden lg:block">
+            <li key={index}>
               <Link href={item.linkUrl}>{item.label}</Link>
             </li>
           ))}
-          <li
-            className="cursor-pointer lg:hidden"
-            onClick={() => setIsOpen((state) => !state)}
-          >
-            {isOpen ? "Close" : "Menu"}
-          </li>
         </ul>
       </nav>
-      <nav>
-        <ul
-          className={`${
-            isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-          } fixed inset-0 z-30 flex flex-col items-center justify-center gap-4 bg-[rgba(255,255,255,0.7)] p-4 backdrop-blur-3xl transition-all duration-300 ease-in-out lg:hidden`}
+
+      {/* Mobile Navigation */}
+      <nav className={`fixed right-4 top-6 z-40`}>
+        <button
+          className="relative z-50 rounded bg-[rgba(255,255,255,0.7)] px-4 py-2 text-sm backdrop-blur-3xl lg:hidden"
+          onClick={() => setIsOpen((state) => !state)}
         >
-          {Menu.map((item, index) => (
-            <li key={index}>
-              <Link
-                onClick={() => setIsOpen((state) => false)}
-                href={item.href}
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
+          {isOpen ? "Close" : "Menu"}
+        </button>
+        <div
+          className={`fixed left-0 top-0 z-40 h-1/2 w-full bg-light-500 p-6 shadow-lg transition-transform duration-300 ease-in-out ${isOpen ? "translate-y-0" : "-translate-y-full"}`}
+        >
+          <ul className="mb-8 text-lg">
+            {data?.navItems.map((item, index) => (
+              <li key={index}>
+                <Link href={item.linkUrl} onClick={() => setIsOpen(false)}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <ul className="mb-8 text-sm">
+            {data?.navSocials?.map((item, index) => (
+              <li key={index}>
+                <Link href={item.linkUrl} onClick={() => setIsOpen(false)}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <Newsletter data={data?.newsletter} type="navigation" />
+        </div>
       </nav>
     </header>
   );
