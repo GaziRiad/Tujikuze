@@ -66,7 +66,7 @@ async function Footer({ noHeading = false }) {
             ))}
           </ul>
 
-          <div className="grid grid-cols-2 text-sm lg:text-lg">
+          <div className="grid grid-cols-[65fr_35fr] text-sm lg:text-lg">
             <Link href="/" className="relative h-8 max-w-44">
               <Image
                 fill
