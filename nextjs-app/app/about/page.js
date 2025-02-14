@@ -32,7 +32,7 @@ export const revalidate = 2592000; // 30 days in seconds
 export default async function page() {
   const data = await sanityFetch({
     query: aboutquery,
-    tags: ["about-us", "case-studies", "case-study"],
+    tags: ["about", "case-studies", "case-study"],
   });
 
   if (!data) return null;
