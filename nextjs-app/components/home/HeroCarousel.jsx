@@ -85,7 +85,7 @@ export default function HeroCarousel({ images }) {
   return (
     <div
       id="hero-section"
-      className="relative h-screen w-full overflow-hidden"
+      className="relative h-[80vh] w-full overflow-hidden lg:h-screen"
       onMouseMove={handleMouseMove}
       onClick={handleClick}
       style={{ cursor: "none" }}
