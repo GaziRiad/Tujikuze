@@ -21,7 +21,7 @@ export default function EthicalFashion({ data }) {
         height={1600}
         src={data?.largeImage?.url || "/images/placeholder.jpg"}
         alt={data?.largeImage?.alt || "Tujikuze Image"}
-        className="mb-9 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[620px] 2xl:h-[920px]"
+        className="mb-9 h-[512px] w-full object-cover object-center lg:mb-24 lg:h-[620px] 2xl:h-[920px]"
       />
     </TabSection>
   );

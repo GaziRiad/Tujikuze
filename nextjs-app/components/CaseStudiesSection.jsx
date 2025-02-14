@@ -11,7 +11,7 @@ function CaseStudiesSection({ data }) {
           href={data.sectionHeading?.link?.linkUrl}
         />
       )}
-      <ul className="mx-auto mb-14 mt-8 flex max-w-[1720px] flex-col divide-y divide-dark-600 px-4 lg:mb-48 lg:mt-24">
+      <ul className="mx-auto mb-14 mt-8 flex max-w-[1720px] flex-col divide-y divide-dark-600 px-4 lg:mb-24 lg:mt-24">
         {data.caseStudies.map((item, index) => (
           <ListItem key={index} item={item} />
         ))}

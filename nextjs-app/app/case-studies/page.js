@@ -34,7 +34,7 @@ export default async function Page({ searchParams }) {
   const data = await sanityFetch({
     query: casestudiespagequery,
     tags: ["case-studies"],
-    qParams: category || date ? { category, date } : undefined, // Ensuring correct params
+    qParams: { category, date },
   });
 
   if (!data) return null;
