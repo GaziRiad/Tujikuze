@@ -18,7 +18,7 @@ export async function generateMetadata() {
         description
       }
     }`,
-    tags: ["ressources"],
+    tags: ["ressources", "post"],
   });
 
   return {
@@ -35,7 +35,7 @@ export default async function page({ searchParams }) {
 
   const data = await sanityFetch({
     query: ressourcespagequery,
-    tags: ["ressources"],
+    tags: ["ressources", "post"],
     qParams: { category, date },
   });
 

@@ -14,7 +14,7 @@ export async function generateMetadata({ params: { slug } }) {
       summary
     }`,
     qParams: { slug },
-    tags: ["case-study"],
+    tags: ["case-studies", "case-study"],
   });
 
   return {
@@ -28,7 +28,7 @@ export const revalidate = 2592000; // 30 days in seconds
 export async function generateStaticParams() {
   const caseStudies = await sanityFetch({
     query: groq`*[_type == "case-study"]{ slug }`,
-    tags: ["case-study"],
+    tags: ["case-studies", "case-study"],
   });
 
   return caseStudies.map((caseStudy) => ({
@@ -40,7 +40,7 @@ export default async function page({ params: { slug } }) {
   const data = await sanityFetch({
     query: singlecasestudyquery,
     qParams: { slug },
-    tags: ["case-study"],
+    tags: ["case-studies", "case-study"],
   });
 
   if (!data) return null;

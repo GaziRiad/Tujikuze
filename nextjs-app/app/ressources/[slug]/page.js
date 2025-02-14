@@ -14,7 +14,7 @@ export async function generateMetadata({ params: { slug } }) {
       summary
     }`,
     qParams: { slug },
-    tags: ["post"],
+    tags: ["ressources", "post"],
   });
 
   return {
@@ -28,7 +28,7 @@ export const revalidate = 2592000; // 30 days in seconds
 export async function generateStaticParams() {
   const posts = await sanityFetch({
     query: groq`*[_type == "post"]{ slug }`,
-    tags: ["post"],
+    tags: ["ressources", "post"],
   });
 
   return posts.map((post) => ({
@@ -40,7 +40,7 @@ export default async function page({ params: { slug } }) {
   const post = await sanityFetch({
     query: singlearticlequery,
     qParams: { slug },
-    tags: ["post"],
+    tags: ["ressources", "post"],
   });
 
   if (!post) return null;
