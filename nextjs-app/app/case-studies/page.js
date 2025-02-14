@@ -42,7 +42,7 @@ export default async function Page({ searchParams }) {
   return (
     <>
       <section className="mx-auto mt-20 max-w-[1720px] px-4 lg:mt-56">
-        <p className="mb-28 text-lg lg:mb-48 lg:text-4xl">{data.text}</p>
+        <p className="mb-14 text-lg lg:mb-48 lg:text-4xl">{data.text}</p>
       </section>
       <Filters
         dates={data?.dates}

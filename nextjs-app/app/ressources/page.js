@@ -43,7 +43,9 @@ export default async function page({ searchParams }) {
 
   return (
     <>
-      <Filters dates={data?.dates} categories={data?.categories} />
+      <div className="mt-28 lg:mt-36">
+        <Filters dates={data?.dates} categories={data?.categories} />
+      </div>
       <section className="mx-auto mb-14 max-w-[1720px] px-4 lg:mb-48">
         <ul className="grid grid-cols-1 gap-x-3 gap-y-4 divide-y divide-dark-600/20 text-dark-600 lg:grid-cols-2 lg:gap-y-24 lg:divide-y-0 xl:grid-cols-3">
           {data?.posts?.map((article, index) => (

@@ -46,7 +46,7 @@ export default function Filters({ dates, categories, page = "ressources" }) {
   };
 
   return (
-    <div className="mx-auto mb-8 mt-28 max-w-[1720px] px-4 lg:mb-24 lg:mt-36">
+    <div className="mx-auto mb-8 max-w-[1720px] px-4 lg:mb-24">
       <div className="relative">
         <button
           onClick={() => setIsOpen(!isOpen)}

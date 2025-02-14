@@ -28,6 +28,8 @@ module.exports = {
     "space-x-2",
     "list-disc",
     "pl-8",
+    "min-h-[58px]",
+    "min-w-[58px]",
     // Add other classes that might be getting purged
   ],
   darkMode: ["class"],
