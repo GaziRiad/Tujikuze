@@ -44,12 +44,12 @@ export default function ContactForm({ data }) {
               <textarea
                 {...register(field.placeholder, { required: field.required })}
                 placeholder={field.placeholder}
-                className="min-h-28 w-full border-2 border-black px-[10px] py-[6px] text-sm"
+                className="min-h-28 w-full border-2 border-black px-[10px] py-[6px] text-sm focus:outline-none focus:ring-0"
               />
             ) : field.type === "select" ? (
               <select
                 {...register(field.placeholder, { required: field.required })}
-                className="w-full border-2 border-black px-[10px] py-[6px] text-sm"
+                className="w-full border-2 border-black px-[10px] py-[6px] text-sm focus:outline-none focus:ring-0"
               >
                 {field.options?.map((option, idx) => (
                   <option key={idx} value={option}>
@@ -62,7 +62,7 @@ export default function ContactForm({ data }) {
                 type={field.type}
                 {...register(field.placeholder, { required: field.required })}
                 placeholder={field.placeholder}
-                className="w-full border-2 border-black px-[10px] py-[6px] text-sm"
+                className="w-full border-2 border-black px-[10px] py-[6px] text-sm focus:outline-none focus:ring-0"
               />
             )}
             {errors[field.placeholder] && (
