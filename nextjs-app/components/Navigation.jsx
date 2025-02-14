@@ -58,7 +58,7 @@ function Navigation({ data }) {
           {isOpen ? "Close" : "Menu"}
         </button>
         <div
-          className={`fixed left-0 top-0 z-40 h-1/2 w-full bg-light-500 p-6 shadow-lg transition-transform duration-300 ease-in-out ${isOpen ? "translate-y-0" : "-translate-y-full"}`}
+          className={`fixed left-0 top-0 z-40 min-h-[50%] w-full bg-light-500 p-6 shadow-lg transition-transform duration-300 ease-in-out ${isOpen ? "translate-y-0" : "-translate-y-full"}`}
         >
           <ul className="mb-8 text-lg">
             {data?.navItems.map((item, index) => (

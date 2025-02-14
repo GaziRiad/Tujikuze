@@ -33,7 +33,7 @@ export default function Newsletter({ data, type = "footer" }) {
       <h3 className="mb-5">{data?.title}</h3>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="mb-14 flex items-center gap-4 lg:mb-20"
+        className={`flex items-center gap-4 ${type === "footer" ? "mb-14 lg:mb-20" : ""}`}
       >
         <div className="w-full">
           <input
