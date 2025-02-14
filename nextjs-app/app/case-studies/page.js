@@ -16,7 +16,7 @@ export async function generateMetadata() {
         description
       }
     }`,
-    tags: ["case-study", "case-studies"],
+    tags: ["case-studies"],
   });
 
   return {
@@ -33,8 +33,8 @@ export default async function Page({ searchParams }) {
 
   const data = await sanityFetch({
     query: casestudiespagequery,
-    tags: ["case-study", "case-studies"],
-    qParams: { category, date },
+    tags: ["case-studies"],
+    qParams: category || date ? { category, date } : undefined, // Ensuring correct params
   });
 
   if (!data) return null;

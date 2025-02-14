@@ -23,11 +23,24 @@ export async function generateMetadata({ params: { slug } }) {
   };
 }
 
+export const revalidate = 2592000; // 30 days in seconds
+
+export async function generateStaticParams() {
+  const posts = await sanityFetch({
+    query: groq`*[_type == "post"]{ slug }`,
+    tags: ["post"],
+  });
+
+  return posts.map((post) => ({
+    slug: post.slug.current, // Use .current since slugs are stored as { current: "slug-value" }
+  }));
+}
+
 export default async function page({ params: { slug } }) {
   const post = await sanityFetch({
     query: singlearticlequery,
     qParams: { slug },
-    tags: ["post", "ressources"],
+    tags: ["post"],
   });
 
   if (!post) return null;

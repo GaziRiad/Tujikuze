@@ -3,8 +3,29 @@ import Footer from "@/components/Footer";
 import SectionHeading from "@/components/SectionHeading";
 import { sanityFetch } from "@/sanity/client";
 import { contactquery } from "@/sanity/groq";
+import { groq } from "next-sanity";
 import Image from "next/image";
 import React from "react";
+
+// Dynamic metadata
+export async function generateMetadata() {
+  const data = await sanityFetch({
+    query: groq`*[_type == "contact"][0]{
+      seo {
+        title,
+        description
+      }
+    }`,
+    tags: ["contact-us"],
+  });
+
+  return {
+    title: data?.seo?.title || "Tujikuze | Contact US",
+    description: data?.seo?.description || "Tujikuze | Contact US",
+  };
+}
+
+export const revalidate = 2592000; // 30 days in seconds
 
 export default async function page() {
   const data = await sanityFetch({

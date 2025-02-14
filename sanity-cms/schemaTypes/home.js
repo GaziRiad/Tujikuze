@@ -341,6 +341,18 @@ export default {
             }),
           ],
         }),
+        defineField({
+          name: 'ressources',
+          type: 'array',
+          title: 'Ressources',
+          of: [
+            {
+              type: 'reference',
+              to: [{type: 'post'}],
+            },
+          ],
+          validation: (Rule) => Rule.required().min(1),
+        }),
       ],
     }),
     defineField({

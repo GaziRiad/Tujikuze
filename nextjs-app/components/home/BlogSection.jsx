@@ -24,7 +24,7 @@ function BlogSection({ data }) {
         className="mx-auto mb-28 mt-24 max-w-[1460px] lg:mb-48"
       >
         <CarouselContent className="-ml-2 md:-ml-4">
-          {data.articles.map((article, index) => (
+          {data.ressources.map((article, index) => (
             <CarouselItem
               key={index}
               className="basis-[85%] pl-2 sm:basis-[90%] md:basis-2/4 md:pl-4"

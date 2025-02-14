@@ -83,7 +83,7 @@ export const homequery = groq`*[_type == "home"][0]{
         linkUrl
       }
     },
-    "articles": *[_type == "post"] | order(publishedAt desc) {
+    ressources[]-> {
       title,
       slug,
       mainImage {
@@ -95,7 +95,7 @@ export const homequery = groq`*[_type == "home"][0]{
         slug
       },
       summary
-    }
+    },
   }
 }
 `;
@@ -546,57 +546,3 @@ export const singlecasestudyquery = groq`*[_type == "case-study" && slug.current
   body,
 }
 `;
-
-// Mostly for SSG & sitemap
-// export const allressourcesquery = groq`
-// {
-//   "posts": *[_type == "post" &&
-//     (!defined($category) || $category in categories[]->slug.current) &&
-//     (!defined($date) || string::split(publishedAt, "-")[0] == $date)
-//   ] | order(publishedAt desc) {
-//     title,
-//     slug,
-//     mainImage {
-//       "imageUrl": image.asset->url,
-//       alt
-//     },
-//     categories[]-> {
-//       title,
-//       slug
-//     },
-//     summary,
-//     publishedAt
-//   },
-//   "dates": array::unique(*[_type == "post"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
-// }
-// `;
-
-// export const allcasestudiesquery = groq`
-// {
-//   "posts": *[_type == "case-study" &&
-//     (!defined($category) || $category in categories[]->slug.current) &&
-//     (!defined($date) || string::split(publishedAt, "-")[0] == $date)
-//   ] | order(publishedAt desc) {
-//     title,
-//     slug,
-//     description,
-//     mainImage {
-//       "imageUrl": image.asset->url,
-//       alt
-//     },
-//     categories[]-> {
-//       title,
-//       slug
-//     },
-//     summary,
-//     publishedAt
-//   },
-//   "dates": array::unique(*[_type == "case-study"]{ "year": string::split(publishedAt, "-")[0] } | order(year asc).year),
-// }
-// `;
-
-// export const allCategories = groq`*[_type == "category"]   {
-//         title,
-//         slug,
-//     }
-//       `;

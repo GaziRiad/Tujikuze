@@ -2,15 +2,45 @@ import Footer from "@/components/Footer";
 import { myPortableTextComponents } from "@/lib/utils";
 import { sanityFetch } from "@/sanity/client";
 import { singlecasestudyquery } from "@/sanity/groq";
-import { PortableText } from "next-sanity";
+import { groq, PortableText } from "next-sanity";
 import Link from "next/link";
 import React from "react";
+
+// Dynamic metadata
+export async function generateMetadata({ params: { slug } }) {
+  const data = await sanityFetch({
+    query: groq`*[_type == "case-study" && slug.current == $slug][0]{
+      title,
+      summary
+    }`,
+    qParams: { slug },
+    tags: ["case-study"],
+  });
+
+  return {
+    title: data?.title || "Tujikuze | Case Study",
+    description: data?.summary || "Tujikuze | Case Study",
+  };
+}
+
+export const revalidate = 2592000; // 30 days in seconds
+
+export async function generateStaticParams() {
+  const caseStudies = await sanityFetch({
+    query: groq`*[_type == "case-study"]{ slug }`,
+    tags: ["case-study"],
+  });
+
+  return caseStudies.map((caseStudy) => ({
+    slug: caseStudy.slug.current, // Use .current since slugs are stored as { current: "slug-value" }
+  }));
+}
 
 export default async function page({ params: { slug } }) {
   const data = await sanityFetch({
     query: singlecasestudyquery,
     qParams: { slug },
-    tags: ["case-study", "case-studies"],
+    tags: ["case-study"],
   });
 
   if (!data) return null;
