@@ -123,7 +123,13 @@ export const impactquery = groq`*[_type == "our-impact"][0]{
     },
   },
   resultsSection {
-    heading,
+    sectionHeading {
+      title,
+      link {
+        label,
+        linkUrl
+      }
+    },
     text,
     keyStatsTable[] {
       value,
@@ -131,7 +137,13 @@ export const impactquery = groq`*[_type == "our-impact"][0]{
     },
   },
   esgSection {
-    heading,
+    sectionHeading {
+      title,
+      link {
+        label,
+        linkUrl
+      }
+    },
     mainText,
     textContent[],
     esgImage[0] {

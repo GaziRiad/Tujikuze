@@ -16,7 +16,7 @@ export default function ItemsGridList({ title, items }) {
                   height={1200}
                   src={item?.image?.imageUrl || "/images/placeholder.jpg"}
                   alt={item?.image?.alt || "Tujikuze Image"}
-                  className="mb-4 h-[138px] object-cover lg:h-[601px]"
+                  className="mb-4 h-[138px] max-w-[50%] object-cover lg:h-[601px] lg:max-w-full"
                 />
                 <div>
                   <p className="mb-2 font-secondary text-xl sm:text-2xl">

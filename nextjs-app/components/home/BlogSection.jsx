@@ -10,7 +10,7 @@ import Link from "next/link";
 
 function BlogSection({ data }) {
   return (
-    <section className="mx-auto max-w-[1720px] px-4">
+    <section>
       <SectionHeading
         title={data.sectionHeading.title}
         label={data.sectionHeading?.link?.label}
@@ -21,7 +21,7 @@ function BlogSection({ data }) {
           align: "start",
           offset: 10,
         }}
-        className="mx-auto mb-28 mt-24 max-w-[1460px] lg:mb-48"
+        className="mx-auto mb-28 mt-8 max-w-[1460px] px-4 lg:mb-48 lg:mt-24"
       >
         <CarouselContent className="-ml-2 md:-ml-4">
           {data.ressources.map((article, index) => (

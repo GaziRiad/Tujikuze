@@ -65,7 +65,7 @@ export default async function page() {
         height={1600}
         src={data.mainImage?.imageUrl || "/images/placeholder.jpg"}
         alt={data.mainImage?.alt || "Tujikuze Image"}
-        className="mb-8 mt-14 w-full object-cover object-center lg:mb-48 lg:mt-48"
+        className="mb-8 w-full object-cover object-center lg:mb-48"
       />
 
       <TermsOfTrade data={data.termsSection} />

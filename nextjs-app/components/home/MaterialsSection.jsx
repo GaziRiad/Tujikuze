@@ -32,11 +32,11 @@ function MaterialsSection({ data }) {
           {data.mainText}
         </h2>
         <div className="mb-48 flex flex-col items-start justify-between gap-14 lg:flex-row lg:gap-0">
-          <ul className="flex flex-col gap-[6px]">
+          <ul className="flex flex-wrap gap-5 lg:flex-col lg:gap-[6px]">
             {data.items.map((item, index) => (
               <li
                 key={index}
-                className={`grid cursor-pointer grid-cols-[30fr_70fr] text-[#BABABA] transition-all ${
+                className={`grid max-w-[164px] cursor-pointer text-[#BABABA] transition-all lg:max-w-max lg:grid-cols-[30fr_70fr] ${
                   selectedItem === index
                     ? "text-dark-600"
                     : "hover:text-dark-600"

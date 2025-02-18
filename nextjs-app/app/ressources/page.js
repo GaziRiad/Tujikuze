@@ -51,10 +51,10 @@ export default async function page({ searchParams }) {
           {data?.posts?.map((article, index) => (
             <li
               key={index}
-              className="group relative flex items-start gap-4 pt-4 lg:flex-col lg:pt-0"
+              className="group relative flex flex-col gap-4 pt-4 lg:pt-0"
             >
               {/* Shared Hover Group */}
-              <div className="group relative">
+              <div className="group relative grid grid-cols-[25fr_75fr] items-start justify-between gap-5 pb-7 pt-7 lg:grid-cols-1 lg:gap-0">
                 <Link
                   href={`/ressources/${article.slug.current}`}
                   className="relative block"
@@ -66,33 +66,34 @@ export default async function page({ searchParams }) {
                       article.mainImage.imageUrl || "/images/placeholder.jpg"
                     }
                     alt={article.mainImage.alt || "Tujikuze Image"}
-                    className="mb-3 h-[431px] w-full object-cover transition-all duration-300 lg:h-[520px] 2xl:h-[720px]"
+                    className="mb-3 h-[138px] w-[94px] object-cover transition-all duration-300 lg:h-[520px] lg:w-full 2xl:h-[720px]"
                   />
                   {/* Dark overlay effect on hover */}
-                  <div className="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 group-hover:opacity-30"></div>
+                  <div className="absolute inset-0 h-[138px] w-[94px] bg-black opacity-0 transition-opacity duration-300 group-hover:opacity-30 lg:h-[520px] lg:w-full 2xl:h-[720px]"></div>
                 </Link>
+                <div className="">
+                  <ul className="mb-3 flex items-center gap-3 gap-y-1 font-secondary text-xs uppercase md:text-sm">
+                    {article.categories.map((cat, i) => (
+                      <li key={i}>
+                        <Link
+                          href={`/ressources?category=${cat.slug.current}`}
+                          className="transition-all hover:text-dark-400"
+                        >
+                          {cat.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
 
-                <ul className="mb-3 flex items-center gap-3 font-secondary text-sm uppercase">
-                  {article.categories.map((cat, i) => (
-                    <li key={i}>
-                      <Link
-                        href={`/ressources?category=${cat.slug.current}`}
-                        className="transition-all hover:text-dark-400"
-                      >
-                        {cat.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Title inside the same hover group */}
-                <Link
-                  href={`/ressources/${article.slug.current}`}
-                  className="max-w-96 transition-all hover:text-dark-400 group-hover:text-dark-400"
-                >
-                  <p className="mb-3 text-2xl">{article.title}</p>
-                  <p className="max-w-96 text-lg">{article.summary}</p>
-                </Link>
+                  {/* Title inside the same hover group */}
+                  <Link
+                    href={`/ressources/${article.slug.current}`}
+                    className="max-w-96 transition-all hover:text-dark-400 group-hover:text-dark-400"
+                  >
+                    <p className="mb-3 text-2xl">{article.title}</p>
+                    <p className="max-w-96 text-lg">{article.summary}</p>
+                  </Link>
+                </div>
               </div>
             </li>
           ))}
