@@ -4,10 +4,9 @@ import { useState } from "react";
 import Image from "next/image";
 
 import SectionHeading from "../SectionHeading";
-import MaterialsCarousel from "./MaterialsCarousel";
 
-function MaterialsSection({ data }) {
-  const [hoveredImage, setHoveredImage] = useState(data.items[0].itemImage.url);
+export default function InteractiveModule({ data }) {
+  const [hoveredImage, setHoveredImage] = useState(data.items[0].image.url);
   const [isFading, setIsFading] = useState(false);
   const [selectedItem, setSelectedItem] = useState(0);
 
@@ -41,7 +40,7 @@ function MaterialsSection({ data }) {
                     ? "text-dark-600"
                     : "hover:text-dark-600"
                 }`}
-                onClick={() => handleClick(item.itemImage.url, index)}
+                onClick={() => handleClick(item.image.url, index)}
               >
                 <p className="font-secondary text-sm">{item.name}</p>
                 <p className="text-sm lg:text-lg">{item.description}</p>
@@ -62,10 +61,7 @@ function MaterialsSection({ data }) {
             />
           </div>
         </div>
-        <MaterialsCarousel items={data.materials} />
       </div>
     </section>
   );
 }
-
-export default MaterialsSection;

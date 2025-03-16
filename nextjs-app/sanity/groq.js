@@ -1,55 +1,53 @@
 import { groq } from "next-sanity";
 
 export const homequery = groq`*[_type == "home"][0]{
-  hero {
-    heroImages[]{
-      "url": asset->url,
-      alt
-    },
-    heroContent
-  },
-  blockSections[] {
-    image {
+  modules[] {
+    _type,
+    _key,
+    ...,
+    "image": select(
+      _type == "largeImage" => {
         "url": image.asset->url,
-        alt
-    },
-    title,
-    subTitle,
-    link {
-      label,
-      linkUrl
-    },
-    text
-  },
-  mainImage {
-        "url": image.asset->url,
-        alt
-  },
-  materialsAndCraftsmanshipSection {
-    sectionHeading {
-      title,
-      link {
-        label,
-        linkUrl
+        "alt": image.alt
+      },
+      _type == "ctaModule" => {
+        "url": image.image.asset->url,
+        "alt": image.alt
+      },
+    ),
+    "items": select(
+      _type == "cardList" || _type == "interactiveCardList" => items[]{
+        _key,
+        name,
+        description,
+        "image": {
+          "url": image.image.asset->url,
+          "alt": image.alt
+        }
       }
-    },
-    mainText,
-    items[] {
-      name,
-      description,
-      itemImage {
-          "url": image.asset->url,
-          alt
-      },
-    },
-    materials[] {
-      name,
-      description,
-      materialImage {
-          "url": image.asset->url,
-          alt
-      },
+    ),
+    "heroImages": select(
+        _type == "hero" => images[] {
+          "url": asset->url,
+          "alt": alt
+        }
+      ),
+      "ressources": select(
+    _type == "blogModule" => ressources[]->{
+      _id,
+      title,
+      summary,
+      slug,
+      "image": mainImage.image.asset->url,
+      "alt": mainImage.alt,
+      publishedAt,
+      "categories": categories[]->{
+        _id,
+        title,
+        slug
+      }
     }
+  )
   },
   casesSection {
     sectionHeading {

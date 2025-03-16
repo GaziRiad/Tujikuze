@@ -11,6 +11,13 @@ import ressources from './ressources'
 import settings from './settings'
 import caseStudiesPage from './case-studies-page'
 import contact from './contact'
+import ctaModule from './ctaModule'
+import largeImage from './largeImage'
+import cardList from './cardList'
+import InteractiveCardList from './InteractiveCardList'
+import editorial from './editorial'
+import hero from './hero'
+import blogModule from './blogModule'
 
 export const schemaTypes = [
   home,
@@ -26,4 +33,11 @@ export const schemaTypes = [
   category,
   blockContent,
   settings,
+  hero,
+  ctaModule,
+  largeImage,
+  cardList,
+  InteractiveCardList,
+  editorial,
+  blogModule,
 ]
