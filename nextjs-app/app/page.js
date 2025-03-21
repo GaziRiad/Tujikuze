@@ -7,7 +7,7 @@ import { sanityFetch } from "@/sanity/client";
 import { homequery } from "@/sanity/groq";
 import { groq } from "next-sanity";
 import InteractiveModule from "@/components/home/InteractiveModule";
-import GridCarousel from "@/components/home/gridCarousel";
+import GridCarousel from "@/components/home/GridCarousel";
 import LargeImageModule from "@/components/LargeImageModule";
 
 // Dynamic metadata
