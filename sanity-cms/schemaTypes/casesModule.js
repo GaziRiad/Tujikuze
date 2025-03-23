@@ -2,18 +2,18 @@ import {defineField, defineType} from 'sanity'
 import {FolderIcon} from '@sanity/icons'
 
 export default defineType({
-  name: 'blogModule',
-  title: 'Blog Module',
+  name: 'casesModule',
+  title: 'Case Studies Module',
   type: 'object',
   fields: [
     defineField({
-      name: 'ressources',
+      name: 'caseStudies',
       type: 'array',
-      title: 'Ressources',
+      title: 'Case Studies',
       of: [
         {
           type: 'reference',
-          to: [{type: 'post'}],
+          to: [{type: 'case-study'}],
         },
       ],
       validation: (Rule) => Rule.required().min(1),
@@ -23,7 +23,7 @@ export default defineType({
   preview: {
     prepare() {
       return {
-        title: 'Ressources Module', // Fallback if no title
+        title: 'Case Studies Module', // Fallback if no title
         media: FolderIcon, // Default icon if no image
       }
     },

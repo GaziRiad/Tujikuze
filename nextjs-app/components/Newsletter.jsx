@@ -30,7 +30,7 @@ export default function Newsletter({ data, type = "footer" }) {
 
   return (
     <>
-      <h3 className="mb-5">{data?.title}</h3>
+      <h3 className="mb-5 text-sm">{data?.title}</h3>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={`flex items-start gap-4 ${type === "footer" ? "mb-14 lg:mb-20" : ""}`}

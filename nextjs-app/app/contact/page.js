@@ -60,7 +60,7 @@ export default async function page() {
         alt={data.image?.alt || "Tujikuze Image"}
         className="h-[512px] w-full object-cover object-center lg:h-[620px] 2xl:h-[920px]"
       />
-      <Footer noHeading={true} />
+      {/* <Footer noHeading={true} /> */}
     </>
   );
 }

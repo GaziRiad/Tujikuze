@@ -1,44 +1,11 @@
 import {defineField, defineType} from 'sanity'
+import {ThListIcon} from '@sanity/icons'
 
 export default defineType({
   name: 'interactiveCardList',
   title: 'Interactive Card List Module',
   type: 'object',
   fields: [
-    defineField({
-      name: 'sectionHeading',
-      title: 'Section Heading',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'title',
-          title: 'Heading Title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'link',
-          title: 'Heading Link (Optional)',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'label',
-              title: 'Link Label',
-              type: 'string',
-            }),
-            defineField({
-              name: 'linkUrl',
-              title: 'Link URL',
-              type: 'string',
-            }),
-          ],
-        }),
-      ],
-    }),
-    defineField({
-      name: 'mainText',
-      title: 'Main Text',
-      type: 'string',
-    }),
     defineField({
       name: 'items',
       title: 'Items',
@@ -82,4 +49,13 @@ export default defineType({
       ],
     }),
   ],
+  // 🎨 Customize how the Grid List appears in Sanity Studio
+  preview: {
+    prepare() {
+      return {
+        title: 'Interactive Card List Module',
+        media: ThListIcon, // Default icon if no image
+      }
+    },
+  },
 })

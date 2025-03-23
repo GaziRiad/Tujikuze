@@ -47,7 +47,7 @@ export default async function page() {
       <EthicalFashion data={data.ethicalFashionSection} />
       <CaseStudiesSection data={data.casesSection} />
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

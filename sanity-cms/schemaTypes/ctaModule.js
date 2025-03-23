@@ -33,7 +33,7 @@ export default defineType({
     }),
     defineField({
       name: 'subTitle',
-      title: 'SubTitle',
+      title: 'Sub Title',
       type: 'string',
     }),
     defineField({
@@ -56,7 +56,7 @@ export default defineType({
     defineField({
       name: 'text',
       title: 'Text (appears when link is hovered)',
-      type: 'string',
+      type: 'text',
     }),
   ],
   // 🎨 Customize how this object appears in the list

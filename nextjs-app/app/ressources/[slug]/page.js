@@ -81,9 +81,7 @@ export default async function page({ params: { slug } }) {
           components={myPortableTextComponents}
         />
       </div>
-      <div className="clear-both pt-14 lg:pt-48">
-        <Footer />
-      </div>
+      <div className="clear-both pt-14 lg:pt-48">{/* <Footer /> */}</div>
     </>
   );
 }

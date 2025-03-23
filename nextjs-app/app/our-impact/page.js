@@ -54,7 +54,7 @@ export default async function page() {
       <ResultSection data={data.resultsSection} />
       <ESGDeligenceSection data={data.esgSection} />
       <CaseStudiesSection data={data.casesSection} />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

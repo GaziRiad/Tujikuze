@@ -101,7 +101,7 @@ export default async function page({ searchParams }) {
       </section>
       <CaseStudiesSection data={data.casesSection} />
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

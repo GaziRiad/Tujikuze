@@ -1,5 +1,4 @@
 import Image from "next/image";
-import SectionHeading from "../SectionHeading";
 
 import {
   Carousel,
@@ -10,18 +9,13 @@ import Link from "next/link";
 
 function BlogSection({ data }) {
   return (
-    <section>
-      <SectionHeading
-        title={data.sectionHeading.title}
-        label={data.sectionHeading?.link?.label}
-        href={data.sectionHeading?.link?.linkUrl}
-      />
+    <section className="mb-28 lg:mb-48">
       <Carousel
         opts={{
           align: "start",
           offset: 10,
         }}
-        className="mx-auto mb-28 mt-8 max-w-[1460px] px-4 lg:mb-48 lg:mt-24"
+        className="mx-auto mt-8 max-w-[1460px] px-4"
       >
         <CarouselContent className="-ml-2 md:-ml-4">
           {data.ressources.map((article, index) => (
@@ -46,7 +40,7 @@ function BlogSection({ data }) {
                   <div className="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 group-hover:opacity-30"></div>
                 </Link>
 
-                <ul className="mb-3 flex items-center gap-3 font-secondary text-sm uppercase">
+                <ul className="mb-1 flex items-center gap-3 font-secondary text-[13px] uppercase lg:mb-3">
                   {article.categories.map((cat, i) => (
                     <li key={i}>
                       <Link
@@ -62,10 +56,14 @@ function BlogSection({ data }) {
                 {/* Title inside the same hover group */}
                 <Link
                   href={`/ressources/${article.slug.current}`}
-                  className="max-w-96 transition-all hover:text-dark-400 group-hover:text-dark-400"
+                  className="transition-all hover:text-dark-400 group-hover:text-dark-400"
                 >
-                  <p className="mb-3 text-2xl">{article.title}</p>
-                  <p className="max-w-96 text-lg">{article.summary}</p>
+                  <p className="mb-3 max-w-64 text-[15px] lg:max-w-96 lg:text-2xl">
+                    {article.title}
+                  </p>
+                  <p className="max-w-64 text-[13px] lg:max-w-96 lg:text-lg">
+                    {article.summary}
+                  </p>
                 </Link>
               </div>
             </CarouselItem>

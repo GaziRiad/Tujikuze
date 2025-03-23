@@ -16,7 +16,7 @@ export const homequery = groq`*[_type == "home"][0]{
       },
     ),
     "items": select(
-      _type == "cardList" || _type == "interactiveCardList" => items[]{
+      _type == "cardList" || _type == "interactiveCardList" || _type == "textList" => items[]{
         _key,
         name,
         description,
@@ -32,7 +32,7 @@ export const homequery = groq`*[_type == "home"][0]{
           "alt": alt
         }
       ),
-      "ressources": select(
+    "ressources": select(
     _type == "blogModule" => ressources[]->{
       _id,
       title,
@@ -47,17 +47,9 @@ export const homequery = groq`*[_type == "home"][0]{
         slug
       }
     }
-  )
-  },
-  casesSection {
-    sectionHeading {
-      title,
-      link {
-        label,
-        linkUrl
-      }
-    },
-    caseStudies[]-> {
+    ),
+    "caseStudies": select(
+    _type == "casesModule" => caseStudies[]-> {
       title,
       slug,
       subTitle,
@@ -72,29 +64,8 @@ export const homequery = groq`*[_type == "home"][0]{
         slug
       },
     }
+    ),
   },
-  blogSection {
-    sectionHeading {
-      title,
-      link {
-        label,
-        linkUrl
-      }
-    },
-    ressources[]-> {
-      title,
-      slug,
-      mainImage {
-        "imageUrl": image.asset->url,
-        alt
-      },
-      categories[]-> {
-        title,
-        slug
-      },
-      summary
-    },
-  }
 }
 `;
 

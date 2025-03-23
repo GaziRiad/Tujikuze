@@ -18,6 +18,9 @@ import InteractiveCardList from './InteractiveCardList'
 import editorial from './editorial'
 import hero from './hero'
 import blogModule from './blogModule'
+import textList from './textList'
+import sectionHeader from './sectionHeader'
+import casesModule from './casesModule'
 
 export const schemaTypes = [
   home,
@@ -33,11 +36,14 @@ export const schemaTypes = [
   category,
   blockContent,
   settings,
+  sectionHeader,
   hero,
   ctaModule,
   largeImage,
   cardList,
   InteractiveCardList,
   editorial,
+  textList,
   blogModule,
+  casesModule,
 ]

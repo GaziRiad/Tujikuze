@@ -3,8 +3,8 @@ import {DocumentIcon, OlistIcon} from '@sanity/icons'
 
 export default defineType({
   name: 'cardList',
-  title: 'card List Module',
-  type: 'object', // Change this from 'array' to 'object'
+  title: 'Card List Module',
+  type: 'object',
   fields: [
     defineField({
       name: 'items',
@@ -51,21 +51,37 @@ export default defineType({
             prepare({title, media}) {
               return {
                 title: title || 'Grid Item',
-                media: media || DocumentIcon, // Default icon if no image
+                media: media || DocumentIcon,
               }
             },
           },
         }),
       ],
     }),
+
+    // Dropdown for selecting the number of columns
+    defineField({
+      name: 'columns',
+      title: 'Number of Columns',
+      type: 'number',
+      options: {
+        list: [
+          {title: '2 Columns', value: 2},
+          {title: '3 Columns', value: 3},
+          {title: '4 Columns', value: 4},
+        ],
+        layout: 'dropdown', // Ensures it's a dropdown
+      },
+      initialValue: 3, // Default to 3 columns
+      validation: (Rule) => Rule.required(),
+    }),
   ],
 
-  // 🎨 Customize how the Grid List appears in Sanity Studio
   preview: {
     prepare({title, media}) {
       return {
         title: title || 'Grid List',
-        media: media || OlistIcon, // Default icon if no image
+        media: media || OlistIcon,
       }
     },
   },

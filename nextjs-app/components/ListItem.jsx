@@ -5,11 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { GoArrowRight } from "react-icons/go";
 
-export default function ListItem({ item }) {
+export default function ListItem({ item, index, totalItems }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <li className="grid grid-cols-[25fr_75fr] items-start justify-between gap-5 pb-7 pt-7 lg:gap-0">
+    <li
+      className={`grid grid-cols-[25fr_75fr] items-start justify-between gap-5 border-b border-transparent ${
+        index === 0 ? "pt-0" : "pt-4"
+      } ${index === totalItems - 1 ? "pb-0" : "pb-4"} lg:gap-0`}
+    >
       {/* Image Section */}
       <Link
         href={`/case-studies/${item?.slug.current}`}

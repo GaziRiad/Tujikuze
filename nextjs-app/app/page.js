@@ -9,6 +9,8 @@ import { groq } from "next-sanity";
 import InteractiveModule from "@/components/home/InteractiveModule";
 import GridCarousel from "@/components/home/GridCarousel";
 import LargeImageModule from "@/components/LargeImageModule";
+import TextListModule from "@/components/TextListModule";
+import SectionHeading from "@/components/SectionHeading";
 
 // Dynamic metadata
 export async function generateMetadata() {
@@ -38,13 +40,12 @@ async function Page() {
 
   if (!data) return null;
 
-  // console.log(data);
-
   return (
     <>
-      {/* <Hero data={data} /> */}
       {data?.modules?.map((module, index) => {
         if (module._type === "hero") return <Hero key={index} data={module} />;
+        if (module._type === "sectionHeader")
+          return <SectionHeading key={index} data={module} />;
         if (module._type === "ctaModule")
           return <DoubleBlocksSection key={index} data={module} />;
         if (module._type === "interactiveCardList")
@@ -64,24 +65,16 @@ async function Page() {
               </p>
             </div>
           );
+
+        if (module._type === "textList")
+          return <TextListModule key={index} data={module} />;
+        if (module._type === "casesModule")
+          return <CaseStudiesSection key={index} data={module} />;
         if (module._type === "blogModule")
           return <BlogSection key={index} data={module} />;
+        if (module._type === "footer")
+          return <Footer key={index} data={module} />;
       })}
-
-      {/* {data.blockSections.map((section, index) => (
-        <DoubleBlocksSection key={index} data={section} />
-      ))}
-      <Image
-        width={1600}
-        height={1600}
-        src={data.mainImage.url || "/images/placeholder.jpg"}
-        alt={data.mainImage.alt || "Tujikuze image"}
-        className="mb-28 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[620px] 2xl:h-[920px]"
-      />
-      <MaterialsSection data={data.materialsAndCraftsmanshipSection} /> */}
-      {/* <CaseStudiesSection data={data.casesSection} /> */}
-      {/* <BlogSection data={data.blogSection} /> */}
-      <Footer />
     </>
   );
 }

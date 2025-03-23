@@ -3,8 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import SectionHeading from "../SectionHeading";
-
 export default function InteractiveModule({ data }) {
   const [hoveredImage, setHoveredImage] = useState(data.items[0].image.url);
   const [isFading, setIsFading] = useState(false);
@@ -21,21 +19,13 @@ export default function InteractiveModule({ data }) {
 
   return (
     <section>
-      <SectionHeading
-        title={data.sectionHeading.title}
-        label={data.sectionHeading?.link?.label}
-        href={data.sectionHeading?.link?.linkUrl}
-      />
       <div className="mx-auto mb-28 max-w-[1720px] px-4 lg:mb-48">
-        <h2 className="mb-11 max-w-[1320px] text-lg lg:mb-28 lg:text-4xl">
-          {data.mainText}
-        </h2>
-        <div className="mb-48 flex flex-col items-start justify-between gap-14 lg:flex-row lg:gap-0">
-          <ul className="flex flex-wrap gap-5 lg:flex-col lg:gap-[6px]">
-            {data.items.map((item, index) => (
+        <div className="flex flex-col items-start justify-between gap-14 lg:flex-row lg:gap-0">
+          <ul className="grid grid-cols-1 gap-x-7 gap-y-[10px] lg:grid-cols-2 lg:gap-y-12">
+            {data?.items?.map((item, index) => (
               <li
                 key={index}
-                className={`grid max-w-[164px] cursor-pointer text-[#BABABA] transition-all lg:max-w-max lg:grid-cols-[30fr_70fr] ${
+                className={`flex cursor-pointer flex-col text-[#BABABA] transition-all ${
                   selectedItem === index
                     ? "text-dark-600"
                     : "hover:text-dark-600"
@@ -43,7 +33,9 @@ export default function InteractiveModule({ data }) {
                 onClick={() => handleClick(item.image.url, index)}
               >
                 <p className="font-secondary text-sm">{item.name}</p>
-                <p className="text-sm lg:text-lg">{item.description}</p>
+                <p className="text-sm lg:max-w-md lg:text-lg">
+                  {item.description}
+                </p>
               </li>
             ))}
           </ul>

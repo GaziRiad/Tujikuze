@@ -1,45 +1,11 @@
 import {defineField, defineType} from 'sanity'
+import {ComponentIcon} from '@sanity/icons'
 
 export default defineType({
   name: 'footer',
   type: 'document',
   title: 'Footer',
   fields: [
-    defineField({
-      name: 'sectionHeading',
-      title: 'Section Heading',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'title',
-          title: 'Heading Title',
-          type: 'string',
-        }),
-        defineField({
-          name: 'link',
-          title: 'Heading Link (Optional)',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'label',
-              title: 'Link Label',
-              type: 'string',
-            }),
-            defineField({
-              name: 'linkUrl',
-              title: 'Link URL',
-              type: 'string',
-            }),
-          ],
-        }),
-      ],
-    }),
-    defineField({
-      name: 'subHeading',
-      type: 'string',
-      title: 'Section Sub Heading (H2 Large text)',
-      description: 'text for the footer section sub heading.',
-    }),
     // Credits Section
     defineField({
       name: 'credits',
@@ -90,10 +56,11 @@ export default defineType({
         }),
       ],
     }),
+
     defineField({
-      name: 'image',
-      type: 'image', // Use 'image' directly instead of wrapping in an object with 'asset'
-      title: 'Footer Image',
+      name: 'mainImage',
+      type: 'image', // Use 'image' directly
+      title: 'Main Footer Image',
       options: {
         hotspot: true,
       },
@@ -102,7 +69,7 @@ export default defineType({
           name: 'alt',
           type: 'string',
           title: 'Alt Text',
-          description: 'Alternative text for the image.',
+          description: 'Alternative text for the main footer image.',
         }),
       ],
     }),
@@ -199,4 +166,13 @@ export default defineType({
       ],
     }),
   ],
+  // 🎨 Customize how the Grid List appears in Sanity Studio
+  preview: {
+    prepare() {
+      return {
+        title: 'Footer Module',
+        media: ComponentIcon, // Default icon if no image
+      }
+    },
+  },
 })

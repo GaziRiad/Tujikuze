@@ -72,7 +72,7 @@ export default async function page() {
 
       <CaseStudiesSection data={data.casesSection} />
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
