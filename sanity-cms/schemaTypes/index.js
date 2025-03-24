@@ -12,7 +12,7 @@ import settings from './settings'
 import caseStudiesPage from './case-studies-page'
 import contact from './contact'
 import ctaModule from './ctaModule'
-import largeImage from './largeImage'
+import mediaModule from './mediaModule'
 import cardList from './cardList'
 import InteractiveCardList from './InteractiveCardList'
 import editorial from './editorial'
@@ -21,6 +21,7 @@ import blogModule from './blogModule'
 import textList from './textList'
 import sectionHeader from './sectionHeader'
 import casesModule from './casesModule'
+import keyStats from './keyStats'
 
 export const schemaTypes = [
   home,
@@ -39,11 +40,12 @@ export const schemaTypes = [
   sectionHeader,
   hero,
   ctaModule,
-  largeImage,
+  mediaModule,
   cardList,
   InteractiveCardList,
   editorial,
   textList,
+  keyStats,
   blogModule,
   casesModule,
 ]

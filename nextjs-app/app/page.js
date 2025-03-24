@@ -8,9 +8,10 @@ import { homequery } from "@/sanity/groq";
 import { groq } from "next-sanity";
 import InteractiveModule from "@/components/home/InteractiveModule";
 import GridCarousel from "@/components/home/GridCarousel";
-import LargeImageModule from "@/components/LargeImageModule";
+import MediaModule from "@/components/MediaModule";
 import TextListModule from "@/components/TextListModule";
 import SectionHeading from "@/components/SectionHeading";
+import DataList from "@/components/DataList";
 
 // Dynamic metadata
 export async function generateMetadata() {
@@ -52,8 +53,8 @@ async function Page() {
           return <InteractiveModule key={index} data={module} />;
         if (module._type === "cardList")
           return <GridCarousel key={index} data={module} />;
-        if (module._type === "largeImage")
-          return <LargeImageModule key={index} data={module} />;
+        if (module._type === "mediaModule")
+          return <MediaModule key={index} data={module} />;
         if (module._type === "editorial")
           return (
             <div
@@ -68,6 +69,8 @@ async function Page() {
 
         if (module._type === "textList")
           return <TextListModule key={index} data={module} />;
+        if (module._type === "keyStats")
+          return <DataList key={index} data={module} />;
         if (module._type === "casesModule")
           return <CaseStudiesSection key={index} data={module} />;
         if (module._type === "blogModule")
