@@ -5,273 +5,25 @@ export default defineType({
   title: 'About US Page',
   type: 'document',
   fields: [
-    defineField({
-      name: 'intro',
-      title: 'Intro Section',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'text',
-          title: 'Text Content',
-          type: 'text',
-        }),
-      ],
-    }),
-    defineField({
-      name: 'ourMission',
-      title: 'Our Mission Section',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'heading',
-          type: 'string',
-          title: 'Section Heading',
-          description: 'text for the section heading (H2).',
-        }),
-        defineField({
-          name: 'text',
-          title: 'text Content',
-          type: 'text',
-        }),
-        defineField({
-          name: 'keyStatsTable',
-          title: 'Key Statistics Table',
-          type: 'array',
-          of: [
-            defineField({
-              name: 'tableRow',
-              type: 'object',
-              title: 'Table Row',
-              fields: [
-                defineField({
-                  name: 'value',
-                  title: 'Value',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'label',
-                  title: 'Label',
-                  type: 'string',
-                }),
-              ],
-            }),
-          ],
-        }),
-        defineField({
-          name: 'missionImage',
-          title: 'Our Mission Section Image',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'image',
-              type: 'image', // Use 'image' directly
-              options: {
-                hotspot: true,
-              },
-            }),
-            defineField({
-              name: 'alt',
-              type: 'string',
-              title: 'Alt Text',
-              description: 'Alternative text for the logo.',
-            }),
-          ],
-        }),
-      ],
-    }),
-    defineType({
-      name: 'locationSection',
-      title: 'Our Location Section',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'heading',
-          type: 'string',
-          title: 'Section Heading',
-          description: 'text for the section heading (H2).',
-        }),
-        defineField({
-          name: 'mainText',
-          title: 'Main Text Content',
-          type: 'text',
-        }),
-        defineField({
-          name: 'textContent',
-          title: 'Text Content',
-          type: 'array',
-          of: [{type: 'text'}], // No need for an object wrapper
-        }),
-        defineField({
-          name: 'locationImage',
-          title: 'Our Location Section Image',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'image',
-              type: 'image', // Use 'image' directly
-              options: {
-                hotspot: true,
-              },
-            }),
-            defineField({
-              name: 'alt',
-              type: 'string',
-              title: 'Alt Text',
-              description: 'Alternative text for the logo.',
-            }),
-          ],
-        }),
-      ],
-    }),
-    defineType({
-      name: 'teamSection',
-      title: 'Our Team Section',
+    {
+      name: 'modules',
+      title: 'Page Modules',
       type: 'array',
       of: [
-        defineType({
-          name: 'teamMember',
-          title: 'Team Member',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'fullname',
-              type: 'string',
-              title: 'Team member full name',
-            }),
-            defineField({
-              name: 'description',
-              title: 'Team member description',
-              type: 'text',
-            }),
-            defineField({
-              name: 'memberImage',
-              title: 'Team member Image',
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'image',
-                  type: 'image', // Use 'image' directly
-                  options: {
-                    hotspot: true,
-                  },
-                }),
-                defineField({
-                  name: 'alt',
-                  type: 'string',
-                  title: 'Alt Text',
-                  description: 'Alternative text for the logo.',
-                }),
-              ],
-            }),
-          ],
-        }),
+        {type: 'sectionHeader'},
+        {type: 'hero'},
+        {type: 'ctaModule'},
+        {type: 'mediaModule'},
+        {type: 'cardList'},
+        {type: 'interactiveCardList'},
+        {type: 'editorial'},
+        {type: 'textList'},
+        {type: 'keyStats'},
+        {type: 'casesModule'},
+        {type: 'blogModule'},
+        {type: 'footer'},
       ],
-    }),
-    defineType({
-      name: 'ethicalFashionSection',
-      title: 'Ethical Fashion Initiative Section',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'heading',
-          type: 'string',
-          title: 'Section Heading',
-          description: 'text for the section heading (H2).',
-        }),
-        defineField({
-          name: 'text',
-          title: 'Text Content',
-          type: 'text',
-        }),
-        defineField({
-          name: 'halfImage',
-          title: 'Ethical Fashion Section Image',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'image',
-              type: 'image', // Use 'image' directly
-              options: {
-                hotspot: true,
-              },
-            }),
-            defineField({
-              name: 'alt',
-              type: 'string',
-              title: 'Alt Text',
-              description: 'Alternative text for the logo.',
-            }),
-          ],
-        }),
-        defineField({
-          name: 'largeImage',
-          title: 'Ethical Fashion Section Main Large Image',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'image',
-              type: 'image', // Use 'image' directly
-              options: {
-                hotspot: true,
-              },
-            }),
-            defineField({
-              name: 'alt',
-              type: 'string',
-              title: 'Alt Text',
-              description: 'Alternative text for the logo.',
-            }),
-          ],
-        }),
-      ],
-    }),
-    defineField({
-      name: 'casesSection',
-      title: 'Case Studies Section in Home page',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'sectionHeading',
-          title: 'Section Heading (Optional)',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'title',
-              title: 'Heading Title',
-              type: 'string',
-            }),
-            defineField({
-              name: 'link',
-              title: 'Heading Link',
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'label',
-                  title: 'Link Label',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'linkUrl',
-                  title: 'Link URL',
-                  type: 'string',
-                }),
-              ],
-            }),
-          ],
-        }),
-        defineField({
-          name: 'caseStudies',
-          type: 'array',
-          title: 'Case Studies',
-          of: [
-            {
-              type: 'reference',
-              to: [{type: 'case-study'}],
-            },
-          ],
-        }),
-      ],
-    }),
+    },
     defineField({
       name: 'seo',
       title: 'SEO Settings',
@@ -290,4 +42,10 @@ export default defineType({
       ],
     }),
   ],
+
+  preview: {
+    select: {
+      title: 'seo.title',
+    },
+  },
 })

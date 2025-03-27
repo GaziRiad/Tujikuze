@@ -28,4 +28,10 @@ export default defineField({
       ],
     }),
   ],
+
+  preview: {
+    select: {
+      title: 'seo.title',
+    },
+  },
 })

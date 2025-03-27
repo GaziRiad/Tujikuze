@@ -78,21 +78,6 @@ export default async function page() {
         if (module._type === "footer")
           return <Footer key={index} data={module} />;
       })}
-      {/* <section className="mx-auto mt-20 max-w-[1720px] px-4 lg:mt-56">
-        <p className="mb-11 text-lg lg:mb-24 lg:text-4xl">{data.intro.text}</p>
-      </section>
-      <Image
-        src={data.mainImage?.url || "/images/placeholder.jpg"}
-        width={2000}
-        height={2000}
-        alt={data.mainImage?.alt || "Tujikuze Image"}
-        className="mb-14 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[620px] 2xl:h-[920px]"
-      />
-      <HighlightsSection data={data.highlightsSection} />
-      <ResultSection data={data.resultsSection} />
-      <ESGDeligenceSection data={data.esgSection} />
-      <CaseStudiesSection data={data.casesSection} /> */}
-      {/* <Footer /> */}
     </div>
   );
 }

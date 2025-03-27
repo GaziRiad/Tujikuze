@@ -22,6 +22,7 @@ import textList from './textList'
 import sectionHeader from './sectionHeader'
 import casesModule from './casesModule'
 import keyStats from './keyStats'
+import contactForm from './contactForm'
 
 export const schemaTypes = [
   home,
@@ -48,4 +49,5 @@ export const schemaTypes = [
   keyStats,
   blogModule,
   casesModule,
+  contactForm,
 ]

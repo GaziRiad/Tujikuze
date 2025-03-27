@@ -50,7 +50,7 @@ export default defineType({
           type: 'object',
           fields: [
             defineField({
-              name: 'text',
+              name: 'description',
               title: 'Text Item',
               type: 'text',
             }),

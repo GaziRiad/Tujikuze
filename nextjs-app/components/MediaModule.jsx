@@ -14,8 +14,19 @@ export default function MediaModule({ data }) {
     default:
       "mb-28 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[620px] 2xl:h-[920px]", // Default full width
   };
-  console.log(imageRatio);
 
+  if (imageRatio === "1:1")
+    return (
+      <div className="mx-auto max-w-[1720px] px-4">
+        <Image
+          width={1200}
+          height={1200}
+          src={data?.image?.url || "/images/placeholder.jpg"}
+          alt={data?.alt || "Tujikuze image"}
+          className={`${imageClasses[imageRatio]}`}
+        />
+      </div>
+    );
   return (
     <Image
       width={1600}

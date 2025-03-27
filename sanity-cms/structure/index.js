@@ -40,21 +40,6 @@ export const structure = (S) =>
         .child(S.document().schemaType('contact').documentId('contact')),
       S.divider(),
 
-      S.listItem()
-        .title('Reused sections')
-        .child(
-          S.list()
-            .title('Reused sections')
-            .items([
-              S.listItem()
-                .title('Footer')
-                .id('footer')
-                .child(S.document().schemaType('footer').documentId('footer')),
-            ]),
-        ),
-
-      S.divider(),
-
       S.documentTypeListItem('category').title('Categories').icon(ListIcon),
       S.documentTypeListItem('post').title('Posts').icon(DocumentIcon),
       S.documentTypeListItem('case-study').title('Case Studies').icon(DocumentIcon),

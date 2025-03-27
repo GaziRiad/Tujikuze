@@ -3,8 +3,6 @@ import SectionHeading from "../SectionHeading";
 import Image from "next/image";
 
 export default function TermsOfTrade({ data }) {
-  console.log(data.topFeatures);
-
   return (
     <section className="mx-auto max-w-[1720px]">
       <SectionHeading

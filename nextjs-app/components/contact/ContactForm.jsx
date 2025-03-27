@@ -29,13 +29,13 @@ export default function ContactForm({ data }) {
   };
 
   return (
-    <div className="grid max-w-[1414px] gap-5 px-4 text-dark-600 lg:grid-cols-2 lg:gap-0">
-      <h2 className="text-[22px]">{data?.title}</h2>
+    <div className="mx-auto mb-28 grid max-w-[1414px] gap-5 px-4 text-dark-600 lg:mb-48 lg:grid-cols-2 lg:gap-0">
+      <h2 className="text-[22px]">{data?.module?.title}</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="grid grid-cols-2 gap-3"
       >
-        {data?.fields?.map((field, index) => (
+        {data?.module?.fields?.map((field, index) => (
           <div
             key={index}
             className={field.type === "textarea" ? "col-span-2" : ""}
@@ -77,7 +77,11 @@ export default function ContactForm({ data }) {
           type="submit"
           className={`" border-2 border-black px-[10px] py-[6px] text-left text-sm text-light-500 transition-all ${isSubmitting ? "flex cursor-not-allowed items-center justify-center bg-white" : "bg-[#111B13] hover:bg-[#111B13]/90"}`}
         >
-          {isSubmitting ? <span className="mini-spinner"></span> : data?.label}
+          {isSubmitting ? (
+            <span className="mini-spinner"></span>
+          ) : (
+            data?.module?.buttonLabel
+          )}
         </button>
       </form>
     </div>

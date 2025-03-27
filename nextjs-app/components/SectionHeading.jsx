@@ -31,11 +31,22 @@ function SectionHeading({ title, onClick, state, type = "link", data }) {
           </Link>
         )}
       </div>
-      {data?.description && (
-        <h2 className="mb-12 text-sm lg:mb-20 lg:max-w-7xl lg:text-3xl">
-          {data.description}
-        </h2>
-      )}
+      <div className="grid grid-cols-2 gap-4 lg:gap-16">
+        {data?.description && (
+          <h2
+            className={`mb-12 text-sm lg:mb-20 lg:max-w-7xl lg:text-3xl ${data?.items ? "" : "col-span-2"}`}
+          >
+            {data.description}
+          </h2>
+        )}
+        <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-8">
+          {data?.items?.map((item, index) => (
+            <li key={index} className="flex items-center gap-4">
+              <p className="text-sm lg:text-lg">{item?.description}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
