@@ -1,12 +1,12 @@
 import Hero from "@/components/home/Hero";
-import DoubleBlocksSection from "@/components/home/DoubleBlocksSection";
+import DoubleBlocksSection from "@/components/DoubleBlocksSection";
 import CaseStudiesSection from "@/components/CaseStudiesSection";
-import BlogSection from "@/components/home/BlogSection";
+import BlogSection from "@/components/BlogSection";
 import Footer from "@/components/Footer";
 import { sanityFetch } from "@/sanity/client";
 import { homequery } from "@/sanity/groq";
 import { groq } from "next-sanity";
-import InteractiveModule from "@/components/home/InteractiveModule";
+import InteractiveModule from "@/components/InteractiveModule";
 import GridCarousel from "@/components/home/GridCarousel";
 import MediaModule from "@/components/MediaModule";
 import TextListModule from "@/components/TextListModule";

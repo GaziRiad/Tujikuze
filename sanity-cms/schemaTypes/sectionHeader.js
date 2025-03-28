@@ -3,7 +3,7 @@ import {DocumentTextIcon} from '@sanity/icons'
 
 export default defineType({
   name: 'sectionHeader',
-  title: 'Section Header Module',
+  title: 'Section Title Module',
   type: 'object', // Change this from 'array' to 'object'
   fields: [
     defineField({
@@ -71,7 +71,7 @@ export default defineType({
   preview: {
     prepare() {
       return {
-        title: 'Section Header Module',
+        title: 'Section Title Module',
         media: DocumentTextIcon, // Default icon if no image
       }
     },

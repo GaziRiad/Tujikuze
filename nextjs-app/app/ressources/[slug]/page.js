@@ -52,7 +52,7 @@ export default async function page({ params: { slug } }) {
           {post?.title}
         </p>
         {/* META Info */}
-        <div className="mb-12 flex items-center gap-1 border-b border-dark-600 pb-2 font-secondary text-sm text-dark-500 lg:mb-6 lg:pb-5 lg:text-[22px]">
+        <div className="mb-12 flex items-center gap-1 border-b border-dark-600 pb-2 font-secondary text-sm text-dark-500 lg:mb-6 lg:pb-3 lg:text-lg">
           <ul className="flex items-center gap-1">
             {post?.categories?.map((category, index) => (
               <li key={category?.slug?.current}>

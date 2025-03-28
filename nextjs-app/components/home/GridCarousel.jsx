@@ -10,13 +10,6 @@ export default function GridCarousel({ data }) {
   // Default to 3 columns if not specified
   const columns = data?.columns || 3;
 
-  // Map columns to tailwind basis classes (only applied for lg and up)
-  // const columnClasses = {
-  //   2: "lg:basis-1/2 xl:basis-1/2",
-  //   3: "lg:basis-1/3 xl:basis-1/3",
-  //   4: "lg:basis-1/3 xl:basis-1/4",
-  // };
-
   const columnClasses = {
     2: "lg:grid-cols-2",
     3: "lg:grid-cols-3 xl:grid-cols-3",

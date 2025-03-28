@@ -1,7 +1,6 @@
 import React from "react";
 
 import Image from "next/image";
-import Footer from "@/components/Footer";
 import Filters from "@/components/Filters";
 import { sanityFetch } from "@/sanity/client";
 import { ressourcespagequery } from "@/sanity/groq";
@@ -100,8 +99,6 @@ export default async function page({ searchParams }) {
         </ul>
       </section>
       <CaseStudiesSection data={data.casesSection} />
-
-      {/* <Footer /> */}
     </>
   );
 }

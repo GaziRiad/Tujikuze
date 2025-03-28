@@ -91,7 +91,7 @@ export default function HeroCarousel({ images }) {
       style={{ cursor: "none" }}
     >
       {/* CursorEffect scoped to hero section */}
-      <CursorEffect targetSelector="#hero-section" />
+      {/* <CursorEffect targetSelector="#hero-section" /> */}
 
       {/* Custom Cursor */}
       <div
@@ -137,7 +137,7 @@ export default function HeroCarousel({ images }) {
               alt={slide.alt || "Tujikuze image"}
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/20" />
+            {/* <div className="absolute inset-0 bg-black/20" /> */}
             <div className="absolute left-8 right-8 top-8">
               <h1
                 className="animate-fade-in text-4xl font-light text-white opacity-0 md:text-6xl"

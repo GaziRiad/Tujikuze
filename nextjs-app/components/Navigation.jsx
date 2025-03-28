@@ -30,10 +30,15 @@ function Navigation({ data }) {
   }, [isOpen]);
 
   return (
-    <header className="relative z-50">
+    <header className="z-50">
+      {/* Logo with blending */}
       <div className="fixed left-4 top-6 z-50 mix-blend-difference lg:left-10 lg:top-4">
+        {/* Fallback for light sections */}
         <div className="relative">
-          <Logo img={data.logo?.url} className="relative" />
+          {/* <div className="absolute inset-0 bg-black mix-blend-difference" /> */}
+          <Link href="/">
+            <Logo className="relative" img={data.logo?.url} />
+          </Link>
         </div>
       </div>
 
@@ -50,7 +55,7 @@ function Navigation({ data }) {
       </nav>
 
       {/* Mobile Navigation */}
-      <nav className={`fixed right-4 top-6 z-40`}>
+      <nav className={`fixed right-4 top-6 z-50`}>
         <button
           className="relative z-50 rounded bg-[rgba(255,255,255,0.7)] px-4 py-2 text-sm backdrop-blur-3xl lg:hidden"
           onClick={() => setIsOpen((state) => !state)}
@@ -62,7 +67,7 @@ function Navigation({ data }) {
         >
           <ul className="mb-8 text-lg">
             {data?.navItems.map((item, index) => (
-              <li key={index}>
+              <li key={index} className="">
                 <Link href={item.linkUrl} onClick={() => setIsOpen(false)}>
                   {item.label}
                 </Link>

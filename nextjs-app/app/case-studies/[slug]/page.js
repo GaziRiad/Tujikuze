@@ -52,7 +52,7 @@ export default async function page({ params: { slug } }) {
           {data?.title}
         </p>
         {/* META Info */}
-        <div className="mb-12 flex items-center justify-between border-b border-dark-600 pb-2 font-secondary text-sm text-dark-500 lg:mb-6 lg:pb-5 lg:text-[22px]">
+        <div className="mb-12 flex items-center justify-between border-b border-dark-600 pb-2 font-secondary text-sm text-dark-500 lg:mb-6 lg:pb-3 lg:text-lg">
           {data?.reportUrl ? (
             <Link
               href={data.reportUrl}
