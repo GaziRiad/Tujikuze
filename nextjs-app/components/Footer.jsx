@@ -53,12 +53,12 @@ async function Footer() {
           </ul>
 
           <div className="grid grid-cols-[65fr_35fr] text-sm lg:text-lg">
-            <Link href="/" className="relative h-8 max-w-44">
+            <Link href="/" className="relative h-12 w-44">
               <Image
                 fill
                 src={urlFor(data?.mainLogo).url() || "/images/placeholder.jpg"}
                 alt={data?.mainLogo?.alt || "Tujikuze Image"}
-                className="object-cover"
+                className="object-contain"
               />
             </Link>
             <div className="flex flex-col gap-4 text-light-500">
