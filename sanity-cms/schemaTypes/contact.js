@@ -22,7 +22,6 @@ export default defineField({
         {type: 'keyStats'},
         {type: 'casesModule'},
         {type: 'blogModule'},
-        {type: 'footer'},
       ],
     },
 

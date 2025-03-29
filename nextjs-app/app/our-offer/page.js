@@ -76,9 +76,8 @@ export default async function page() {
           return <CaseStudiesSection key={index} data={module} />;
         if (module._type === "blogModule")
           return <BlogSection key={index} data={module} />;
-        if (module._type === "footer")
-          return <Footer key={index} data={module} />;
       })}
+      <Footer />
     </div>
   );
 }

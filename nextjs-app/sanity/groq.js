@@ -16,7 +16,7 @@ export const homequery = groq`*[_type == "home"][0]{
       },
     ),
     "items": select(
-      _type == "cardList" || _type == "interactiveCardList" || _type == "textList" => items[]{
+      _type == "cardList" || _type == "interactiveCardList" || _type == "textList" || _type == "sectionHeader" => items[]{
         _key,
         name,
         description,
@@ -65,7 +65,7 @@ export const homequery = groq`*[_type == "home"][0]{
       },
     }
     ),
-  },
+  }
 }
 `;
 
@@ -85,7 +85,7 @@ export const impactquery = groq`*[_type == "our-impact"][0]{
       },
     ),
     "items": select(
-      _type == "cardList" || _type == "interactiveCardList" || _type == "textList" => items[]{
+      _type == "cardList" || _type == "interactiveCardList" || _type == "textList" || _type == "sectionHeader" => items[]{
         _key,
         name,
         description,
@@ -446,7 +446,55 @@ export const contactquery = groq`*[_type == "contact"][0] {
 }`;
 
 // Reusable sections
-// DELETED
+
+export const footerquery = groq`*[_type == "footer"][0]{
+  sectionHeading {
+    title,
+    link {
+      label,
+      linkUrl
+    }
+  },
+  subHeading,
+  credits[]{
+    title,
+    text
+  },
+  newsletter{
+    title,
+    placeholder,
+    buttonLabel
+  },
+  mainImage{
+    asset->{
+      _id,
+      url
+    },
+    alt
+  },
+  navigationLinks[]{
+    link,
+    url
+  },
+  socialLinks[]{
+    platform,
+    url
+  },
+  footerLogos[]{
+    asset->{
+      _id,
+      url
+    },
+    alt
+  },
+  mainLogo{
+    asset->{
+      _id,
+      url
+    },
+    alt
+  }
+}`;
 
 // Single dynamic pages
 // Single Post

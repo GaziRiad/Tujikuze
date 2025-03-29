@@ -21,7 +21,6 @@ export default defineType({
         {type: 'keyStats'},
         {type: 'casesModule'},
         {type: 'blogModule'},
-        {type: 'footer'},
       ],
     },
     defineField({

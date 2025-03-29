@@ -1,6 +1,5 @@
 import CaseStudiesSection from "@/components/CaseStudiesSection";
 import DataList from "@/components/DataList";
-import Footer from "@/components/Footer";
 import BlogSection from "@/components/BlogSection";
 import DoubleBlocksSection from "@/components/DoubleBlocksSection";
 import GridCarousel from "@/components/home/GridCarousel";
@@ -12,6 +11,7 @@ import TextListModule from "@/components/TextListModule";
 import { sanityFetch } from "@/sanity/client";
 import { impactquery } from "@/sanity/groq";
 import { groq } from "next-sanity";
+import Footer from "@/components/Footer";
 
 // Dynamic metadata
 export async function generateMetadata() {
@@ -75,9 +75,8 @@ export default async function page() {
           return <CaseStudiesSection key={index} data={module} />;
         if (module._type === "blogModule")
           return <BlogSection key={index} data={module} />;
-        if (module._type === "footer")
-          return <Footer key={index} data={module} />;
       })}
+      <Footer />
     </div>
   );
 }

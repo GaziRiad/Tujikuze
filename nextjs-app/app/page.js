@@ -2,7 +2,6 @@ import Hero from "@/components/home/Hero";
 import DoubleBlocksSection from "@/components/DoubleBlocksSection";
 import CaseStudiesSection from "@/components/CaseStudiesSection";
 import BlogSection from "@/components/BlogSection";
-import Footer from "@/components/Footer";
 import { sanityFetch } from "@/sanity/client";
 import { homequery } from "@/sanity/groq";
 import { groq } from "next-sanity";
@@ -12,6 +11,7 @@ import MediaModule from "@/components/MediaModule";
 import TextListModule from "@/components/TextListModule";
 import SectionHeading from "@/components/SectionHeading";
 import DataList from "@/components/DataList";
+import Footer from "@/components/Footer";
 
 // Dynamic metadata
 export async function generateMetadata() {
@@ -75,9 +75,8 @@ async function Page() {
           return <CaseStudiesSection key={index} data={module} />;
         if (module._type === "blogModule")
           return <BlogSection key={index} data={module} />;
-        if (module._type === "footer")
-          return <Footer key={index} data={module} />;
       })}
+      <Footer />
     </>
   );
 }

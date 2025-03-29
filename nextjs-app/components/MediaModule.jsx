@@ -15,7 +15,25 @@ export default function MediaModule({ data }) {
       "mb-28 h-[512px] w-full object-cover object-center lg:mb-48 lg:h-[620px] 2xl:h-[920px]", // Default full width
   };
 
-  if (imageRatio === "1:1")
+  if (data?.isVideo && data?.vimeoId) {
+    return (
+      <div className="mx-auto mb-14 ml-auto w-full object-cover object-center lg:mb-48 lg:w-1/2">
+        <div
+          className="relative w-full overflow-hidden"
+          style={{ paddingTop: "56.25%" }}
+        >
+          <iframe
+            src={`https://player.vimeo.com/video/${data.vimeoId}?title=0&byline=0&portrait=0`}
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            className="absolute left-0 top-0 h-full w-full"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  if (imageRatio === "1:1") {
     return (
       <div className="mx-auto max-w-[1720px] px-4">
         <Image
@@ -27,6 +45,8 @@ export default function MediaModule({ data }) {
         />
       </div>
     );
+  }
+
   return (
     <Image
       width={1600}

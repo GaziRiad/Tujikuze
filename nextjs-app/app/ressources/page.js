@@ -7,6 +7,7 @@ import { ressourcespagequery } from "@/sanity/groq";
 import CaseStudiesSection from "@/components/CaseStudiesSection";
 import { groq } from "next-sanity";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 // Dynamic metadata
 export async function generateMetadata() {
@@ -99,6 +100,7 @@ export default async function page({ searchParams }) {
         </ul>
       </section>
       <CaseStudiesSection data={data.casesSection} />
+      <Footer />
     </>
   );
 }

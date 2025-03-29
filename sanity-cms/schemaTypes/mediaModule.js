@@ -1,30 +1,43 @@
 import {defineField, defineType} from 'sanity'
-import {ImageIcon} from '@sanity/icons'
+import {ImageIcon, PlayIcon} from '@sanity/icons'
 
 export default defineType({
-  name: 'mediaModule', // Renamed from 'largeImage' to 'mediaModule'
+  name: 'mediaModule',
   title: 'Media Module',
   type: 'object',
   fields: [
     defineField({
+      name: 'isVideo',
+      type: 'boolean',
+      title: 'Is this a Vimeo Video?',
+      initialValue: false,
+    }),
+    defineField({
+      name: 'vimeoId',
+      type: 'string',
+      title: 'Vimeo Video ID',
+      description: 'Enter the ID from the Vimeo URL (e.g., 123456789).',
+      hidden: ({parent}) => !parent?.isVideo, // Only show when video is selected
+    }),
+    defineField({
       name: 'image',
       type: 'image',
       title: 'Media Image',
-      options: {
-        hotspot: true,
-      },
+      options: {hotspot: true},
+      hidden: ({parent}) => parent?.isVideo, // Hide if video is selected
     }),
     defineField({
       name: 'alt',
       type: 'string',
       title: 'Alt Text',
       description: 'Alternative text for the image.',
+      hidden: ({parent}) => parent?.isVideo, // Hide if video is selected
     }),
     defineField({
       name: 'imageRatio',
       title: 'Image Ratio',
       type: 'string',
-      initialValue: '16:9', // Default selection
+      initialValue: '16:9',
       options: {
         list: [
           {title: 'Full size (16:9)', value: '16:9'},
@@ -32,17 +45,20 @@ export default defineType({
         ],
         layout: 'dropdown',
       },
+      hidden: ({parent}) => parent?.isVideo, // Hide if video is selected
     }),
   ],
   preview: {
     select: {
       media: 'image',
+      vimeoId: 'vimeoId',
+      isVideo: 'isVideo',
       imageRatio: 'imageRatio',
     },
-    prepare({media, imageRatio}) {
+    prepare({media, vimeoId, isVideo, imageRatio}) {
       return {
-        title: `Media Module (${imageRatio || '16:9'})`, // Show ratio in preview
-        media: media || ImageIcon,
+        title: isVideo ? `Vimeo Video (${vimeoId})` : `Media Module (${imageRatio || '16:9'})`,
+        media: isVideo ? PlayIcon : media || ImageIcon,
       }
     },
   },
