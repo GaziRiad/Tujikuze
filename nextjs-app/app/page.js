@@ -61,7 +61,7 @@ async function Page() {
               key={index}
               className="mx-auto mb-28 flex max-w-[1720px] flex-col gap-6 px-4 py-5 lg:mb-48 lg:gap-8"
             >
-              <p className="whitespace-pre-line text-lg lg:text-4xl">
+              <p className="whitespace-pre-line text-lg lg:text-3xl">
                 {module?.text}
               </p>
             </div>

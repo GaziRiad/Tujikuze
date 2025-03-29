@@ -54,8 +54,8 @@ export default function ListItem({ item, index, totalItems }) {
               isHovered ? "text-dark-400" : "text-dark-600"
             }`}
           >
-            <p className="text-xl lg:text-4xl">{item?.title}</p>
-            <p className="mb-4 text-lg lg:mb-7 lg:text-4xl">{item?.subTitle}</p>
+            <p className="text-xl lg:text-3xl">{item?.title}</p>
+            <p className="mb-4 text-lg lg:mb-7 lg:text-3xl">{item?.subTitle}</p>
           </Link>
 
           {/* "LEARN MORE" Section */}
