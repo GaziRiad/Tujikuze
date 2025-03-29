@@ -30,11 +30,11 @@ export default function InteractiveModule({ data }) {
                     ? "text-dark-600"
                     : "hover:text-dark-600"
                 }`}
-                onClick={() => handleClick(item.image.url, index)}
+                onClick={() => handleClick(item?.image?.url, index)}
               >
-                <p className="font-secondary text-sm">{item.name}</p>
+                <p className="font-secondary text-sm">{item?.name}</p>
                 <p className="text-sm lg:max-w-md lg:text-lg">
-                  {item.description}
+                  {item?.description}
                 </p>
               </li>
             ))}
@@ -46,7 +46,7 @@ export default function InteractiveModule({ data }) {
               width={1200}
               height={1200}
               src={hoveredImage || "/images/placeholder.jpg"}
-              alt="Hovered craftsmanship"
+              alt={data?.items[selectedItem]?.image.alt || "Tujikuze image"}
               className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
                 isFading ? "opacity-0" : "opacity-100"
               }`}

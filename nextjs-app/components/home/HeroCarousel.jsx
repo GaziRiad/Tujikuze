@@ -5,7 +5,6 @@ import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import Image from "next/image";
 
 import React from "react";
-import { CursorEffect } from "../Cusor";
 
 export default function HeroCarousel({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -85,10 +84,9 @@ export default function HeroCarousel({ images }) {
   return (
     <div
       id="hero-section"
-      className="relative h-[80vh] w-full overflow-hidden lg:h-screen"
+      className={`relative h-[80vh] w-full cursor-pointer overflow-hidden lg:h-screen`}
       onMouseMove={handleMouseMove}
       onClick={handleClick}
-      style={{ cursor: "none" }}
     >
       {/* CursorEffect scoped to hero section */}
       {/* <CursorEffect targetSelector="#hero-section" /> */}
