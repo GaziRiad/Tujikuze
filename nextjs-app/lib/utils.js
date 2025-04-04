@@ -15,7 +15,7 @@ export const myPortableTextComponents = {
       return (
         <>
           <Image
-            src={urlFor(value).url()}
+            src={urlFor(value).url() || "/images/placeholder.jpg"}
             alt={value?.alt || "Tujikuze Image"}
             width={1400}
             height={1400}
@@ -28,11 +28,11 @@ export const myPortableTextComponents = {
       return (
         <>
           <Image
-            src={urlFor(value).url()}
+            src={urlFor(value).url() || "/images/placeholder.jpg"}
             alt={value?.alt || "Tujikuze Image"}
             width={800}
             height={800}
-            className={`mx-auto mb-8 max-h-[420px] object-cover lg:float-left lg:mb-36 lg:max-w-lg lg:pl-20 lg:pr-12`}
+            className={`mx-auto mt-4 max-h-[400px] object-cover lg:float-left lg:max-w-[400px] lg:pl-20 lg:pr-12`}
           />
           <div className="clearfix"></div> {/* Clear the float */}
         </>
@@ -124,7 +124,7 @@ export const myPortableTextComponents = {
     // Styling for normal text
     normal: ({ children, index, value, next }) => {
       return (
-        <p className="mb-4 ml-auto max-w-5xl px-4 text-sm lg:mb-5 lg:pr-32 lg:text-lg">
+        <p className="mb-4 ml-auto max-w-5xl px-4 text-sm lg:mb-10 lg:pr-32 lg:text-lg">
           {children}
         </p>
       );

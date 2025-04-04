@@ -75,7 +75,7 @@ export default async function page({ params: { slug } }) {
           </Link>
         </div>
       </section>
-      <div className="">
+      <div className="lg:flex lg:items-start lg:gap-10">
         <PortableText
           value={post?.body}
           components={myPortableTextComponents}

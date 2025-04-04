@@ -68,6 +68,8 @@ async function Footer() {
                     <Link
                       href={item?.url}
                       className="transition-all hover:text-dark-400"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {item?.platform}
                     </Link>
@@ -126,6 +128,8 @@ async function Footer() {
                   <Link
                     href={item?.url}
                     className="transition-all hover:text-dark-400"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {item?.platform}
                   </Link>
